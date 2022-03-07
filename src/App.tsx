@@ -1,12 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+const EXERCISE_WEEK = [
+  {
+    id: "d1",
+    name: "Day 1",
+  },
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <ul {{display="flex"}}>
+        <header>Hi</header>
         <img src={logo} className="App-logo" alt="logo" />
+      </ul>
+
+      <header className="App-header">
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
