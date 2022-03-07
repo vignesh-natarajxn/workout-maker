@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { ExerciseDay } from "./exerciseDay";
@@ -80,7 +80,11 @@ EXERCISE_WEEK.push(
 
 function App() {
   const [exerciseWeek, setExerciseWeek] =
-    useState<ExerciseDay[]>(EXERCISE_WEEK);
+    useState<ExerciseDay[]>([]);
+
+  useEffect(() => {
+    setExerciseWeek(EXERCISE_WEEK)
+  }, [])
 
   return (
     <div>
