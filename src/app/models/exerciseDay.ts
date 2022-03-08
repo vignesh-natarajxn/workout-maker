@@ -1,5 +1,3 @@
-import { Exercise } from './exercise';
-
 export interface ExerciseDay {
     id: string;
     name: string;
@@ -8,5 +6,5 @@ export interface ExerciseDay {
         timeBetween: number;
         sets: number;
         superset: string;
-    };
+    }[];
 }
