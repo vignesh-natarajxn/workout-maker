@@ -18,13 +18,10 @@
 .App-header {
   /* background-color: #222222; */
   /* background-image: linear-gradient(90deg, rgb(41, 41, 41) 0%, rgb(0, 0, 0) 80%); */
-  min-height: 5vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(2vmin);
-  color: white;
   border-bottom: 0.5px solid #cacaca34;
 }
 
@@ -56,21 +53,21 @@
 }
 
 .Exercise-day {
-  background-color: #191f27;
+ background-color: #191f27;
   min-height: 10vh;
-  min-width: 15vh;
-  /* margin: 7px; */
+  min-width: 15vh; 
+  margin: 7px;
   /* margin-top: 40px; */
   /* height: 100px; */
-  line-height: 90px;
+   line-height: 90px;
   text-align: center;
-  border: 2px solid #ff840096;
+  border: 2px solid #ff8400;
   /* border-radius: 50px; */
   
 }
 
 .Exercise-day-content {
-  /* background-color: #191f27; */
+  background-color: #191f27;
 }
 
 /* .Exercise-week {
