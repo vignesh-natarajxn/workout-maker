@@ -22,14 +22,43 @@ const useStyles: any = makeStyles({
       border: "2px solid #ff8400",
     },
     marginTop: 30,
-    height: 200,
+    height: 100,
     width: 170,
   },
 });
 
+interface IHover {
+  [name: string]: boolean;
+}
+
+const hoverInitial: IHover = {};
+
 export default function UIExerciseWeek({ exerciseWeek }: Props) {
+  // useEffect(() => {
+  //   exerciseWeek.map((exerciseDay) => {
+  //     hoverInitial[exerciseDay.id]= false;
+  //   });
+  // }, []);
+
   const classes = useStyles();
-  const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState<IHover>({
+    d1: false,
+    d2: false,
+    d3: false,
+    d4: false,
+    d5: false,
+    d6: false,
+    d7: false,
+  });
+
+  const hoverHandler = (value: boolean, exname: string) => {
+    setHover((data) => {
+      data[exname] = value;
+      return data;
+    });
+    setHover((data) => data);
+    console.log(hover);
+  };
 
   const daySelect = () => {
     console.log("yolo");
@@ -38,30 +67,11 @@ export default function UIExerciseWeek({ exerciseWeek }: Props) {
   return (
     <Box textAlign="center">
       {exerciseWeek.map((exerciseDay) => {
-        if (hover) {
+        if (!hover[exerciseDay.id]) {
           return (
             <Button
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
-              key={exerciseDay.id}
-              onClick={daySelect}
-              className={classes.day}
-              variant="contained"
-              color="secondary"
-            >
-              <List>
-                {exerciseDay.exercises.map((exercise) => (
-                  <ListItemText primary={exercise.name} />
-                ))}
-              </List>
-              )
-            </Button>
-          );
-        } else {
-          return (
-            <Button
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
+              onMouseEnter={() => hoverHandler(true, exerciseDay.id)}
+              onMouseLeave={() => hoverHandler(false, exerciseDay.id)}
               key={exerciseDay.id}
               onClick={daySelect}
               className={classes.day}
@@ -69,6 +79,38 @@ export default function UIExerciseWeek({ exerciseWeek }: Props) {
               color="secondary"
             >
               {exerciseDay.name}
+              {/* {(hover[exerciseDay.id]===true)? (
+              <List>
+                {exerciseDay.exercises.map((exercise) => (
+                  <ListItemText primary={exercise.name} />
+                ))}
+              </List>
+            ) : (
+              <h1>{exerciseDay.name}</h1>
+            )} */}
+            </Button>
+          );
+        } else {
+          return (
+            <Button
+              onMouseEnter={() => hoverHandler(true, exerciseDay.id)}
+              onMouseLeave={() => hoverHandler(false, exerciseDay.id)}
+              key={exerciseDay.id}
+              onClick={daySelect}
+              className={classes.day}
+              variant="contained"
+              color="secondary"
+            >
+              ffff
+              {/* {(hover[exerciseDay.id]===true)? (
+                <List>
+                  {exerciseDay.exercises.map((exercise) => (
+                    <ListItemText primary={exercise.name} />
+                  ))}
+                </List>
+              ) : (
+                <h1>{exerciseDay.name}</h1>
+              )} */}
             </Button>
           );
         }
