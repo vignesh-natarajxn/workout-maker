@@ -8,11 +8,16 @@ import {
   List,
   ListItem,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import UIExerciseDay from "./UIExerciseDay";
 
 interface Props {
   exerciseWeek: ExerciseDay[];
+  selectedDay: ExerciseDay | undefined;
+  selectDay: (id: string) => void;
+  cancelSelectDay: () => void;
 }
 
 const useStyles: any = makeStyles({
@@ -21,36 +26,39 @@ const useStyles: any = makeStyles({
     "&:hover": {
       border: "2px solid #ff8400",
     },
-    marginTop: 30,
-    height: 200,
+    marginTop: 10,
+    marginBottom: 10,
+    height: 230,
     width: 170,
   },
 });
 
-export default function UIExerciseWeek({ exerciseWeek }: Props) {
+export default function UIExerciseWeek({
+  exerciseWeek,
+  selectedDay,
+  selectDay,
+  cancelSelectDay,
+}: Props) {
   const classes = useStyles();
   const [hover, setHover] = useState(false);
 
-  const daySelect = () => {
-    console.log("yolo");
-  };
-
   return (
     <Box textAlign="center">
-      {exerciseWeek.map((exerciseDay,i) => {
-        i+=1
+      {exerciseWeek.map((exerciseDay, i) => {
+        i += 1;
         return (
           <Button
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
             key={exerciseDay.id}
-            onClick={daySelect}
+            onClick={() => selectDay(exerciseDay.id)}
             className={classes.day}
             variant="contained"
             color="secondary"
           >
             {hover ? (
               <List>
+                {/* <Typography>{i}</Typography> */}
                 {exerciseDay.exercises.map((exercise) => (
                   <ListItemText key={exercise.name} primary={exercise.name} />
                 ))}
@@ -64,6 +72,11 @@ export default function UIExerciseWeek({ exerciseWeek }: Props) {
           </Button>
         );
       })}
+      <UIExerciseDay
+        selectedDay={selectedDay}
+        selectDay={selectDay}
+        cancelSelectDay={cancelSelectDay}
+      />
     </Box>
   );
 }

@@ -9,21 +9,20 @@ import { Typography } from "@mui/material";
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#ff8400'
+      main: "#ff8400",
     },
     secondary: {
-      main: '#191f27'
-    }
-
+      main: "#191f27",
+    },
   },
   typography: {
-    fontFamily: 'Exo',
-    fontWeightLight: '400',
-    fontWeightRegular: '500',
-    fontWeightMedium: '600',
-    fontWeightBold: '700',
-  }
-})
+    fontFamily: "Exo",
+    fontWeightLight: "400",
+    fontWeightRegular: "500",
+    fontWeightMedium: "600",
+    fontWeightBold: "700",
+  },
+});
 
 const EXERCISE_WEEK: ExerciseDay[] = [];
 
@@ -158,10 +157,21 @@ EXERCISE_WEEK.push(
 
 function App() {
   const [exerciseWeek, setExerciseWeek] = useState<ExerciseDay[]>([]);
+  const [selectedDay, setSelectedDay] = useState<ExerciseDay | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     setExerciseWeek(EXERCISE_WEEK);
   }, []);
+
+  function handleSelectDay(id: string) {
+    setSelectedDay(exerciseWeek.find((x) => x.id === id));
+  }
+
+  function handleCancelSelectDay() {
+    setSelectedDay(undefined);
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -175,7 +185,12 @@ function App() {
         <img src={logo} className="App-logo" />
         <div>Workout Maker</div>
       </Typography>
-      <UIExerciseWeek exerciseWeek={exerciseWeek} />
+      <UIExerciseWeek
+        exerciseWeek={exerciseWeek}
+        selectedDay={selectedDay}
+        selectDay={handleSelectDay}
+        cancelSelectDay={handleCancelSelectDay}
+      />
     </ThemeProvider>
   );
 }
