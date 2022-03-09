@@ -37,27 +37,33 @@ export default function UIExerciseWeek({ exerciseWeek }: Props) {
 
   return (
     <Box textAlign="center">
-      {exerciseWeek.map((exerciseDay) => (
-        <Button
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-          key={exerciseDay.id}
-          onClick={daySelect}
-          className={classes.day}
-          variant="contained"
-          color="secondary"
-        >
-          {hover ? (
-            <List>
-              {exerciseDay.exercises.map((exercise) => (
-                <ListItemText primary={exercise.name} />
-              ))}
-            </List>
-          ) : (
-            exerciseDay.name
-          )}
-        </Button>
-      ))}
+      {exerciseWeek.map((exerciseDay,i) => {
+        i+=1
+        return (
+          <Button
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+            key={exerciseDay.id}
+            onClick={daySelect}
+            className={classes.day}
+            variant="contained"
+            color="secondary"
+          >
+            {hover ? (
+              <List>
+                {exerciseDay.exercises.map((exercise) => (
+                  <ListItemText key={exercise.name} primary={exercise.name} />
+                ))}
+              </List>
+            ) : (
+              <List>
+                <h3>{i}</h3>
+                <ListItemText primary={exerciseDay.name} />
+              </List>
+            )}
+          </Button>
+        );
+      })}
     </Box>
   );
 }
