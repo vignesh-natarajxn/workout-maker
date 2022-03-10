@@ -165,6 +165,12 @@ function App() {
     setExerciseWeek(EXERCISE_WEEK);
   }, []);
 
+  // useEffect(() => {
+  //   fetch("http://localhos:8000/exercises")
+  //     .then((res) => res.json())
+  //     .then((data) => setExerciseWeek(data));
+  // }, []);
+
   function handleSelectDay(id: string) {
     setSelectedDay(exerciseWeek.find((x) => x.id === id));
   }
