@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ExerciseDay } from "./models/exerciseDay";
-import "./Styles.css";
+import UIExerciseDay from "./UIExerciseDay";
 import {
   Box,
   Button,
@@ -11,13 +11,12 @@ import {
   Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import UIExerciseDay from "./UIExerciseDay";
+import "./Styles.css";
 
 interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
   selectDay: (id: string) => void;
-  cancelSelectDay: () => void;
 }
 
 const useStyles: any = makeStyles({
@@ -37,7 +36,6 @@ export default function UIExerciseWeek({
   exerciseWeek,
   selectedDay,
   selectDay,
-  cancelSelectDay,
 }: Props) {
   const classes = useStyles();
   const [hover, setHover] = useState(false);
@@ -65,18 +63,32 @@ export default function UIExerciseWeek({
               </List>
             ) : (
               <List>
-                <h3>{i}</h3>
-                <ListItemText primary={exerciseDay.name} />
+                <h3>
+                  {i === 1
+                    ? "Mon"
+                    : i === 2
+                    ? "Tue"
+                    : i === 3
+                    ? "Wed"
+                    : i === 4
+                    ? "Thu"
+                    : i === 5
+                    ? "Fri"
+                    : i === 6
+                    ? "Sat"
+                    : "Sun"}
+                </h3>
+                {selectedDay === exerciseDay ? (
+                  <Typography color="primary">{exerciseDay.name}</Typography>
+                ) : (
+                  <Typography>{exerciseDay.name}</Typography>
+                )}
               </List>
             )}
           </Button>
         );
       })}
-      <UIExerciseDay
-        selectedDay={selectedDay}
-        selectDay={selectDay}
-        cancelSelectDay={cancelSelectDay}
-      />
+      <UIExerciseDay selectedDay={selectedDay} selectDay={selectDay} />
     </Box>
   );
 }
