@@ -9,6 +9,7 @@ import {
   Button,
   ButtonGroup,
   Card,
+  CardContent,
   Collapse,
   Container,
   Grid,
@@ -39,12 +40,30 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+const useStyles: any = makeStyles((theme) => ({
+  card: {
+    backgroundColor: "#0d1117",
+    border: "2px solid #333333",
+  },
+  selectedCard: {
+    backgroundColor: "#191f27",
+    border: "2px solid #ff8400",
+  }
+}));
+
 export default function UIExerciseDay({ selectedDay, selectDay }: Props) {
   const [open, setOpen] = useState(true);
   const [currentExercise, setCurrentExercise] = useState<Exercise | undefined>(
     undefined
   );
+  const currentExerciseHandler = () => {
+    if (currentExercise === undefined) {
+      setCurrentExercise(selectedDay!.exercises[0]);
+    } else {
+    }
+  };
 
+  const classes = useStyles();
   const handleClick = () => {
     setOpen(!open);
   };
@@ -57,25 +76,71 @@ export default function UIExerciseDay({ selectedDay, selectDay }: Props) {
           justifyContent="center"
           alignItems="center"
         >
-          <Grid item xs={4}>
+          <Grid item xs={3}>
             <Container>
-              <Typography variant="h4" margin={5} color="primary">
+              <Typography variant="h4" margin={3} color="primary">
                 {selectedDay.name}
               </Typography>
               {selectedDay.exercises.map((exercise) => (
                 <>
-                  <Typography align="left" variant="h6">
-                    {exercise.name}
-                  </Typography>
-                  <Typography align="left" variant="h6" color="#b4b4b4">
-                    - {exercise.superset}
-                  </Typography>
+                  {exercise === currentExercise ? (
+                    <Card className={classes.selectedCard}>
+                      <CardContent>
+                        <Typography
+                          align="left"
+                          variant="h6"
+                          color="common.white"
+                        >
+                          {exercise.name}
+                        </Typography>
+                        <Typography align="left" variant="h6" color="#b4b4b4">
+                          sub: {exercise.superset}
+                        </Typography>
+                        <Typography
+                          fontSize={17}
+                          lineHeight={3}
+                          color="#b4b4b4"
+                          fontStyle="italic"
+                        >
+                          Sets: {exercise.sets} | Rest Time:{" "}
+                          {exercise.timeBetween}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  ) : (
+                    <Card className={classes.card}>
+                      <CardContent>
+                        <Typography
+                          align="left"
+                          variant="h6"
+                          color="common.white"
+                        >
+                          {exercise.name}
+                        </Typography>
+                        <Typography align="left" variant="h6" color="#b4b4b4">
+                          sub: {exercise.superset}
+                        </Typography>
+                        <Typography
+                          fontSize={17}
+                          lineHeight={3}
+                          color="#b4b4b4"
+                          fontStyle="italic"
+                        >
+                          Sets: {exercise.sets} | Rest Time:{" "}
+                          {exercise.timeBetween}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  )}
                 </>
               ))}
             </Container>
           </Grid>
 
-          <UIExercise currentExercise={currentExercise} />
+          <UIExercise
+            currentExercise={currentExercise}
+            setCurrentExercise={currentExerciseHandler}
+          />
         </Grid>
       )}
     </>

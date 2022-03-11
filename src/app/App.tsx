@@ -176,16 +176,16 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth={false}>
+      <Container maxWidth='xl'>
       <Typography
         className="App-header"
         variant="h5"
         align="center"
-        color="textSecondary"
+        color="common.white"
         gutterBottom
       >
         <img src={logo} className="App-logo" />
-        <div>Workout Maker</div>
+      Workout Maker
       </Typography>
       <UIExerciseWeek
         exerciseWeek={exerciseWeek}
