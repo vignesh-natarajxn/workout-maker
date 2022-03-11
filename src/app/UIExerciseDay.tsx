@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { ExerciseDay } from "./models/exerciseDay";
+import UIExercise from "./UIExercise";
+import { Exercise } from "./models/exercise";
+
 import {
   Avatar,
   Box,
@@ -36,45 +39,45 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const useStyles: any = makeStyles((theme) => ({
-  color: {
-    backgroundColor: "secondary",
-  },
-}));
-
 export default function UIExerciseDay({ selectedDay, selectDay }: Props) {
-  const [open, setOpen] = React.useState(true);
-
-  const classes = useStyles();
+  const [open, setOpen] = useState(true);
+  const [currentExercise, setCurrentExercise] = useState<Exercise | undefined>(
+    undefined
+  );
 
   const handleClick = () => {
     setOpen(!open);
   };
   return (
-    <Container>
+    <>
       {selectedDay && (
-        <Grid className={classes.color} container alignItems="center">
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
           <Grid item xs={4}>
-            <Typography variant="h4" margin={3} color="primary">
-              {selectedDay.name}
-            </Typography>
-            {selectedDay.exercises.map((exercise) => (
-              <>
-                <Typography align="left" variant="h6">
-                  {exercise.name}
-                </Typography>
+            <Container>
+              <Typography variant="h4" margin={5} color="primary">
+                {selectedDay.name}
+              </Typography>
+              {selectedDay.exercises.map((exercise) => (
+                <>
+                  <Typography align="left" variant="h6">
+                    {exercise.name}
+                  </Typography>
+                  <Typography align="left" variant="h6" color="#b4b4b4">
+                    - {exercise.superset}
+                  </Typography>
+                </>
+              ))}
+            </Container>
+          </Grid>
 
-                <Typography align="left" variant="h6" color="common.yellow">
-                  - {exercise.superset}
-                </Typography>
-              </>
-            ))}
-          </Grid>
-          <Grid item xs={8}>
-            {selectedDay.name}
-          </Grid>
+          <UIExercise currentExercise={currentExercise} />
         </Grid>
       )}
-    </Container>
+    </>
   );
 }

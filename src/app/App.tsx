@@ -4,7 +4,7 @@ import "./Styles.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ExerciseDay } from "./models/exerciseDay";
 import UIExerciseWeek from "./UIExerciseWeek";
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -176,6 +176,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Container maxWidth={false}>
       <Typography
         className="App-header"
         variant="h5"
@@ -191,6 +192,7 @@ function App() {
         selectedDay={selectedDay}
         selectDay={handleSelectDay}
       />
+    </Container>
     </ThemeProvider>
   );
 }
