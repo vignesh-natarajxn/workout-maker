@@ -5,11 +5,8 @@ import { ExerciseDay } from "../models/exerciseDay";
 
 // Material UI
 import {
-  Box,
   Button,
-  ButtonGroup,
   List,
-  ListItem,
   ListItemText,
   Typography,
 } from "@mui/material";

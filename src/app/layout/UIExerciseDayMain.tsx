@@ -4,8 +4,7 @@ import React from "react";
 import { Exercise } from "../models/exercise";
 
 // Material UI
-import { Button, Container, Grid, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Button, Container, Typography } from "@mui/material";
 /************************************************************************************************/
 
 interface Props {
