@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./Styles.css";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { ExerciseDay } from "./models/exerciseDay";
+
+// Components
 import UIExerciseWeek from "./layout/UIExerciseWeek";
-import { Box, Container, Typography } from "@mui/material";
 import UIExerciseDay from "./layout/UIExerciseDay";
+
+// Models
+import { ExerciseDay } from "./models/exerciseDay";
+
+// Material UI
+import { Box, Container, Typography } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+/************************************************************************************************/
 
 const theme = createTheme({
   palette: {
@@ -155,6 +163,8 @@ EXERCISE_WEEK.push(
     ],
   }
 );
+
+/************************************************************************************************/
 
 function App() {
   const [exerciseWeek, setExerciseWeek] = useState<ExerciseDay[]>([]);

@@ -1,9 +1,18 @@
-import { CardContent, Typography } from "@mui/material";
+import React from "react";
+
+// Models
 import { Exercise } from "../models/exercise";
+
+// Material UI
+import { CardContent, Typography } from "@mui/material";
+
+/************************************************************************************************/
 
 interface Props {
   exercise: Exercise;
 }
+
+/************************************************************************************************/
 
 export default function UIExerciseDayList({ exercise }: Props) {
   return (

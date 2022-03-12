@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+
+// Models
 import { ExerciseDay } from "../models/exerciseDay";
-import UIExerciseDay from "./UIExerciseDay";
+
+// Material UI
 import {
   Box,
   Button,
@@ -11,7 +14,8 @@ import {
   Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-// import "./Styles.css";
+
+/************************************************************************************************/
 
 interface Props {
   exerciseWeek: ExerciseDay[];
@@ -20,7 +24,6 @@ interface Props {
   currentDay: ExerciseDay | undefined;
   setCurrentDay: (id: string) => void;
 }
-
 const useStyles: any = makeStyles({
   day: {
     fontSize: 20,
@@ -33,6 +36,8 @@ const useStyles: any = makeStyles({
     width: 170,
   },
 });
+
+/************************************************************************************************/
 
 export default function UIExerciseWeek({
   exerciseWeek,
@@ -92,7 +97,6 @@ export default function UIExerciseWeek({
           </Button>
         );
       })}
-      
     </>
   );
 }

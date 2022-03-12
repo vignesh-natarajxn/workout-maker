@@ -1,32 +1,25 @@
 import React, { useState } from "react";
-import { ExerciseDay } from "../models/exerciseDay";
+
+// Components
 import UIExerciseDayMain from "./UIExerciseDayMain";
 import UIExerciseDayList from "./UIExerciseDayList";
+
+// Models
+import { ExerciseDay } from "../models/exerciseDay";
 import { Exercise } from "../models/exercise";
 
+// Material UI
 import {
-  Avatar,
-  Box,
-  Button,
-  ButtonGroup,
   Card,
-  CardContent,
-  Collapse,
   Container,
   Grid,
-  IconButton,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemButton,
-  ListItemText,
-  ListSubheader,
   Paper,
   styled,
   Typography,
 } from "@mui/material";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { makeStyles } from "@mui/styles";
+
+/************************************************************************************************/
 
 interface Props {
   selectedDay: ExerciseDay | undefined;
@@ -58,6 +51,8 @@ const useStyles: any = makeStyles((theme) => ({
     minHeight: 400,
   },
 }));
+
+/************************************************************************************************/
 
 export default function UIExerciseDay({ selectedDay, setSelectedDay }: Props) {
   const [open, setOpen] = useState(true);

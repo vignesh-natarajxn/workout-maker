@@ -1,12 +1,19 @@
+import React from "react";
+
+// Models
+import { Exercise } from "../models/exercise";
+
+// Material UI
 import { Button, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React from "react";
-import { Exercise } from "../models/exercise";
+/************************************************************************************************/
 
 interface Props {
   currentExercise: Exercise | undefined;
   setCurrentExercise: any;
 }
+
+/************************************************************************************************/
 
 export default function UIExerciseDayMain({
   currentExercise,
