@@ -18,7 +18,7 @@ interface Props {
   workoutComplete: (id: string) => void;
 }
 
-function MyTimer({ expiryTimestamp, timeS, nextExerciseHandler }: any) {
+function Timer({ expiryTimestamp, timeS, nextExerciseHandler }: any) {
   const { seconds, minutes, isRunning, start, pause, resume, restart } =
     useTimer({
       expiryTimestamp,
@@ -103,79 +103,58 @@ export default function UIExerciseDayMain({
       )}
       {currentExercise != -1 && currentExercise != 1000 && (
         <>
-          {/* {currentExercise < 2000 && ( */}
-          <>
-            {superset ? (
-              <Typography variant="h4" margin={2} color="primary">
-                {currentDay!.exercises[currentExercise].superset}
-              </Typography>
-            ) : (
-              <Typography variant="h4" margin={2} color="primary">
-                {currentDay!.exercises[currentExercise].name}
-              </Typography>
-            )}
-            <Typography variant="h6" margin={3} color="#ffffff">
-              Sets: {currentDay!.exercises[currentExercise].sets} | Rest Time:{" "}
-              {currentDay!.exercises[currentExercise].timeBetween}
+          {superset ? (
+            <Typography variant="h4" margin={2} color="primary">
+              {currentDay!.exercises[currentExercise].superset}
             </Typography>
-            {showTimer ? (
-              <>
-                <Button
-                  variant="contained"
-                  onClick={() => nextExerciseHandler("next")}
-                >
-                  <Typography variant="h5" margin={2} color="#000000">
-                    Force Next
-                  </Typography>
-                </Button>
-                <MyTimer
-                  expiryTimestamp={() => {
-                    const time = new Date();
-                    time.setSeconds(
-                      time.getSeconds() +
-                        currentDay!.exercises[currentExercise].timeBetween
-                    );
-                    return time;
-                  }}
-                  timeS={currentDay!.exercises[currentExercise].timeBetween}
-                  nextExerciseHandler={nextExerciseHandler}
-                />
-              </>
-            ) : (
+          ) : (
+            <Typography variant="h4" margin={2} color="primary">
+              {currentDay!.exercises[currentExercise].name}
+            </Typography>
+          )}
+          <Typography variant="h6" margin={3} color="#ffffff">
+            Sets: {currentDay!.exercises[currentExercise].sets} | Rest Time:{" "}
+            {currentDay!.exercises[currentExercise].timeBetween}
+          </Typography>
+          {showTimer ? (
+            <>
               <Button
                 variant="contained"
-                onClick={() =>
-                  nextExerciseHandler(
-                    !superset
-                      ? currentDay!.exercises[currentExercise].superset
-                      : "timer"
-                  )
-                }
+                onClick={() => nextExerciseHandler("next")}
               >
                 <Typography variant="h5" margin={2} color="#000000">
-                  Next
+                  Force Next
                 </Typography>
               </Button>
-            )}
-          </>
-          {/* )} */}
-          {/* {currentExercise >= 2000 && (
-            <>
-              <Typography variant="h4" margin={2} color="primary">
-                {currentDay!.exercises[currentExercise - 2000].superset}
-              </Typography>
-              <Typography variant="h6" margin={3} color="#ffffff">
-                Sets: {currentDay!.exercises[currentExercise - 2000].sets} |
-                Rest Time:{" "}
-                {currentDay!.exercises[currentExercise - 2000].timeBetween}
-              </Typography>
-              <Button variant="contained" onClick={setCurrentExercise}>
-                <Typography variant="h5" margin={2} color="#000000">
-                  Next
-                </Typography>
-              </Button>
+              <Timer
+                expiryTimestamp={() => {
+                  const time = new Date();
+                  time.setSeconds(
+                    time.getSeconds() +
+                      currentDay!.exercises[currentExercise].timeBetween
+                  );
+                  return time;
+                }}
+                timeS={currentDay!.exercises[currentExercise].timeBetween}
+                nextExerciseHandler={nextExerciseHandler}
+              />
             </>
-          )} */}
+          ) : (
+            <Button
+              variant="contained"
+              onClick={() =>
+                nextExerciseHandler(
+                  !superset
+                    ? currentDay!.exercises[currentExercise].superset
+                    : "timer"
+                )
+              }
+            >
+              <Typography variant="h5" margin={2} color="#000000">
+                Next
+              </Typography>
+            </Button>
+          )}
         </>
       )}
       {currentExercise === -1 && (
