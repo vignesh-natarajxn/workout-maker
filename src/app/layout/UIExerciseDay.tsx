@@ -35,7 +35,7 @@ const useStyles: any = makeStyles((theme) => ({
     border: "2px solid #333333",
     marginTop: 20,
     marginBottom: 20,
-    maxHeight: 400,
+    height: 600,
   },
 }));
 
