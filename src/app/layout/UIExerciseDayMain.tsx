@@ -33,12 +33,12 @@ export default function UIExerciseDayMain({
   const [showTimer, setShowTimer] = useState<boolean>(false);
   const [superset, setSuperset] = useState<boolean>(false);
 
-  const nextExerciseHandler = (op: string) => {
-    if (op === "next") {
+  const nextExerciseHandler = (opr: string) => {
+    if (opr === "next") {
       setCurrentExercise();
       setShowTimer(false);
       setSuperset(false);
-    } else if (op === "" || op === "timer") {
+    } else if (opr === "" || opr === "timer") {
       setShowTimer(true);
       setSuperset(false);
     } else {
