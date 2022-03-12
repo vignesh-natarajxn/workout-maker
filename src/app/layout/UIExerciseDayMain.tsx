@@ -96,7 +96,7 @@ export default function UIExerciseDayMain({
             onClick={() => workoutComplete(currentDay!.id)}
           >
             <Typography variant="h5" margin={2} color="#000000">
-              Begin New Workout
+              Choose Next Workout
             </Typography>
           </Button>
         </>
@@ -104,7 +104,7 @@ export default function UIExerciseDayMain({
       {currentExercise != -1 && currentExercise != 1000 && (
         <>
           {superset ? (
-            <Typography variant="h4" margin={2} color="primary">
+            <Typography variant="h4" margin={2} color="#b4b4b4">
               {currentDay!.exercises[currentExercise].superset}
             </Typography>
           ) : (
@@ -162,17 +162,17 @@ export default function UIExerciseDayMain({
           <Typography variant="h4" margin={3} color="#ff8400">
             {selectedDay?.name} overview:
           </Typography>
-          <Typography variant="h5" margin={3} color="#ffffff">
+          <Typography variant="h6" margin={2} color="#ffffff">
             Number of exercises: {selectedDay!.exercises.length}
           </Typography>
-          <Typography variant="h5" margin={3} color="#ffffff">
+          <Typography variant="h6" margin={2} color="#ffffff">
             Total working sets:{" "}
             {selectedDay!.exercises.reduce(
               (total, exercise) => (total = total + exercise.sets),
               0
             )}
           </Typography>
-          <Typography variant="h5" margin={3} color="#ffffff">
+          <Typography variant="h6" margin={2} color="#ffffff">
             Time Estimation:{" "}
             {(
               (selectedDay!.exercises.length *
