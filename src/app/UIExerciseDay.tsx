@@ -29,7 +29,7 @@ import { makeStyles } from "@mui/styles";
 
 interface Props {
   selectedDay: ExerciseDay | undefined;
-  selectDay: (id: string) => void;
+  setSelectedDay: (id: string) => void;
 }
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -51,7 +51,7 @@ const useStyles: any = makeStyles((theme) => ({
   }
 }));
 
-export default function UIExerciseDay({ selectedDay, selectDay }: Props) {
+export default function UIExerciseDay({ selectedDay, setSelectedDay }: Props) {
   const [open, setOpen] = useState(true);
   const [currentExercise, setCurrentExercise] = useState<Exercise | undefined>(
     undefined
@@ -76,7 +76,7 @@ export default function UIExerciseDay({ selectedDay, selectDay }: Props) {
           justifyContent="center"
           alignItems="center"
         >
-          <Grid item xs={3}>
+          <Grid item xs={4}>
             <Container>
               <Typography variant="h4" margin={3} color="primary">
                 {selectedDay.name}
@@ -94,7 +94,7 @@ export default function UIExerciseDay({ selectedDay, selectDay }: Props) {
                           {exercise.name}
                         </Typography>
                         <Typography align="left" variant="h6" color="#b4b4b4">
-                          sub: {exercise.superset}
+                          -- {exercise.superset}
                         </Typography>
                         <Typography
                           fontSize={17}
@@ -117,12 +117,12 @@ export default function UIExerciseDay({ selectedDay, selectDay }: Props) {
                         >
                           {exercise.name}
                         </Typography>
-                        <Typography align="left" variant="h6" color="#b4b4b4">
-                          sub: {exercise.superset}
+                        <Typography lineHeight={2} align="left" variant="h6" color="#b4b4b4">
+                          -- {exercise.superset}
                         </Typography>
                         <Typography
                           fontSize={17}
-                          lineHeight={3}
+                          
                           color="#b4b4b4"
                           fontStyle="italic"
                         >

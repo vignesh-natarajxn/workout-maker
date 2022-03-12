@@ -25,7 +25,7 @@ export default function UIExercise({
   const classes = useStyles();
 
   return (
-    <Grid className={classes.color} item xs={9}>
+    <Grid className={classes.color} item xs={8}>
       <Container>
         {currentExercise ? (
           <>

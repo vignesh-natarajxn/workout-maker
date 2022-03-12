@@ -16,7 +16,9 @@ import "./Styles.css";
 interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
-  selectDay: (id: string) => void;
+  setSelectedDay: (id: string) => void;
+  currentDay: ExerciseDay | undefined;
+  setCurrentDay: (id: string) => void;
 }
 
 const useStyles: any = makeStyles({
@@ -35,13 +37,15 @@ const useStyles: any = makeStyles({
 export default function UIExerciseWeek({
   exerciseWeek,
   selectedDay,
-  selectDay,
+  setSelectedDay,
+  currentDay,
+  setCurrentDay,
 }: Props) {
   const classes = useStyles();
   const [hover, setHover] = useState(false);
 
   return (
-    <Box textAlign="center">
+    <>
       {exerciseWeek.map((exerciseDay, i) => {
         i += 1;
         return (
@@ -49,7 +53,7 @@ export default function UIExerciseWeek({
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
             key={exerciseDay.id}
-            onClick={() => selectDay(exerciseDay.id)}
+            onClick={() => setSelectedDay(exerciseDay.id)}
             className={classes.day}
             variant="contained"
             color="secondary"
@@ -88,7 +92,10 @@ export default function UIExerciseWeek({
           </Button>
         );
       })}
-      <UIExerciseDay selectedDay={selectedDay} selectDay={selectDay} />
-    </Box>
+      <UIExerciseDay
+        selectedDay={selectedDay}
+        setSelectedDay={setSelectedDay}
+      />
+    </>
   );
 }

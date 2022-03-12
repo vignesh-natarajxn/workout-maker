@@ -4,7 +4,7 @@ import "./Styles.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ExerciseDay } from "./models/exerciseDay";
 import UIExerciseWeek from "./UIExerciseWeek";
-import { Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -157,11 +157,16 @@ EXERCISE_WEEK.push(
 
 function App() {
   const [exerciseWeek, setExerciseWeek] = useState<ExerciseDay[]>([]);
-  const [selectedDay, setSelectedDay] = useState<ExerciseDay | undefined>(undefined);
-
+  const [selectedDay, setSelectedDay] = useState<ExerciseDay | undefined>(
+    undefined
+  );
+  const [currentDay, setCurrentDay] = useState<ExerciseDay | undefined>(
+    undefined
+  );
   useEffect(() => {
     setExerciseWeek(EXERCISE_WEEK);
     setSelectedDay(EXERCISE_WEEK[0]);
+    setCurrentDay(EXERCISE_WEEK[0]);
   }, []);
 
   // useEffect(() => {
@@ -170,29 +175,37 @@ function App() {
   //     .then((data) => setExerciseWeek(data));
   // }, []);
 
-  function handleSelectDay(id: string) {
+  function handleSelectedDay(id: string) {
     setSelectedDay(exerciseWeek.find((x) => x.id === id));
   }
-
+  function handleCurrentDay(id: string) {
+    setCurrentDay(exerciseWeek.find((x) => x.id === id));
+  }
+  
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth='xl'>
-      <Typography
-        className="App-header"
-        variant="h5"
-        align="center"
-        color="common.white"
-        gutterBottom
-      >
-        <img src={logo} className="App-logo" />
-      Workout Maker
-      </Typography>
-      <UIExerciseWeek
-        exerciseWeek={exerciseWeek}
-        selectedDay={selectedDay}
-        selectDay={handleSelectDay}
-      />
-    </Container>
+      <Container maxWidth="xl">
+      <Box textAlign="center">
+        <Typography
+          className="App-header"
+          variant="h5"
+          align="center"
+          color="common.white"
+          gutterBottom
+        >
+          <img src={logo} className="App-logo" />
+          Workout Maker
+        </Typography>
+        <UIExerciseWeek
+          exerciseWeek={exerciseWeek}
+          selectedDay={selectedDay}
+          currentDay={currentDay}
+          setSelectedDay={handleSelectedDay}
+          setCurrentDay={handleCurrentDay}
+        />
+        
+        </Box>
+      </Container>
     </ThemeProvider>
   );
 }
