@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useTimer } from "react-timer-hook";
 
 // Models
 import { Exercise } from "../models/exercise";
@@ -7,6 +6,9 @@ import { ExerciseDay } from "../models/exerciseDay";
 
 // Material UI
 import { Button, Container, Typography } from "@mui/material";
+import Timer from "./UIExerciseDayMain/Timer";
+import MainDefault from "./UIExerciseDayMain/MainDefault";
+import Completed from "./UIExerciseDayMain/Completed";
 /************************************************************************************************/
 
 interface Props {
@@ -16,46 +18,6 @@ interface Props {
   currentExercise: number;
   setCurrentExercise: () => void;
   workoutComplete: (id: string) => void;
-}
-
-function Timer({ expiryTimestamp, timeS, nextExerciseHandler }: any) {
-  const { seconds, minutes, isRunning, start, pause, resume, restart } =
-    useTimer({
-      expiryTimestamp,
-      onExpire: () => nextExerciseHandler("next"),
-    });
-
-  return (
-    <div style={{ textAlign: "center" }}>
-      {isRunning ? (
-        <Typography variant="h1" margin={2} color="#ffffff">
-          {minutes} : {seconds}
-        </Typography>
-      ) : (
-        <Typography variant="h1" margin={2} color="#ff0000">
-          {minutes} : {seconds}
-        </Typography>
-      )}
-
-      <Button
-        onClick={() => {
-          return isRunning ? pause() : resume();
-        }}
-      >
-        Pause/Resume
-      </Button>
-      <Button
-        onClick={() => {
-          // Restarts to 5 minutes timer
-          const time = new Date();
-          time.setSeconds(time.getSeconds() + timeS);
-          restart(time);
-        }}
-      >
-        Restart
-      </Button>
-    </div>
-  );
 }
 
 /************************************************************************************************/
@@ -87,19 +49,7 @@ export default function UIExerciseDayMain({
   return (
     <Container>
       {currentExercise === 1000 && (
-        <>
-          <Typography variant="h4" margin={3} color="#ffffff">
-            Completed!
-          </Typography>
-          <Button
-            variant="contained"
-            onClick={() => workoutComplete(currentDay!.id)}
-          >
-            <Typography variant="h5" margin={2} color="#000000">
-              Choose Next Workout
-            </Typography>
-          </Button>
-        </>
+        <Completed workoutComplete={workoutComplete} currentDay={currentDay} />
       )}
       {currentExercise != -1 && currentExercise != 1000 && (
         <>
@@ -158,39 +108,7 @@ export default function UIExerciseDayMain({
         </>
       )}
       {currentExercise === -1 && (
-        <>
-          <Typography variant="h4" margin={3} color="#ff8400">
-            {selectedDay?.name} overview:
-          </Typography>
-          <Typography variant="h6" margin={2} color="#ffffff">
-            Number of exercises: {selectedDay!.exercises.length}
-          </Typography>
-          <Typography variant="h6" margin={2} color="#ffffff">
-            Total working sets:{" "}
-            {selectedDay!.exercises.reduce(
-              (total, exercise) => (total = total + exercise.sets),
-              0
-            )}
-          </Typography>
-          <Typography variant="h6" margin={2} color="#ffffff">
-            Time Estimation:{" "}
-            {(
-              (selectedDay!.exercises.length *
-                selectedDay!.exercises[0].sets *
-                (selectedDay!.exercises[0].timeBetween + 50)) /
-              60
-            ).toFixed(0)}{" "}
-            minutes
-          </Typography>
-          <Button
-            variant="contained"
-            onClick={() => setCurrentDay(selectedDay!.id)}
-          >
-            <Typography variant="h5" margin={2} color="#000000">
-              Begin Workout
-            </Typography>
-          </Button>
-        </>
+        <MainDefault selectedDay={selectedDay} setCurrentDay={setCurrentDay} />
       )}
     </Container>
   );

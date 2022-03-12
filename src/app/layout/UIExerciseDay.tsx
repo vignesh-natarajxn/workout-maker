@@ -37,8 +37,8 @@ const useStyles: any = makeStyles((theme) => ({
     marginBottom: 20,
     height: 450,
     alignItems: "center",
-    alignContent: 'center',
-    justifyContent: "center"
+    alignContent: "center",
+    justifyContent: "center",
   },
 }));
 
