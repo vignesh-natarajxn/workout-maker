@@ -9,14 +9,7 @@ import { ExerciseDay } from "../models/exerciseDay";
 import { Exercise } from "../models/exercise";
 
 // Material UI
-import {
-  Card,
-  Container,
-  Grid,
-  Paper,
-  styled,
-  Typography,
-} from "@mui/material";
+import { Card, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 /************************************************************************************************/
@@ -24,15 +17,9 @@ import { makeStyles } from "@mui/styles";
 interface Props {
   selectedDay: ExerciseDay | undefined;
   setSelectedDay: (id: string) => void;
+  currentDay: ExerciseDay | undefined;
+  setCurrentDay: (id: string) => void;
 }
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 const useStyles: any = makeStyles((theme) => ({
   exc: {
@@ -54,22 +41,27 @@ const useStyles: any = makeStyles((theme) => ({
 
 /************************************************************************************************/
 
-export default function UIExerciseDay({ selectedDay, setSelectedDay }: Props) {
-  const [open, setOpen] = useState(true);
+export default function UIExerciseDay({
+  selectedDay,
+  currentDay,
+  setCurrentDay,
+}: Props) {
   const [currentExercise, setCurrentExercise] = useState<Exercise | undefined>(
     undefined
   );
-  const currentExerciseHandler = () => {
+  const setCurrentDayHandler = (id: string) => {
+    setCurrentDay(id)
     if (currentExercise === undefined) {
       setCurrentExercise(selectedDay!.exercises[0]);
-    } else {
     }
   };
 
+  const setCurrentExerciseHandler = () => {
+    
+  }
+
   const classes = useStyles();
-  const handleClick = () => {
-    setOpen(!open);
-  };
+
   return (
     <>
       {selectedDay && (
@@ -96,8 +88,10 @@ export default function UIExerciseDay({ selectedDay, setSelectedDay }: Props) {
           </Grid>
           <Grid item xs={8} className={classes.card}>
             <UIExerciseDayMain
+              selectedDay={selectedDay}
+              setCurrentDay={setCurrentDayHandler}
               currentExercise={currentExercise}
-              setCurrentExercise={currentExerciseHandler}
+              setCurrentExercise={setCurrentExerciseHandler}
             />
           </Grid>
         </Grid>

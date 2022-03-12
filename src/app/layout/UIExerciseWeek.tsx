@@ -18,8 +18,6 @@ interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
   setSelectedDay: (id: string) => void;
-  currentDay: ExerciseDay | undefined;
-  setCurrentDay: (id: string) => void;
 }
 const useStyles: any = makeStyles({
   day: {
@@ -40,8 +38,6 @@ export default function UIExerciseWeek({
   exerciseWeek,
   selectedDay,
   setSelectedDay,
-  currentDay,
-  setCurrentDay,
 }: Props) {
   const classes = useStyles();
   const [hover, setHover] = useState(false);

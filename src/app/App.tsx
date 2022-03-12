@@ -41,16 +41,16 @@ EXERCISE_WEEK.push(
     name: "Day 1",
     exercises: [
       {
-        name: "Exercise 1",
+        name: "Day 1 Exercise 1",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 1a",
+        superset: "Day 1 Exercise 1a",
       },
       {
-        name: "Exercise 2",
+        name: "Day 1 Exercise 2",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 2a",
+        superset: "Day 1 Exercise 2a",
       },
     ],
   },
@@ -59,16 +59,16 @@ EXERCISE_WEEK.push(
     name: "Day 2",
     exercises: [
       {
-        name: "Exercise 1",
+        name: "Day 2 Exercise 1",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 1a",
+        superset: "Day 2 Exercise 1a",
       },
       {
-        name: "Exercise 2",
+        name: "Day 2 Exercise 2",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 2a",
+        superset: "Day 2 Exercise 2a",
       },
     ],
   },
@@ -77,16 +77,16 @@ EXERCISE_WEEK.push(
     name: "Day 3",
     exercises: [
       {
-        name: "Exercise 1",
+        name: "Day 3 Exercise 1",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 1a",
+        superset: "Day 3 Exercise 1a",
       },
       {
-        name: "Exercise 2",
+        name: "Day 3 Exercise 2",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 2a",
+        superset: "Day 3 Exercise 2a",
       },
     ],
   },
@@ -95,16 +95,16 @@ EXERCISE_WEEK.push(
     name: "Day 4",
     exercises: [
       {
-        name: "Exercise 1",
+        name: "Day 4 Exercise 1",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 1a",
+        superset: "Day 4 Exercise 1a",
       },
       {
-        name: "Exercise 2",
+        name: "Day 4 Exercise 2",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 2a",
+        superset: "Day 4 Exercise 2a",
       },
     ],
   },
@@ -113,16 +113,16 @@ EXERCISE_WEEK.push(
     name: "Day 5",
     exercises: [
       {
-        name: "Exercise 1",
+        name: "Day 5 Exercise 1",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 1a",
+        superset: "Day 5 Exercise 1a",
       },
       {
-        name: "Exercise 2",
+        name: "Day 5 Exercise 2",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 2a",
+        superset: "Day 5 Exercise 2a",
       },
     ],
   },
@@ -131,16 +131,16 @@ EXERCISE_WEEK.push(
     name: "Day 6",
     exercises: [
       {
-        name: "Exercise 1",
+        name: "Day 6 Exercise 1",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 1a",
+        superset: "Day 6 Exercise 1a",
       },
       {
-        name: "Exercise 2",
+        name: "Day 6 Exercise 2",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 2a",
+        superset: "Day 6 Exercise 2a",
       },
     ],
   },
@@ -149,16 +149,16 @@ EXERCISE_WEEK.push(
     name: "Day 7",
     exercises: [
       {
-        name: "Exercise 1",
+        name: "Day 7 Exercise 1",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 1a",
+        superset: "Day 7 Exercise 1a",
       },
       {
-        name: "Exercise 2",
+        name: "Day 7 Exercise 2",
         timeBetween: 120,
         sets: 3,
-        superset: "Exercise 2a",
+        superset: "Day 7 Exercise 2a",
       },
     ],
   }
@@ -177,7 +177,6 @@ function App() {
   useEffect(() => {
     setExerciseWeek(EXERCISE_WEEK);
     setSelectedDay(EXERCISE_WEEK[0]);
-    setCurrentDay(EXERCISE_WEEK[0]);
   }, []);
 
   // useEffect(() => {
@@ -211,14 +210,14 @@ function App() {
           <UIExerciseWeek
             exerciseWeek={exerciseWeek}
             selectedDay={selectedDay}
-            currentDay={currentDay}
             setSelectedDay={handleSelectedDay}
-            setCurrentDay={handleCurrentDay}
           />
 
           <UIExerciseDay
             selectedDay={selectedDay}
             setSelectedDay={handleSelectedDay}
+            currentDay={currentDay}
+            setCurrentDay={handleCurrentDay}
           />
         </Box>
       </Container>
