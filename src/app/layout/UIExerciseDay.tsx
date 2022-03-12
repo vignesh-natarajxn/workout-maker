@@ -56,11 +56,16 @@ export default function UIExerciseDay({
 
   const setCurrentExerciseHandler = () => {
     setCurrentExercise((prev) => {
-      if (prev >= currentDay!.exercises.length - 1) {
-        return -1;
-      } else return prev + 1;
+      // if (prev > 2000) return prev - 2000 + 1;
+      if (prev >= currentDay!.exercises.length - 1) return 1000;
+      // if (currentDay!.exercises[prev].superset != "") return prev + 2000;
+      else return prev + 1;
     });
     setSelectedDay(currentDay!.id);
+  };
+
+  const workoutCompleteHandler = () => {
+    setCurrentExercise(-1);
   };
 
   const classes = useStyles();
@@ -102,6 +107,7 @@ export default function UIExerciseDay({
               setCurrentDay={setCurrentDayHandler}
               currentExercise={currentExercise}
               setCurrentExercise={setCurrentExerciseHandler}
+              workoutComplete={workoutCompleteHandler}
             />
           </Grid>
         </Grid>
