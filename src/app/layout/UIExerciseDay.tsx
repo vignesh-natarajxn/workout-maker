@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Components
 import UIExerciseDayMain from "./UIExerciseDayMain";
@@ -43,22 +43,25 @@ const useStyles: any = makeStyles((theme) => ({
 
 export default function UIExerciseDay({
   selectedDay,
+  setSelectedDay,
   currentDay,
   setCurrentDay,
 }: Props) {
-  const [currentExercise, setCurrentExercise] = useState<Exercise | undefined>(
-    undefined
-  );
-  const setCurrentDayHandler = (id: string) => {
-    setCurrentDay(id)
-    if (currentExercise === undefined) {
-      setCurrentExercise(selectedDay!.exercises[0]);
-    }
-  };
+  const [currentExercise, setCurrentExercise] = useState<number>(-1);
+
+  function setCurrentDayHandler(id: string) {
+    setCurrentDay(id);
+    setCurrentExercise(0);
+  }
 
   const setCurrentExerciseHandler = () => {
-    
-  }
+    setCurrentExercise((prev) => {
+      if (prev >= currentDay!.exercises.length - 1) {
+        return -1;
+      } else return prev + 1;
+    });
+    setSelectedDay(currentDay!.id);
+  };
 
   const classes = useStyles();
 
@@ -73,13 +76,19 @@ export default function UIExerciseDay({
               </Typography>
               {selectedDay.exercises.map((exercise) => (
                 <>
-                  {exercise === currentExercise ? (
+                  {exercise === currentDay?.exercises[currentExercise] ? (
                     <Card className={classes.selectedExc}>
-                      <UIExerciseDayList exercise={exercise} />
+                      <UIExerciseDayList
+                        key={exercise.name}
+                        exercise={exercise}
+                      />
                     </Card>
                   ) : (
                     <Card className={classes.exc}>
-                      <UIExerciseDayList exercise={exercise} />
+                      <UIExerciseDayList
+                        key={exercise.name}
+                        exercise={exercise}
+                      />
                     </Card>
                   )}
                 </>
@@ -89,6 +98,7 @@ export default function UIExerciseDay({
           <Grid item xs={8} className={classes.card}>
             <UIExerciseDayMain
               selectedDay={selectedDay}
+              currentDay={currentDay}
               setCurrentDay={setCurrentDayHandler}
               currentExercise={currentExercise}
               setCurrentExercise={setCurrentExerciseHandler}

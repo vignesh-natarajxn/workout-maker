@@ -4,12 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ExerciseDay } from "../models/exerciseDay";
 
 // Material UI
-import {
-  Button,
-  List,
-  ListItemText,
-  Typography,
-} from "@mui/material";
+import { Button, List, ListItemText, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 /************************************************************************************************/
