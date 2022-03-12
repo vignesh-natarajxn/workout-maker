@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ExerciseDay } from "./models/exerciseDay";
+import { ExerciseDay } from "../models/exerciseDay";
 import UIExerciseDay from "./UIExerciseDay";
 import {
   Box,
@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import "./Styles.css";
+// import "./Styles.css";
 
 interface Props {
   exerciseWeek: ExerciseDay[];
@@ -92,10 +92,7 @@ export default function UIExerciseWeek({
           </Button>
         );
       })}
-      <UIExerciseDay
-        selectedDay={selectedDay}
-        setSelectedDay={setSelectedDay}
-      />
+      
     </>
   );
 }

@@ -3,8 +3,9 @@ import logo from "./logo.svg";
 import "./Styles.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ExerciseDay } from "./models/exerciseDay";
-import UIExerciseWeek from "./UIExerciseWeek";
+import UIExerciseWeek from "./layout/UIExerciseWeek";
 import { Box, Container, Typography } from "@mui/material";
+import UIExerciseDay from "./layout/UIExerciseDay";
 
 const theme = createTheme({
   palette: {
@@ -181,29 +182,34 @@ function App() {
   function handleCurrentDay(id: string) {
     setCurrentDay(exerciseWeek.find((x) => x.id === id));
   }
-  
+
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="xl">
-      <Box textAlign="center">
-        <Typography
-          className="App-header"
-          variant="h5"
-          align="center"
-          color="common.white"
-          gutterBottom
-        >
-          <img src={logo} className="App-logo" />
-          Workout Maker
-        </Typography>
-        <UIExerciseWeek
-          exerciseWeek={exerciseWeek}
-          selectedDay={selectedDay}
-          currentDay={currentDay}
-          setSelectedDay={handleSelectedDay}
-          setCurrentDay={handleCurrentDay}
-        />
-        
+        <Box textAlign="center">
+          <Typography
+            className="App-header"
+            variant="h5"
+            align="center"
+            color="common.white"
+            gutterBottom
+          >
+            <img src={logo} className="App-logo" />
+            Workout Maker
+          </Typography>
+
+          <UIExerciseWeek
+            exerciseWeek={exerciseWeek}
+            selectedDay={selectedDay}
+            currentDay={currentDay}
+            setSelectedDay={handleSelectedDay}
+            setCurrentDay={handleCurrentDay}
+          />
+
+          <UIExerciseDay
+            selectedDay={selectedDay}
+            setSelectedDay={handleSelectedDay}
+          />
         </Box>
       </Container>
     </ThemeProvider>
