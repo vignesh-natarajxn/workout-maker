@@ -21,7 +21,7 @@ interface Props {
 function MyTimer({ expiryTimestamp, timeS, nextExerciseHandler }: any) {
   const { seconds, minutes, isRunning, start, pause, resume, restart } =
     useTimer({
-      expiryTimestamp, 
+      expiryTimestamp,
       onExpire: () => nextExerciseHandler("next"),
     });
 
@@ -164,8 +164,28 @@ export default function UIExerciseDayMain({
       )}
       {currentExercise === -1 && (
         <>
-          <Typography variant="h4" margin={3} color="#ffffff">
+          <Typography variant="h4" margin={3} color="#ff8400">
             {selectedDay?.name} overview:
+          </Typography>
+          <Typography variant="h5" margin={3} color="#ffffff">
+            Number of exercises: {selectedDay!.exercises.length}
+          </Typography>
+          <Typography variant="h5" margin={3} color="#ffffff">
+            Total working sets:{" "}
+            {selectedDay!.exercises.reduce(
+              (total, exercise) => (total = total + exercise.sets),
+              0
+            )}
+          </Typography>
+          <Typography variant="h5" margin={3} color="#ffffff">
+            Time Estimation:{" "}
+            {(
+              (selectedDay!.exercises.length *
+                selectedDay!.exercises[0].sets *
+                (selectedDay!.exercises[0].timeBetween + 50)) /
+              60
+            ).toFixed(0)}{" "}
+            minutes
           </Typography>
           <Button
             variant="contained"

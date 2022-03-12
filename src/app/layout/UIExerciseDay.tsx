@@ -35,7 +35,10 @@ const useStyles: any = makeStyles((theme) => ({
     border: "2px solid #333333",
     marginTop: 20,
     marginBottom: 20,
-    height: 600,
+    height: 450,
+    alignItems: "center",
+    alignContent: 'center',
+    justifyContent: "center"
   },
 }));
 
