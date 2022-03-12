@@ -69,14 +69,18 @@ export default function UIExerciseDayMain({
   workoutComplete,
 }: Props) {
   const [showTimer, setShowTimer] = useState<boolean>(false);
+  const [superset, setSuperset] = useState<boolean>(false);
 
   const nextExerciseHandler = (op: string) => {
-    if (op === "timer") {
-      setShowTimer(true);
-    }
     if (op === "next") {
       setCurrentExercise();
       setShowTimer(false);
+      setSuperset(false);
+    } else if (op === "" || op === "timer") {
+      setShowTimer(true);
+      setSuperset(false);
+    } else {
+      setSuperset(true);
     }
   };
 
@@ -101,9 +105,15 @@ export default function UIExerciseDayMain({
         <>
           {/* {currentExercise < 2000 && ( */}
           <>
-            <Typography variant="h4" margin={2} color="primary">
-              {currentDay!.exercises[currentExercise].name}
-            </Typography>
+            {superset ? (
+              <Typography variant="h4" margin={2} color="primary">
+                {currentDay!.exercises[currentExercise].superset}
+              </Typography>
+            ) : (
+              <Typography variant="h4" margin={2} color="primary">
+                {currentDay!.exercises[currentExercise].name}
+              </Typography>
+            )}
             <Typography variant="h6" margin={3} color="#ffffff">
               Sets: {currentDay!.exercises[currentExercise].sets} | Rest Time:{" "}
               {currentDay!.exercises[currentExercise].timeBetween}
@@ -134,7 +144,13 @@ export default function UIExerciseDayMain({
             ) : (
               <Button
                 variant="contained"
-                onClick={() => nextExerciseHandler("timer")}
+                onClick={() =>
+                  nextExerciseHandler(
+                    !superset
+                      ? currentDay!.exercises[currentExercise].superset
+                      : "timer"
+                  )
+                }
               >
                 <Typography variant="h5" margin={2} color="#000000">
                   Next
