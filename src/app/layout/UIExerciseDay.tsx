@@ -48,7 +48,7 @@ const useStyles: any = makeStyles((theme) => ({
     border: "2px solid #333333",
     marginTop: 20,
     marginBottom: 20,
-    minHeight: 400,
+    maxHeight: 400,
   },
 }));
 
@@ -73,12 +73,7 @@ export default function UIExerciseDay({ selectedDay, setSelectedDay }: Props) {
   return (
     <>
       {selectedDay && (
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Grid container direction="row" justifyContent="center">
           <Grid item xs={4}>
             <Container>
               <Typography variant="h4" margin={3} color="primary">
