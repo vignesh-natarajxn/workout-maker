@@ -7,7 +7,7 @@ import { ExerciseDay } from "../models/exerciseDay";
 // Material UI
 import { Button, Container, Typography } from "@mui/material";
 import Timer from "./UIExerciseDayMain/Timer";
-import MainDefault from "./UIExerciseDayMain/MainDefault";
+import MainDefault from "./MainDefault";
 import Completed from "./UIExerciseDayMain/Completed";
 /************************************************************************************************/
 
@@ -18,6 +18,7 @@ interface Props {
   currentExercise: number;
   setCurrentExercise: () => void;
   workoutComplete: (id: string) => void;
+  // sets: number;
 }
 
 /************************************************************************************************/
@@ -29,29 +30,50 @@ export default function UIExerciseDayMain({
   currentExercise,
   setCurrentExercise,
   workoutComplete,
-}: Props) {
+}: // sets,
+Props) {
   const [showTimer, setShowTimer] = useState<boolean>(false);
   const [superset, setSuperset] = useState<boolean>(false);
+  const [sets, setSets] = useState<number>(currentDay!.exercises[0].sets-1);
 
   const nextExerciseHandler = (opr: string) => {
+    if (opr === "timer") {
+      if (currentDay!.exercises[currentExercise].superset && !superset) {
+        setSuperset(true);
+      } else setShowTimer(true);
+    }
     if (opr === "next") {
-      setCurrentExercise();
-      setShowTimer(false);
-      setSuperset(false);
-    } else if (opr === "" || opr === "timer") {
-      setShowTimer(true);
-      setSuperset(false);
-    } else {
-      setSuperset(true);
+      if (currentDay!.exercises[currentExercise].superset) {
+        if (superset) {
+          setSuperset(false);
+          setShowTimer(false);
+        } else {
+          setSuperset(true);
+          setShowTimer(false);
+          return;
+        }
+      }
+      if (sets > 0) {
+        setSets((x) => x - 1);
+        setShowTimer(false);
+      } else {
+        setCurrentExercise();
+        setSets(
+          currentDay!.exercises[currentExercise + 1].sets-1
+            ? currentDay!.exercises[currentExercise + 1].sets-1
+            : -1
+        );
+        setShowTimer(false);
+      }
     }
   };
 
   return (
     <Container>
       {currentExercise === 1000 && (
-        <Completed workoutComplete={workoutComplete} currentDay={currentDay} />
+        <Completed currentDay={currentDay} workoutComplete={workoutComplete} />
       )}
-      {currentExercise != -1 && currentExercise != 1000 && (
+      {currentExercise != 1000 && (
         <>
           {superset ? (
             <Typography variant="h4" margin={2} color="#b4b4b4">
@@ -92,13 +114,7 @@ export default function UIExerciseDayMain({
           ) : (
             <Button
               variant="contained"
-              onClick={() =>
-                nextExerciseHandler(
-                  !superset
-                    ? currentDay!.exercises[currentExercise].superset
-                    : "timer"
-                )
-              }
+              onClick={() => nextExerciseHandler("timer")}
             >
               <Typography variant="h5" margin={2} color="#000000">
                 Next
@@ -106,9 +122,6 @@ export default function UIExerciseDayMain({
             </Button>
           )}
         </>
-      )}
-      {currentExercise === -1 && (
-        <MainDefault selectedDay={selectedDay} setCurrentDay={setCurrentDay} />
       )}
     </Container>
   );

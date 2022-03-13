@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import { ExerciseDay } from "../../models/exerciseDay";
+import { ExerciseDay } from "../models/exerciseDay";
 
 interface Props {
   selectedDay: ExerciseDay | undefined;

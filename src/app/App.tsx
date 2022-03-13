@@ -177,7 +177,6 @@ function App() {
   useEffect(() => {
     setExerciseWeek(EXERCISE_WEEK);
     setSelectedDay(EXERCISE_WEEK[0]);
-    setCurrentDay(EXERCISE_WEEK[0]);
   }, []);
 
   // useEffect(() => {

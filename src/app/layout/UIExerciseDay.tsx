@@ -11,6 +11,7 @@ import { Exercise } from "../models/exercise";
 // Material UI
 import { Card, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import MainDefault from "./MainDefault";
 
 /************************************************************************************************/
 
@@ -59,11 +60,10 @@ export default function UIExerciseDay({
 
   const setCurrentExerciseHandler = () => {
     setCurrentExercise((prev) => {
-      // if (prev > 2000) return prev - 2000 + 1;
       if (prev >= currentDay!.exercises.length - 1) return 1000;
-      // if (currentDay!.exercises[prev].superset != "") return prev + 2000;
       else return prev + 1;
     });
+
     setSelectedDay(currentDay!.id);
   };
 
@@ -104,14 +104,21 @@ export default function UIExerciseDay({
             </Container>
           </Grid>
           <Grid item xs={8} className={classes.card}>
-            <UIExerciseDayMain
-              selectedDay={selectedDay}
-              currentDay={currentDay}
-              setCurrentDay={setCurrentDayHandler}
-              currentExercise={currentExercise}
-              setCurrentExercise={setCurrentExerciseHandler}
-              workoutComplete={workoutCompleteHandler}
-            />
+            {currentExercise === -1 ? (
+              <MainDefault
+                selectedDay={selectedDay}
+                setCurrentDay={setCurrentDayHandler}
+              />
+            ) : (
+              <UIExerciseDayMain
+                selectedDay={selectedDay}
+                currentDay={currentDay}
+                setCurrentDay={setCurrentDayHandler}
+                currentExercise={currentExercise}
+                setCurrentExercise={setCurrentExerciseHandler}
+                workoutComplete={workoutCompleteHandler}
+              />
+            )}
           </Grid>
         </Grid>
       )}
