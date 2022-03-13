@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 // Components
 import UIExerciseDayMain from "./UIExerciseDayMain";
@@ -6,12 +6,11 @@ import UIExerciseDayList from "./UIExerciseDayList";
 
 // Models
 import { ExerciseDay } from "../models/exerciseDay";
-import { Exercise } from "../models/exercise";
 
 // Material UI
 import { Card, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import MainDefault from "./MainDefault";
+import MainDefault from "./UIExerciseDayMain/MainDefault";
 
 /************************************************************************************************/
 
@@ -87,14 +86,14 @@ export default function UIExerciseDay({
                   {exercise === currentDay?.exercises[currentExercise] ? (
                     <Card className={classes.selectedExc}>
                       <UIExerciseDayList
-                        key={exercise.name}
+                        key={Math.random()*1000}
                         exercise={exercise}
                       />
                     </Card>
                   ) : (
                     <Card className={classes.exc}>
                       <UIExerciseDayList
-                        key={exercise.name}
+                        key={Math.random()*1000}
                         exercise={exercise}
                       />
                     </Card>
@@ -104,12 +103,13 @@ export default function UIExerciseDay({
             </Container>
           </Grid>
           <Grid item xs={8} className={classes.card}>
-            {currentExercise === -1 ? (
+            {currentExercise === -1 && (
               <MainDefault
                 selectedDay={selectedDay}
                 setCurrentDay={setCurrentDayHandler}
               />
-            ) : (
+            )}
+            {currentExercise != -1 && currentDay && (
               <UIExerciseDayMain
                 selectedDay={selectedDay}
                 currentDay={currentDay}

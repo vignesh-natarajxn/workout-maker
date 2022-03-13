@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import { ExerciseDay } from "../models/exerciseDay";
+import { ExerciseDay } from "../../models/exerciseDay";
 
 interface Props {
   selectedDay: ExerciseDay | undefined;
@@ -16,7 +16,7 @@ export default function MainDefault({ selectedDay, setCurrentDay }: Props) {
         Number of exercises: {selectedDay!.exercises.length}
       </Typography>
       <Typography variant="h6" margin={2} color="#ffffff">
-        Total working sets:
+        Total working sets:{" "}
         {selectedDay!.exercises.reduce(
           (total, exercise) => (total = total + exercise.sets),
           0

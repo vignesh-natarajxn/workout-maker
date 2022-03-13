@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 
 // Models
-import { Exercise } from "../models/exercise";
 import { ExerciseDay } from "../models/exerciseDay";
 
 // Material UI
 import { Button, Container, Typography } from "@mui/material";
 import Timer from "./UIExerciseDayMain/Timer";
-import MainDefault from "./MainDefault";
 import Completed from "./UIExerciseDayMain/Completed";
 /************************************************************************************************/
 
 interface Props {
   selectedDay: ExerciseDay | undefined;
-  currentDay: ExerciseDay | undefined;
+  currentDay: ExerciseDay;
   setCurrentDay: (id: string) => void;
   currentExercise: number;
   setCurrentExercise: () => void;
@@ -24,9 +22,7 @@ interface Props {
 /************************************************************************************************/
 
 export default function UIExerciseDayMain({
-  selectedDay,
   currentDay,
-  setCurrentDay,
   currentExercise,
   setCurrentExercise,
   workoutComplete,
@@ -34,16 +30,16 @@ export default function UIExerciseDayMain({
 Props) {
   const [showTimer, setShowTimer] = useState<boolean>(false);
   const [superset, setSuperset] = useState<boolean>(false);
-  const [sets, setSets] = useState<number>(currentDay!.exercises[0].sets-1);
+  const [sets, setSets] = useState<number>(currentDay.exercises[0].sets - 1);
 
   const nextExerciseHandler = (opr: string) => {
     if (opr === "timer") {
-      if (currentDay!.exercises[currentExercise].superset && !superset) {
+      if (currentDay.exercises[currentExercise].superset && !superset) {
         setSuperset(true);
       } else setShowTimer(true);
     }
     if (opr === "next") {
-      if (currentDay!.exercises[currentExercise].superset) {
+      if (currentDay.exercises[currentExercise].superset) {
         if (superset) {
           setSuperset(false);
           setShowTimer(false);
@@ -59,8 +55,8 @@ Props) {
       } else {
         setCurrentExercise();
         setSets(
-          currentDay!.exercises[currentExercise + 1].sets-1
-            ? currentDay!.exercises[currentExercise + 1].sets-1
+          currentDay.exercises[currentExercise + 1]
+            ? currentDay.exercises[currentExercise + 1].sets - 1
             : -1
         );
         setShowTimer(false);
@@ -77,16 +73,16 @@ Props) {
         <>
           {superset ? (
             <Typography variant="h4" margin={2} color="#b4b4b4">
-              {currentDay!.exercises[currentExercise].superset}
+              {currentDay.exercises[currentExercise].superset}
             </Typography>
           ) : (
             <Typography variant="h4" margin={2} color="primary">
-              {currentDay!.exercises[currentExercise].name}
+              {currentDay.exercises[currentExercise].name}
             </Typography>
           )}
           <Typography variant="h6" margin={3} color="#ffffff">
-            Sets: {currentDay!.exercises[currentExercise].sets} | Rest Time:{" "}
-            {currentDay!.exercises[currentExercise].timeBetween}
+            Sets: {currentDay.exercises[currentExercise].sets} | Rest Time:{" "}
+            {currentDay.exercises[currentExercise].timeBetween}
           </Typography>
           {showTimer ? (
             <>
@@ -103,11 +99,11 @@ Props) {
                   const time = new Date();
                   time.setSeconds(
                     time.getSeconds() +
-                      currentDay!.exercises[currentExercise].timeBetween
+                      currentDay.exercises[currentExercise].timeBetween
                   );
                   return time;
                 }}
-                timeS={currentDay!.exercises[currentExercise].timeBetween}
+                timeS={currentDay.exercises[currentExercise].timeBetween}
                 nextExerciseHandler={nextExerciseHandler}
               />
             </>
