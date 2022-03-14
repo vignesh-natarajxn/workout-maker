@@ -1,10 +1,19 @@
-import { Button, Typography } from "@mui/material";
+import React from "react";
+
+//Models
 import { ExerciseDay } from "../../models/exerciseDay";
+
+//Material UI
+import { Button, Typography } from "@mui/material";
+
+/************************************************************************************************/
 
 interface Props {
   selectedDay: ExerciseDay | undefined;
   setCurrentDay: (id: string) => void;
 }
+
+/************************************************************************************************/
 
 export default function MainDefault({ selectedDay, setCurrentDay }: Props) {
   return (

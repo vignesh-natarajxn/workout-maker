@@ -7,6 +7,7 @@ import { ExerciseDay } from "../models/exerciseDay";
 import { Button, Container, Typography } from "@mui/material";
 import Timer from "./UIExerciseDayMain/Timer";
 import Completed from "./UIExerciseDayMain/Completed";
+
 /************************************************************************************************/
 
 interface Props {
@@ -16,7 +17,6 @@ interface Props {
   currentExercise: number;
   setCurrentExercise: () => void;
   workoutComplete: (id: string) => void;
-  // sets: number;
 }
 
 /************************************************************************************************/
@@ -26,7 +26,7 @@ export default function UIExerciseDayMain({
   currentExercise,
   setCurrentExercise,
   workoutComplete,
-}: // sets,
+}:
 Props) {
   const [showTimer, setShowTimer] = useState<boolean>(false);
   const [superset, setSuperset] = useState<boolean>(false);
@@ -108,6 +108,7 @@ Props) {
               />
             </>
           ) : (
+            <>
             <Button
               variant="contained"
               onClick={() => nextExerciseHandler("timer")}
@@ -116,7 +117,9 @@ Props) {
                 Next
               </Typography>
             </Button>
+            </>
           )}
+          
         </>
       )}
     </Container>
