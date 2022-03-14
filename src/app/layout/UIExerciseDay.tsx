@@ -3,6 +3,7 @@ import React, { useState } from "react";
 // Components
 import UIExerciseDayMain from "./UIExerciseDayMain";
 import UIExerciseDayList from "./UIExerciseDayList";
+import UIExerciseDayOverView from "./UIExerciseDayOverView";
 
 // Models
 import { ExerciseDay } from "../models/exerciseDay";
@@ -10,7 +11,6 @@ import { ExerciseDay } from "../models/exerciseDay";
 // Material UI
 import { Card, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import MainDefault from "./UIExerciseDayMain/MainDefault";
 
 /************************************************************************************************/
 
@@ -103,7 +103,7 @@ export default function UIExerciseDay({
           </Grid>
           <Grid item xs={8} className={classes.card}>
             {currentExercise === -1 && selectedDay && (
-              <MainDefault
+              <UIExerciseDayOverView
                 selectedDay={selectedDay}
                 setCurrentDay={setCurrentDayHandler}
               />
