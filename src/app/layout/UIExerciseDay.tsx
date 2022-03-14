@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 
 // Components
 import UIExerciseDayMain from "./UIExerciseDay/UIExerciseDayMain";
@@ -80,23 +80,17 @@ export default function UIExerciseDay({
               {selectedDay.name}
             </Typography>
             {selectedDay.exercises.map((exercise) => (
-              <>
+              <Fragment key={exercise.name + " " + exercise.superset}>
                 {exercise === currentDay?.exercises[currentExercise] ? (
                   <Card className={classes.selectedExc}>
-                    <UIExerciseDayList
-                      key={Math.random() * 1000}
-                      exercise={exercise}
-                    />
+                    <UIExerciseDayList exercise={exercise} />
                   </Card>
                 ) : (
                   <Card className={classes.exc}>
-                    <UIExerciseDayList
-                      key={Math.random() * 1000}
-                      exercise={exercise}
-                    />
+                    <UIExerciseDayList exercise={exercise} />
                   </Card>
                 )}
-              </>
+              </Fragment>
             ))}
           </Container>
         </Grid>
