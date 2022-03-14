@@ -29,7 +29,7 @@ export default function UIExerciseDayMain({
 }: Props) {
   const [showTimer, setShowTimer] = useState<boolean>(false);
   const [superset, setSuperset] = useState<boolean>(false);
-  const [sets, setSets] = useState<number>(currentDay.exercises[0].sets - 1);
+  const [sets, setSets] = useState<number>(1);
 
   const nextExerciseHandler = (opr: string) => {
     if (opr === "timer") {
@@ -48,16 +48,12 @@ export default function UIExerciseDayMain({
           return;
         }
       }
-      if (sets > 0) {
-        setSets((x) => x - 1);
+      if (sets < currentDay.exercises[0].sets) {
+        setSets((x) => x + 1);
         setShowTimer(false);
       } else {
         setCurrentExercise();
-        setSets(
-          currentDay.exercises[currentExercise + 1]
-            ? currentDay.exercises[currentExercise + 1].sets - 1
-            : -1
-        );
+        setSets(1);
         setShowTimer(false);
       }
     }
