@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Models
-import { ExerciseDay } from "../models/exerciseDay";
+import { ExerciseDay } from "../../models/exerciseDay";
 
 // Material UI
 import { Button, Container, Typography } from "@mui/material";

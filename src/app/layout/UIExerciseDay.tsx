@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 // Components
-import UIExerciseDayMain from "./UIExerciseDayMain";
-import UIExerciseDayList from "./UIExerciseDayList";
-import UIExerciseDayOverView from "./UIExerciseDayOverView";
+import UIExerciseDayMain from "./UIExerciseDay/UIExerciseDayMain";
+import UIExerciseDayList from "./UIExerciseDay/UIExerciseDayList";
+import UIExerciseDayOverView from "./UIExerciseDay/UIExerciseDayOverView";
 
 // Models
 import { ExerciseDay } from "../models/exerciseDay";
