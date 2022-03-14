@@ -86,14 +86,14 @@ export default function UIExerciseDay({
                   {exercise === currentDay?.exercises[currentExercise] ? (
                     <Card className={classes.selectedExc}>
                       <UIExerciseDayList
-                        key={Math.random()*1000}
+                        key={Math.random() * 1000}
                         exercise={exercise}
                       />
                     </Card>
                   ) : (
                     <Card className={classes.exc}>
                       <UIExerciseDayList
-                        key={Math.random()*1000}
+                        key={Math.random() * 1000}
                         exercise={exercise}
                       />
                     </Card>
@@ -109,7 +109,7 @@ export default function UIExerciseDay({
                 setCurrentDay={setCurrentDayHandler}
               />
             )}
-            {currentExercise != -1 && currentDay && (
+            {currentExercise !== -1 && currentDay && (
               <UIExerciseDayMain
                 selectedDay={selectedDay}
                 currentDay={currentDay}

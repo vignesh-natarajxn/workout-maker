@@ -26,8 +26,7 @@ export default function UIExerciseDayMain({
   currentExercise,
   setCurrentExercise,
   workoutComplete,
-}:
-Props) {
+}: Props) {
   const [showTimer, setShowTimer] = useState<boolean>(false);
   const [superset, setSuperset] = useState<boolean>(false);
   const [sets, setSets] = useState<number>(currentDay.exercises[0].sets - 1);
@@ -69,7 +68,7 @@ Props) {
       {currentExercise === 1000 && (
         <Completed currentDay={currentDay} workoutComplete={workoutComplete} />
       )}
-      {currentExercise != 1000 && (
+      {currentExercise !== 1000 && (
         <>
           {superset ? (
             <Typography variant="h4" margin={2} color="#b4b4b4">
@@ -109,17 +108,16 @@ Props) {
             </>
           ) : (
             <>
-            <Button
-              variant="contained"
-              onClick={() => nextExerciseHandler("timer")}
-            >
-              <Typography variant="h5" margin={2} color="#000000">
-                Next
-              </Typography>
-            </Button>
+              <Button
+                variant="contained"
+                onClick={() => nextExerciseHandler("timer")}
+              >
+                <Typography variant="h5" margin={2} color="#000000">
+                  Next
+                </Typography>
+              </Button>
             </>
           )}
-          
         </>
       )}
     </Container>

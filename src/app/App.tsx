@@ -203,7 +203,7 @@ function App() {
             color="common.white"
             gutterBottom
           >
-            <img src={logo} className="App-logo" />
+            <img src={logo} className="App-logo" alt="WM" />
             Workout Maker
           </Typography>
 
