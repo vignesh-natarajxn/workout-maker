@@ -102,7 +102,7 @@ export default function UIExerciseDay({
             </Container>
           </Grid>
           <Grid item xs={8} className={classes.card}>
-            {currentExercise === -1 && (
+            {currentExercise === -1 && selectedDay && (
               <MainDefault
                 selectedDay={selectedDay}
                 setCurrentDay={setCurrentDayHandler}
