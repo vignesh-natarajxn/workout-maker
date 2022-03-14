@@ -15,7 +15,7 @@ import { makeStyles } from "@mui/styles";
 /************************************************************************************************/
 
 interface Props {
-  selectedDay: ExerciseDay | undefined;
+  selectedDay: ExerciseDay;
   setSelectedDay: (id: string) => void;
   currentDay: ExerciseDay | undefined;
   setCurrentDay: (id: string) => void;
@@ -73,52 +73,50 @@ export default function UIExerciseDay({
 
   return (
     <>
-      {selectedDay && (
-        <Grid container direction="row" justifyContent="center">
-          <Grid item xs={4}>
-            <Container>
-              <Typography variant="h4" margin={3} color="primary">
-                {selectedDay.name}
-              </Typography>
-              {selectedDay.exercises.map((exercise) => (
-                <>
-                  {exercise === currentDay?.exercises[currentExercise] ? (
-                    <Card className={classes.selectedExc}>
-                      <UIExerciseDayList
-                        key={Math.random() * 1000}
-                        exercise={exercise}
-                      />
-                    </Card>
-                  ) : (
-                    <Card className={classes.exc}>
-                      <UIExerciseDayList
-                        key={Math.random() * 1000}
-                        exercise={exercise}
-                      />
-                    </Card>
-                  )}
-                </>
-              ))}
-            </Container>
-          </Grid>
-          <Grid item xs={8} className={classes.card}>
-            {currentExercise === -1 && selectedDay && (
-              <UIExerciseDayOverView
-                selectedDay={selectedDay}
-                setCurrentDay={setCurrentDayHandler}
-              />
-            )}
-            {currentExercise !== -1 && currentDay && (
-              <UIExerciseDayMain
-                currentDay={currentDay}
-                currentExercise={currentExercise}
-                setCurrentExercise={setCurrentExerciseHandler}
-                workoutComplete={workoutCompleteHandler}
-              />
-            )}
-          </Grid>
+      <Grid container direction="row" justifyContent="center">
+        <Grid item xs={4}>
+          <Container>
+            <Typography variant="h4" margin={3} color="primary">
+              {selectedDay.name}
+            </Typography>
+            {selectedDay.exercises.map((exercise) => (
+              <>
+                {exercise === currentDay?.exercises[currentExercise] ? (
+                  <Card className={classes.selectedExc}>
+                    <UIExerciseDayList
+                      key={Math.random() * 1000}
+                      exercise={exercise}
+                    />
+                  </Card>
+                ) : (
+                  <Card className={classes.exc}>
+                    <UIExerciseDayList
+                      key={Math.random() * 1000}
+                      exercise={exercise}
+                    />
+                  </Card>
+                )}
+              </>
+            ))}
+          </Container>
         </Grid>
-      )}
+        <Grid item xs={8} className={classes.card}>
+          {currentExercise === -1 && selectedDay && (
+            <UIExerciseDayOverView
+              selectedDay={selectedDay}
+              setCurrentDay={setCurrentDayHandler}
+            />
+          )}
+          {currentExercise !== -1 && currentDay && (
+            <UIExerciseDayMain
+              currentDay={currentDay}
+              currentExercise={currentExercise}
+              setCurrentExercise={setCurrentExerciseHandler}
+              workoutComplete={workoutCompleteHandler}
+            />
+          )}
+        </Grid>
+      </Grid>
     </>
   );
 }

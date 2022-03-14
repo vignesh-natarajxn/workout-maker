@@ -168,15 +168,12 @@ EXERCISE_WEEK.push(
 
 function App() {
   const [exerciseWeek, setExerciseWeek] = useState<ExerciseDay[]>([]);
-  const [selectedDay, setSelectedDay] = useState<ExerciseDay | undefined>(
-    undefined
-  );
+  const [selectedDay, setSelectedDay] = useState<ExerciseDay>(EXERCISE_WEEK[0]);
   const [currentDay, setCurrentDay] = useState<ExerciseDay | undefined>(
     undefined
   );
   useEffect(() => {
     setExerciseWeek(EXERCISE_WEEK);
-    setSelectedDay(EXERCISE_WEEK[0]);
   }, []);
 
   // useEffect(() => {
@@ -186,7 +183,9 @@ function App() {
   // }, []);
 
   function handleSelectedDay(id: string) {
-    setSelectedDay(exerciseWeek.find((x) => x.id === id));
+    const searchDay = exerciseWeek.find((x) => x.id === id)
+    if(searchDay)
+    setSelectedDay(searchDay);
   }
   function handleCurrentDay(id: string) {
     setCurrentDay(exerciseWeek.find((x) => x.id === id));
