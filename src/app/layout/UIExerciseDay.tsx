@@ -35,7 +35,7 @@ const useStyles: any = makeStyles((theme) => ({
     border: "2px solid #333333",
     marginTop: 20,
     marginBottom: 20,
-    height: 450,
+    height: 500,
     alignItems: "center",
     alignContent: "center",
     justifyContent: "center",
@@ -62,7 +62,6 @@ export default function UIExerciseDay({
       if (prev >= currentDay!.exercises.length - 1) return 1000;
       else return prev + 1;
     });
-
     setSelectedDay(currentDay!.id);
   };
 
@@ -111,9 +110,7 @@ export default function UIExerciseDay({
             )}
             {currentExercise !== -1 && currentDay && (
               <UIExerciseDayMain
-                selectedDay={selectedDay}
                 currentDay={currentDay}
-                setCurrentDay={setCurrentDayHandler}
                 currentExercise={currentExercise}
                 setCurrentExercise={setCurrentExerciseHandler}
                 workoutComplete={workoutCompleteHandler}

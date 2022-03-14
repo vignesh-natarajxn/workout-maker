@@ -11,9 +11,7 @@ import Completed from "./UIExerciseDayMain/Completed";
 /************************************************************************************************/
 
 interface Props {
-  selectedDay: ExerciseDay | undefined;
   currentDay: ExerciseDay;
-  setCurrentDay: (id: string) => void;
   currentExercise: number;
   setCurrentExercise: () => void;
   workoutComplete: (id: string) => void;
@@ -29,7 +27,7 @@ export default function UIExerciseDayMain({
 }: Props) {
   const [showTimer, setShowTimer] = useState<boolean>(false);
   const [superset, setSuperset] = useState<boolean>(false);
-  const [sets, setSets] = useState<number>(1);
+  const [set, setSet] = useState<number>(1);
 
   const nextExerciseHandler = (opr: string) => {
     if (opr === "timer") {
@@ -48,12 +46,12 @@ export default function UIExerciseDayMain({
           return;
         }
       }
-      if (sets < currentDay.exercises[0].sets) {
-        setSets((x) => x + 1);
+      if (set < currentDay.exercises[0].sets) {
+        setSet((x) => x + 1);
         setShowTimer(false);
       } else {
         setCurrentExercise();
-        setSets(1);
+        setSet(1);
         setShowTimer(false);
       }
     }
@@ -89,6 +87,9 @@ export default function UIExerciseDayMain({
                   Force Next
                 </Typography>
               </Button>
+              <Typography variant="h6" margin={3} color="#ffffff">
+                Current Set: {set}
+              </Typography>
               <Timer
                 expiryTimestamp={() => {
                   const time = new Date();
@@ -112,6 +113,9 @@ export default function UIExerciseDayMain({
                   Next
                 </Typography>
               </Button>
+              <Typography variant="h6" margin={3} color="#ffffff">
+                Current Set: {set}
+              </Typography>
             </>
           )}
         </>
