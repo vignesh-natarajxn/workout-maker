@@ -24,8 +24,7 @@ export default function MainDefault({ selectedDay, setCurrentDay }: Props) {
       <Typography variant="h6" margin={2} color="#ffffff">
         Number of exercises:{" "}
         {selectedDay.exercises.reduce(
-          (total, exercise) =>
-            (total = total + (exercise.superset ? 2 : 1)),
+          (total, exercise) => (total = total + (exercise.superset ? 2 : 1)),
           0
         )}
       </Typography>
@@ -39,13 +38,6 @@ export default function MainDefault({ selectedDay, setCurrentDay }: Props) {
       </Typography>
       <Typography variant="h6" margin={2} color="#ffffff">
         Time Estimation:{" "}
-        {/* {selectedDay.exercises
-          .reduce(
-            (total, exercise) =>
-              (total =
-                total + (exercise.sets * (exercise.timeBetween + 50)) / 60)
-          )
-          .toFixed(0)} */}
         {selectedDay.exercises
           .reduce(
             (total, exercise) =>
