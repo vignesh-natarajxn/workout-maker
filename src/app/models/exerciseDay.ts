@@ -1,10 +1,10 @@
 export interface ExerciseDay {
-    id: string;
+  id: string;
+  name: string;
+  exercises: {
     name: string;
-    exercises: {
-        name: string;
-        timeBetween: number;
-        sets: number;
-        superset: string;
-    }[];
+    timeBetween: number;
+    sets: number;
+    superset: string;
+  }[];
 }

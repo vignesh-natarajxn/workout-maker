@@ -9,12 +9,11 @@ import UIExerciseDay from "./startExercises/UIExerciseDay";
 
 // Models
 import { ExerciseDay } from "../models/exerciseDay";
+import EditMain from "./editExercises/EditMain";
 
 // Material UI
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import EditMain from "./editExercises/editMain";
-import { Button } from "react-bootstrap";
 
 /************************************************************************************************/
 
@@ -35,6 +34,79 @@ const theme = createTheme({
     fontWeightBold: "700",
   },
 });
+
+const EXERCISE_POOL = [
+  {
+    category: "Chest",
+    exercises: [
+      { name: "Bench Press" },
+      { name: "Pushup" },
+      { name: "Bench Fly" },
+      { name: "Incline Bench Press" },
+      { name: "Cable Crossover" },
+      { name: "Machine Fly" },
+    ],
+  },
+  {
+    category: "Triceps",
+    exercises: [
+      { name: "Skullcrusher" },
+      { name: "Dip" },
+      { name: "Overhead Tricep Extension" },
+    ],
+  },
+  {
+    category: "Shoulders",
+    exercises: [
+      { name: "Overhead Press" },
+      { name: "Lateral Rise" },
+      { name: "Arnold Press" },
+    ],
+  },
+  {
+    category: "Biceps and Forearms",
+    exercises: [
+      { name: "Barbell Curl" },
+      { name: "Dumbbell Curl" },
+      { name: "Alternate Diagonal Curl" },
+      { name: "Reverse Curl" },
+      { name: "Hammer Curl" },
+    ],
+  },
+  {
+    category: "Back",
+    exercises: [
+      { name: "Row" },
+      { name: "Pullup" },
+      { name: "Chinup" },
+      { name: "Lat Pulldown" },
+      { name: "Seated Row" },
+      { name: "Rear Delt Fly" },
+    ],
+  },
+  {
+    category: "Legs",
+    exercises: [
+      { name: "Squat" },
+      { name: "Deadlift" },
+      { name: "Leg Press" },
+      { name: "Lunge" },
+      { name: "Calf Rises" },
+    ],
+  },
+  {
+    category: "Abs",
+    exercises: [
+      { name: "Leg Raise" },
+      { name: "Crunch" },
+      { name: "Lying Leg Raise" },
+    ],
+  },
+  {
+    category: "Other",
+    exercises: [{ name: "Shrug" }, { name: "Neck Raise" }, { name: "PP Rise" }],
+  },
+];
 
 const EXERCISE_WEEK: ExerciseDay[] = [];
 
@@ -193,6 +265,8 @@ function App() {
     setCurrentDay(exerciseWeek.find((x) => x.id === id));
   }
 
+  // function setExerciseWeekHandler() {}
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
@@ -209,8 +283,16 @@ function App() {
           >
             Workout Maker
           </Typography>
-          <Link to="/">Home</Link>
-          <Link to="/edit">Edit</Link>
+          <Link to="/">
+            <Button variant="contained" color="primary">
+              Home
+            </Button>
+          </Link>
+          <Link to="/edit">
+            <Button variant="contained" color="primary">
+              Edit
+            </Button>
+          </Link>
         </nav>
 
         <Container maxWidth="xl">
@@ -238,7 +320,13 @@ function App() {
               path="/edit"
               element={
                 <Box textAlign="center">
-                  <EditMain></EditMain>
+                  <EditMain
+                    exerciseWeek={exerciseWeek}
+                    setExerciseWeek={setExerciseWeek}
+                    selectedDay={selectedDay}
+                    setSelectedDay={handleSelectedDay}
+                    EXERCISE_POOL={EXERCISE_POOL}
+                  />
                 </Box>
               }
             />
