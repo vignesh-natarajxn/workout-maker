@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 // Components
 import UIExerciseWeek from "../startExercises/UIExerciseWeek";
@@ -37,7 +37,6 @@ const useStyles: any = makeStyles((theme) => ({
     border: "2px solid #ff8400",
     marginTop: 20,
     marginBottom: 20,
-    height: 500,
     alignItems: "center",
     alignContent: "center",
     justifyContent: "center",
@@ -47,7 +46,7 @@ const useStyles: any = makeStyles((theme) => ({
     border: "2px solid #333333",
     marginTop: 20,
     marginBottom: 20,
-    height: 500,
+    height: 800,
     alignItems: "center",
     alignContent: "center",
     justifyContent: "center",
@@ -67,7 +66,7 @@ export default function EditMain({
 
   return (
     <>
-      <Typography variant="h4" margin={3} color="#ffffff">
+      <Typography variant="h4" margin={4} color="#ffffff">
         Edit Workout
       </Typography>
       <UIExerciseWeek
@@ -75,14 +74,14 @@ export default function EditMain({
         selectedDay={selectedDay}
         setSelectedDay={setSelectedDay}
       />
-      <Grid container  justifyContent="center">
-        <Grid direction="column" item xs={3} className={classes.day}>
+      <Grid container justifyContent="center">
+        <Grid item xs={4} className={classes.day}>
           <Container>
             {selectedDay &&
-              selectedDay.exercises.map((exercise) => <>{exercise.name}</>)}
+              selectedDay.exercises.map((exercise) => <Fragment key={exercise.name}>{exercise.name}</Fragment>)}
           </Container>
         </Grid>
-        <Grid direction="row" item xs={3} className={classes.pool}>
+        <Grid item xs={4} className={classes.pool}>
           <UIExercisePool EXERCISE_POOL={EXERCISE_POOL} />
         </Grid>
       </Grid>

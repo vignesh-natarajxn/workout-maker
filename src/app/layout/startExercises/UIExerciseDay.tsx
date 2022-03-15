@@ -94,7 +94,7 @@ export default function UIExerciseDay({
             ))}
           </Container>
         </Grid>
-        <Grid item xs={8} className={classes.card}>
+        <Grid item xs={5} className={classes.card}>
           {currentExercise === -1 && selectedDay && (
             <UIExerciseDayOverView
               selectedDay={selectedDay}

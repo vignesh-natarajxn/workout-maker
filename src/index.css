@@ -18,7 +18,7 @@ code {
 img {
   max-width: 100%;
 }
-nav {
+.mainNav {
   display: flex;
   gap: 10px;
   align-items: center;
@@ -32,6 +32,3 @@ nav h1 {
   margin-right: auto;
 }
 
-link {
-  
-}

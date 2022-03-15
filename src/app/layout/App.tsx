@@ -270,7 +270,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <nav>
+        <nav className='mainNav'>
           <img src={logo} className="App-logo" alt="WM" />
           <Typography
             fontSize={25}
