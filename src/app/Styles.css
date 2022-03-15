@@ -20,7 +20,7 @@
   /* background-image: linear-gradient(90deg, rgb(41, 41, 41) 0%, rgb(0, 0, 0) 80%); */
   display: flex;
   flex-direction: row;
-  align-items: center;
+ 
   justify-content: center;
   border-bottom: 0.5px solid #cacaca34;
 }

@@ -6,7 +6,7 @@ import UIExerciseDayList from "./UIExerciseDay/UIExerciseDayList";
 import UIExerciseDayOverView from "./UIExerciseDay/UIExerciseDayOverView";
 
 // Models
-import { ExerciseDay } from "../models/exerciseDay";
+import { ExerciseDay } from "../../models/exerciseDay";
 
 // Material UI
 import { Card, Container, Grid, Typography } from "@mui/material";

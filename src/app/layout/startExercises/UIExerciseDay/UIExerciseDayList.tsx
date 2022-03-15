@@ -1,7 +1,7 @@
 import React from "react";
 
 // Models
-import { Exercise } from "../../models/exercise";
+import { Exercise } from "../../../models/exercise";
 
 // Material UI
 import { CardContent, Typography } from "@mui/material";

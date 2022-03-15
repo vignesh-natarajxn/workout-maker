@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./Styles.css";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import logo from "../logo.svg";
+import "../Styles.css";
 
 // Components
-import UIExerciseWeek from "./layout/UIExerciseWeek";
-import UIExerciseDay from "./layout/UIExerciseDay";
+import UIExerciseWeek from "./startExercises/UIExerciseWeek";
+import UIExerciseDay from "./startExercises/UIExerciseDay";
 
 // Models
-import { ExerciseDay } from "./models/exerciseDay";
+import { ExerciseDay } from "../models/exerciseDay";
 
 // Material UI
 import { Box, Container, Typography } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import EditMain from "./editExercises/editMain";
+import { Button } from "react-bootstrap";
 
 /************************************************************************************************/
 
@@ -183,9 +186,8 @@ function App() {
   // }, []);
 
   function handleSelectedDay(id: string) {
-    const searchDay = exerciseWeek.find((x) => x.id === id)
-    if(searchDay)
-    setSelectedDay(searchDay);
+    const searchDay = exerciseWeek.find((x) => x.id === id);
+    if (searchDay) setSelectedDay(searchDay);
   }
   function handleCurrentDay(id: string) {
     setCurrentDay(exerciseWeek.find((x) => x.id === id));
@@ -193,33 +195,56 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth="xl">
-        <Box textAlign="center">
+      <BrowserRouter>
+        <nav>
+          <img src={logo} className="App-logo" alt="WM" />
           <Typography
-            className="App-header"
-            variant="h5"
-            align="center"
-            color="common.white"
+            fontSize={25}
+            component="h1"
+            color="#eeeeee"
+            marginRight="auto"
+            marginTop="auto"
+            marginBottom="auto"
             gutterBottom
           >
-            <img src={logo} className="App-logo" alt="WM" />
             Workout Maker
           </Typography>
+          <Link to="/">Home</Link>
+          <Link to="/edit">Edit</Link>
+        </nav>
 
-          <UIExerciseWeek
-            exerciseWeek={exerciseWeek}
-            selectedDay={selectedDay}
-            setSelectedDay={handleSelectedDay}
-          />
+        <Container maxWidth="xl">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Box textAlign="center">
+                  <UIExerciseWeek
+                    exerciseWeek={exerciseWeek}
+                    selectedDay={selectedDay}
+                    setSelectedDay={handleSelectedDay}
+                  />
+                  <UIExerciseDay
+                    selectedDay={selectedDay}
+                    setSelectedDay={handleSelectedDay}
+                    currentDay={currentDay}
+                    setCurrentDay={handleCurrentDay}
+                  />
+                </Box>
+              }
+            />
 
-          <UIExerciseDay
-            selectedDay={selectedDay}
-            setSelectedDay={handleSelectedDay}
-            currentDay={currentDay}
-            setCurrentDay={handleCurrentDay}
-          />
-        </Box>
-      </Container>
+            <Route
+              path="/edit"
+              element={
+                <Box textAlign="center">
+                  <EditMain></EditMain>
+                </Box>
+              }
+            />
+          </Routes>
+        </Container>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

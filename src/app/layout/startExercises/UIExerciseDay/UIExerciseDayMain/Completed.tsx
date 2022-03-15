@@ -1,7 +1,7 @@
 import React from "react";
 
 // Models
-import { ExerciseDay } from "../../../models/exerciseDay";
+import { ExerciseDay } from "../../../../models/exerciseDay";
 
 // Material UI
 import { Button, Typography } from "@mui/material";
