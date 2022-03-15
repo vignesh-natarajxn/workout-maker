@@ -22,7 +22,8 @@ export default function UIExercisePool({ EXERCISE_POOL }: Props) {
   return (
     <>
       {EXERCISE_POOL.map((category) => (
-        <>{category.category}</>
+        <Container>{category.category}
+        </Container>
       ))}
     </>
   );

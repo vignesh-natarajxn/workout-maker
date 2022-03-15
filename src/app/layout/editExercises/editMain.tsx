@@ -32,7 +32,17 @@ const useStyles: any = makeStyles((theme) => ({
     backgroundColor: "#191f27",
     border: "2px solid #ff8400",
   },
-  card: {
+  day: {
+    backgroundColor: "#191f27",
+    border: "2px solid #ff8400",
+    marginTop: 20,
+    marginBottom: 20,
+    height: 500,
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
+  },
+  pool: {
     backgroundColor: "#191f27",
     border: "2px solid #333333",
     marginTop: 20,
@@ -65,14 +75,14 @@ export default function EditMain({
         selectedDay={selectedDay}
         setSelectedDay={setSelectedDay}
       />
-      <Grid container direction="row" justifyContent="center">
-        <Grid item xs={3} className={classes.card}>
+      <Grid container  justifyContent="center">
+        <Grid direction="column" item xs={3} className={classes.day}>
           <Container>
             {selectedDay &&
               selectedDay.exercises.map((exercise) => <>{exercise.name}</>)}
           </Container>
         </Grid>
-        <Grid item xs={9} className={classes.card}>
+        <Grid direction="row" item xs={3} className={classes.pool}>
           <UIExercisePool EXERCISE_POOL={EXERCISE_POOL} />
         </Grid>
       </Grid>
