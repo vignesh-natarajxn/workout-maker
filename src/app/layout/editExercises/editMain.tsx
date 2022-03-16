@@ -3,14 +3,14 @@ import React, { Fragment } from "react";
 // Components
 import UIExerciseWeek from "../startExercises/UIExerciseWeek";
 import UIExercisePool from "./UIExercisePool";
+import UIExerciseDayEdit from "./UIExerciseDayEdit";
 
 // Models
 import { ExerciseDay } from "../../models/exerciseDay";
-import { Exercise } from "../../models/exercise";
 import { ExercisePool } from "../../models/exercisePool";
 
 // Material UI
-import { Button, Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 /************************************************************************************************/
@@ -64,6 +64,20 @@ export default function EditMain({
 }: Props) {
   const classes = useStyles();
 
+  const handleExcerciseAdd = (name: string) => {
+    let exerciseWeekMod = exerciseWeek;
+    exerciseWeekMod
+      .find((exerciseDay) => exerciseDay.id === selectedDay?.id)
+      ?.exercises.push({ name: name, timeBetween: 120, sets: 3, superset: "" });
+    setExerciseWeek(exerciseWeekMod);
+  };
+
+  const handleExcerciseMod = (
+    sets: number,
+    timeBetween: number,
+    superset: string
+  ) => {};
+
   return (
     <>
       <Typography variant="h4" margin={4} color="#ffffff">
@@ -76,13 +90,17 @@ export default function EditMain({
       />
       <Grid container justifyContent="center">
         <Grid item xs={4} className={classes.day}>
-          <Container>
-            {selectedDay &&
-              selectedDay.exercises.map((exercise) => <Fragment key={exercise.name}>{exercise.name}</Fragment>)}
-          </Container>
+          <UIExerciseDayEdit
+            selectedDay={exerciseWeek.find(
+              (exerciseDay) => exerciseDay.id === selectedDay?.id
+            )}
+          />
         </Grid>
         <Grid item xs={4} className={classes.pool}>
-          <UIExercisePool EXERCISE_POOL={EXERCISE_POOL} />
+          <UIExercisePool
+            EXERCISE_POOL={EXERCISE_POOL}
+            handleExcerciseAdd={handleExcerciseAdd}
+          />
         </Grid>
       </Grid>
     </>

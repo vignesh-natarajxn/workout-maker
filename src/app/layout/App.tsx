@@ -258,8 +258,9 @@ function App() {
   // }, []);
 
   function handleSelectedDay(id: string) {
-    const searchDay = exerciseWeek.find((x) => x.id === id);
-    if (searchDay) setSelectedDay(searchDay);
+    // const searchDay = exerciseWeek.find((x) => x.id === id);
+    // if (searchDay)
+    setSelectedDay(exerciseWeek.find((x) => x.id === id)!);
   }
   function handleCurrentDay(id: string) {
     setCurrentDay(exerciseWeek.find((x) => x.id === id));

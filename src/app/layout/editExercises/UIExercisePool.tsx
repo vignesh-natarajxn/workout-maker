@@ -19,6 +19,7 @@ import { makeStyles } from "@mui/styles";
 
 interface Props {
   EXERCISE_POOL: ExercisePool[];
+  handleExcerciseAdd: (name: string) => void;
 }
 
 const useStyles: any = makeStyles({
@@ -35,7 +36,10 @@ const useStyles: any = makeStyles({
 
 /************************************************************************************************/
 
-export default function UIExercisePool({ EXERCISE_POOL }: Props) {
+export default function UIExercisePool({
+  EXERCISE_POOL,
+  handleExcerciseAdd,
+}: Props) {
   const [open, setOpen] = React.useState<{ [id: string]: boolean }>({
     Abs: false,
     Back: false,
@@ -60,7 +64,6 @@ export default function UIExercisePool({ EXERCISE_POOL }: Props) {
     else setPrevOpenId("");
   };
 
-  const handleExcerciseAdd = (name: string) => {};
   return (
     <>
       <List

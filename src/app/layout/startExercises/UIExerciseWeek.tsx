@@ -23,7 +23,7 @@ const useStyles: any = makeStyles({
     marginTop: 10,
     marginBottom: 10,
     height: 230,
-    width: 170,
+    width: 210,
   },
 });
 
@@ -54,9 +54,15 @@ export default function UIExerciseWeek({
             {hover ? (
               <List>
                 {/* <Typography>{i}</Typography> */}
-                {exerciseDay.exercises.map((exercise) => (
-                  <ListItemText key={exercise.name} primary={exercise.name} />
-                ))}
+                {exerciseDay.exercises.map((exercise, ii) => {
+                  ii+=1
+                  if(ii<=5)
+                  return (
+                    <ListItemText key={exercise.name + Math.random()*10000} primary={exercise.name} />
+                  );
+                  if(ii===6)
+                  return(<ListItemText key={exercise.name + Math.random()*10000} primary='...' />)
+                })}
               </List>
             ) : (
               <List>
