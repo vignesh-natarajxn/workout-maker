@@ -7,7 +7,7 @@ import UIExerciseDayEdit from "./UIExerciseDayEdit";
 import { ExerciseDay } from "../../models/exerciseDay";
 import { ExercisePool } from "../../models/exercisePool";
 // Material UI
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 /************************************************************************************************/
 interface Props {
@@ -137,17 +137,17 @@ export default function EditMain({
   //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <>
-      <Typography variant="h5" margin={1} color="#ffffff">
-        Edit Workout
-      </Typography>
       <UIExerciseWeek
         exerciseWeek={exerciseWeek}
         selectedDay={selectedDay}
         setSelectedDay={setSelectedDay}
       />
+      <Typography variant="h5" margin={1} color="#ffffff">
+        Edit Workout
+      </Typography>
       <Grid container justifyContent="center">
         {exercisePool[0] ? (
-          <Grid item xs={4} className={classes.pool}>
+          <Grid item xs={6} className={classes.pool}>
             <UIExercisePool
               EXERCISE_POOL={EXERCISE_POOL}
               handleExcerciseAdd={handleExcerciseAdd}
@@ -155,7 +155,7 @@ export default function EditMain({
             />
           </Grid>
         ) : (
-          <Grid item xs={4} className={classes.day}>
+          <Grid item xs={6} className={classes.day}>
             <UIExerciseDayEdit
               exerciseWeek={exerciseWeek}
               selectedDay={selectedDay}

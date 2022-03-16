@@ -296,7 +296,7 @@ function App() {
           </Link>
         </nav>
 
-        <Container maxWidth="xl">
+        <Container >
           <Routes>
             <Route
               path="/"

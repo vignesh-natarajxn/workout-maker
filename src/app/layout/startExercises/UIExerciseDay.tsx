@@ -20,20 +20,24 @@ const useStyles: any = makeStyles((theme) => ({
   exc: {
     backgroundColor: "#0d1117",
     border: "2px solid #333333",
+    borderRadius: 15,
+    margin: 3,
   },
   selectedExc: {
     backgroundColor: "#191f27",
     border: "2px solid #ff8400",
+    borderRadius: 15,
+    margin: 3,
   },
   card: {
     backgroundColor: "#191f27",
     border: "2px solid #333333",
     marginTop: 20,
-    marginBottom: 20,
     height: 500,
     alignItems: "center",
     alignContent: "center",
     justifyContent: "center",
+    borderRadius: 15,
   },
 }));
 /************************************************************************************************/
@@ -66,9 +70,9 @@ export default function UIExerciseDay({
   return (
     <>
       <Grid container direction="row" justifyContent="center">
-        <Grid item xs={4}>
+        <Grid item xs={5}>
           <Container>
-            <Typography variant="h4" margin={3} color="primary">
+            <Typography fontSize={30} margin={3} color="primary">
               {selectedDay.name}
             </Typography>
             {selectedDay.exercises.map((exercise) => (
@@ -86,7 +90,7 @@ export default function UIExerciseDay({
             ))}
           </Container>
         </Grid>
-        <Grid item xs={5} className={classes.card}>
+        <Grid item xs={6} className={classes.card}>
           {currentExercise === -1 && selectedDay && (
             <ExerciseDayOverView
               selectedDay={selectedDay}

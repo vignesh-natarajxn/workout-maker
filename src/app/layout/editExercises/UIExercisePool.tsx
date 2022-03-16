@@ -31,8 +31,9 @@ const useStyles: any = makeStyles({
     height: 50,
   },
   poolbut: {
-    // border: "2px solid #263141",
+    border: "2px solid #263141",
     margin: 3,
+    borderRadius: 15,
   },
 });
 /************************************************************************************************/
@@ -70,9 +71,6 @@ export default function UIExercisePool({
         sx={{ width: "100%", bgcolor: "#0d1117" }}
         aria-labelledby="nested-list-subheader"
       >
-        <Typography fontSize={18} margin={2}>
-          ADD EXERCISE:{" "}
-        </Typography>
         {EXERCISE_POOL.map((category) => {
           return (
             <Container key={category.category}>
@@ -80,7 +78,11 @@ export default function UIExercisePool({
                 className={classes.poolbut}
                 onClick={() => handleClick(category.category)}
               >
-                <ListItemText primary={category.category} />
+                <ListItemText
+                  primary={
+                    <Typography margin={1}>{category.category}</Typography>
+                  }
+                />
                 {open[category.category] ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Collapse

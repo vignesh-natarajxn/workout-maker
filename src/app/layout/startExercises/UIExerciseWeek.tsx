@@ -19,7 +19,11 @@ const useStyles: any = makeStyles({
     marginTop: 10,
     marginBottom: 10,
     height: 230,
-    width: 210,
+    width: 160,
+  },
+  hovertext: {
+    fontSize: 14,
+    fontStretch: "ultra-condensed",
   },
 });
 /************************************************************************************************/
@@ -52,6 +56,8 @@ export default function UIExerciseWeek({
                   if (ii <= 5)
                     return (
                       <ListItemText
+                        className={classes.hovertext}
+                        disableTypography
                         key={exercise.name + Math.random() * 10000}
                         primary={exercise.name}
                       />
@@ -59,6 +65,8 @@ export default function UIExerciseWeek({
                   if (ii === 6)
                     return (
                       <ListItemText
+                        className={classes.hovertext}
+                        disableTypography
                         key={exercise.name + Math.random() * 10000}
                         primary="..."
                       />
