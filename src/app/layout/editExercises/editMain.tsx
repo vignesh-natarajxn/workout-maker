@@ -109,6 +109,13 @@ export default function EditMain({
       exerciseWeekMod[dayIndex].exercises[exIndex].superset = "";
       setExerciseWeek(exerciseWeekMod);
     }
+    if (opr === "remove") {
+      exerciseWeekMod[dayIndex].exercises.splice(exIndex,1)
+    }
+    if (opr === "add superset") {
+      exerciseWeekMod[dayIndex].exercises[exIndex].superset='superset'
+    }
+
     forceUpdateHandler();
   };
   //|||||||||||||||||||||||||||||||||||||||||||

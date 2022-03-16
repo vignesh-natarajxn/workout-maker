@@ -257,7 +257,7 @@ function App() {
   }, []);
 
   // useEffect(() => {
-  //   fetch("http://localhos:8000/exercises")
+  //   fetch("http://localhost:8000/exercises")
   //     .then((res) => res.json())
   //     .then((data) => setExerciseWeek(data));
   // }, []);
