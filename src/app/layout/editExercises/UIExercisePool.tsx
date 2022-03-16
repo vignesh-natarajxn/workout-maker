@@ -11,6 +11,7 @@ import {
   List,
   ListItemButton,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { makeStyles } from "@mui/styles";
@@ -33,6 +34,10 @@ const useStyles: any = makeStyles({
     marginBottom: 5,
     height: 50,
   },
+  poolbut: {
+    // border: "2px solid #263141",
+    margin: 3
+  }
 });
 
 /************************************************************************************************/
@@ -64,19 +69,19 @@ export default function UIExercisePool({
     }));
     if (prevOpenId !== id) setPrevOpenId(id);
     else setPrevOpenId("");
-    
   };
 
   return (
-    <>
-      <List
+    <Container>
+      <List 
         sx={{ width: "100%", bgcolor: "#0d1117" }}
         aria-labelledby="nested-list-subheader"
       >
+        <Typography fontSize={18} margin={2}>ADD EXERCISE: </Typography>
         {EXERCISE_POOL.map((category) => {
           return (
             <Container key={category.category}>
-              <ListItemButton onClick={() => handleClick(category.category)}>
+              <ListItemButton className={classes.poolbut} onClick={() => handleClick(category.category)}>
                 <ListItemText primary={category.category} />
                 {open[category.category] ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
@@ -115,6 +120,6 @@ export default function UIExercisePool({
           );
         })}
       </List>
-    </>
+    </Container>
   );
 }

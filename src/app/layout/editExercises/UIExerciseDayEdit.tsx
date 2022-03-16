@@ -13,13 +13,16 @@ import {
   Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import CloseIcon from "@mui/icons-material/Close";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 /************************************************************************************************/
 
 interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
-  handleExcerciseEdit: (opr: string) => void;
+  handleExcerciseEdit: (opr: string, id: string) => void;
 }
 const useStyles: any = makeStyles({
   day: {
@@ -31,6 +34,20 @@ const useStyles: any = makeStyles({
     marginBottom: 10,
     height: 230,
     width: 170,
+  },
+  X: {
+    marginLeft: "auto",
+    // marginRight: 10,
+    color: "#000000",
+    width: 20,
+  },
+  ss: {
+    marginLeft: "auto",
+    color: "#bbbbbb",
+  },
+  add: {
+    marginLeft: 0,
+    color: "#bbbbbb",
   },
 });
 
@@ -56,30 +73,63 @@ export default function UIExerciseDayEdit({
             <Fragment key={exercise.name + Math.random() * 1000}>
               <List>
                 <ListItem>
-                  <Typography>{exercise.name}</Typography>
+                  <Typography color="primary">{exercise.name} </Typography>
+                  <Button
+                    className={classes.X}
+                    variant="contained"
+                    onClick={() => handleExcerciseEdit("remove", exercise.id )}
+                  >
+                    <CloseIcon />
+                  </Button>
                 </ListItem>
                 <ListItem>
                   <Typography>Sets: {exercise.sets}</Typography>
+                  <Button
+                    className={classes.ss}
+                    onClick={() => handleExcerciseEdit("set-", exercise.id )}
+                  >
+                    <RemoveIcon />
+                  </Button>
+                  <Button
+                    className={classes.add}
+                    onClick={() => handleExcerciseEdit("set+", exercise.id )}
+                  >
+                    <AddIcon />
+                  </Button>
                 </ListItem>
                 <ListItem>
                   <Typography>
-                    Time between sets: {exercise.timeBetween}
+                    Time between sets: {exercise.timeBetween} s
                   </Typography>
+                  <Button
+                    className={classes.ss}
+                    onClick={() => handleExcerciseEdit("time-", exercise.id )}
+                  >
+                    <RemoveIcon />
+                  </Button>
+                  <Button
+                    className={classes.add}
+                    onClick={() => handleExcerciseEdit("time+", exercise.id )}
+                  >
+                    <AddIcon />
+                  </Button>
                 </ListItem>
                 {exercise.superset ? (
                   <>
                     <ListItem>
-                      <Typography>
-                        Superset: {exercise.superset}
-                        <Button>Remove Superset</Button>
-                      </Typography>
+                      <Typography>Superset: {exercise.superset}</Typography>
+                      <Button
+                        className={classes.ss}
+                        onClick={() => handleExcerciseEdit("remove superset", exercise.id )}
+                      >
+                        <CloseIcon />
+                      </Button>
                     </ListItem>
                   </>
                 ) : (
                   <Button>Add Superset</Button>
                 )}
               </List>
-              <Button>Remove</Button>
             </Fragment>
           ))}
     </Container>

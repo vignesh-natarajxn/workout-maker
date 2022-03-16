@@ -70,22 +70,62 @@ export default function EditMain({
     let exerciseWeekMod = exerciseWeek;
     exerciseWeekMod
       .find((exerciseDay) => exerciseDay.id === selectedDay?.id)
-      ?.exercises.push({ name: name, timeBetween: 120, sets: 3, superset: "" });
+      ?.exercises.push({
+        id: String(Math.random() * 1000),
+        name: name,
+        timeBetween: 120,
+        sets: 3,
+        superset: "",
+      });
     setExerciseWeek(exerciseWeekMod);
-    handleSelectedDay(
-      exerciseWeekMod.find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
-        .id
-    );
+
     forceUpdateHandler();
   };
   function forceUpdateHandler(this: any) {
     setSomeVar((prev) => !prev);
   }
-  const handleExcerciseEdit = (opr: string) => {};
+  const handleExcerciseEdit = (opr: string, idd: string) => {
+    let exerciseWeekMod = exerciseWeek;
+
+    const dayIndex = exerciseWeekMod.findIndex(
+      (exerciseDay) => exerciseDay.id === selectedDay?.id
+    );
+    const exIndex = exerciseWeekMod
+      .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
+      .exercises.findIndex((exercise) => exercise.id === idd);
+
+    if (opr === "set-") {
+      if (exerciseWeekMod[dayIndex].exercises[exIndex].sets > 0)
+        exerciseWeekMod[dayIndex].exercises[exIndex].sets -= 1;
+      setExerciseWeek(exerciseWeekMod);
+      forceUpdateHandler();
+    }
+    if (opr === "set+") {
+      exerciseWeekMod[dayIndex].exercises[exIndex].sets += 1;
+      setExerciseWeek(exerciseWeekMod);
+      forceUpdateHandler();
+    }
+    if (opr === "time-") {
+      if (exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween > 0)
+        exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween -= 5;
+      setExerciseWeek(exerciseWeekMod);
+      forceUpdateHandler();
+    }
+    if (opr === "time+") {
+      exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween += 5;
+      setExerciseWeek(exerciseWeekMod);
+      forceUpdateHandler();
+    }
+    if (opr === "remove superset") {
+      exerciseWeekMod[dayIndex].exercises[exIndex].superset = "";
+      setExerciseWeek(exerciseWeekMod);
+      forceUpdateHandler();
+    }
+  };
 
   return (
     <>
-      <Typography variant="h4" margin={4} color="#ffffff">
+      <Typography variant="h5" margin={1} color="#ffffff">
         Edit Workout
       </Typography>
       <UIExerciseWeek

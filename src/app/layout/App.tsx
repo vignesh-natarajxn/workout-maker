@@ -116,12 +116,14 @@ EXERCISE_WEEK.push(
     name: "Day 1",
     exercises: [
       {
+        id: "e1",
         name: "Day 1 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 1 Exercise 1a",
       },
       {
+        id: "e2",
         name: "Day 1 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -134,12 +136,14 @@ EXERCISE_WEEK.push(
     name: "Day 2",
     exercises: [
       {
+        id: "e1",
         name: "Day 2 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 2 Exercise 1a",
       },
       {
+        id: "e2",
         name: "Day 2 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -152,12 +156,14 @@ EXERCISE_WEEK.push(
     name: "Day 3",
     exercises: [
       {
+        id: "e1",
         name: "Day 3 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 3 Exercise 1a",
       },
       {
+        id: "e2",
         name: "Day 3 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -170,12 +176,14 @@ EXERCISE_WEEK.push(
     name: "Day 4",
     exercises: [
       {
+        id: "e1",
         name: "Day 4 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 4 Exercise 1a",
       },
       {
+        id: "e2",
         name: "Day 4 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -188,12 +196,14 @@ EXERCISE_WEEK.push(
     name: "Day 5",
     exercises: [
       {
+        id: "e1",
         name: "Day 5 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 5 Exercise 1a",
       },
       {
+        id: "e2",
         name: "Day 5 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -206,12 +216,14 @@ EXERCISE_WEEK.push(
     name: "Day 6",
     exercises: [
       {
+        id: "e1",
         name: "Day 6 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 6 Exercise 1a",
       },
       {
+        id: "e2",
         name: "Day 6 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -224,12 +236,14 @@ EXERCISE_WEEK.push(
     name: "Day 7",
     exercises: [
       {
+        id: "e1",
         name: "Day 7 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 7 Exercise 1a",
       },
       {
+        id: "e2",
         name: "Day 7 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -271,7 +285,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <nav className='mainNav'>
+        <nav className="mainNav">
           <img src={logo} className="App-logo" alt="WM" />
           <Typography
             fontSize={25}
@@ -280,7 +294,6 @@ function App() {
             marginRight="auto"
             marginTop="auto"
             marginBottom="auto"
-            gutterBottom
           >
             Workout Maker
           </Typography>
