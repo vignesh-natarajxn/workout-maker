@@ -14,6 +14,7 @@ import { makeStyles } from "@mui/styles";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 /************************************************************************************************/
 interface Props {
   exerciseWeek: ExerciseDay[];
@@ -125,11 +126,19 @@ export default function UIExerciseDayEdit({
                   </>
                 ) : (
                   <ListItem>
-                    <Button className={classes.ss} onClick={() =>
-                          handleExcerciseEdit("add superset", exercise.id)
-                        } >Add Superset</Button>
+                    <Button
+                      className={classes.ss}
+                      onClick={() =>
+                        handleExcerciseEdit("add superset", exercise.id)
+                      }
+                    >
+                      Add Superset
+                    </Button>
                   </ListItem>
                 )}
+                <Button onClick={() => handleExcerciseEdit("add", exercise.id)}>
+                  <AddCircleIcon />
+                </Button>
               </List>
             </Fragment>
           ))}

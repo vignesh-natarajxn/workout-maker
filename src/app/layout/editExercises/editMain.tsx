@@ -59,23 +59,36 @@ export default function EditMain({
 }: Props) {
   const classes = useStyles();
   const [someVar, setSomeVar] = React.useState<boolean>(true);
+  const [exercisePool, setExercisePool] = React.useState<string[]>(["", ""]);
   //|||||||||||||||||||||||||||||||||||||||||||
   function forceUpdateHandler(this: any) {
     setSomeVar((prev) => !prev);
   }
 
   const handleExcerciseAdd = (name: string) => {
+    const indexx = exerciseWeek
+      .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
+      .exercises.findIndex((exercise) => exercise.id === exercisePool[1]);
     let exerciseWeekMod = exerciseWeek;
-    exerciseWeekMod
-      .find((exerciseDay) => exerciseDay.id === selectedDay?.id)
-      ?.exercises.push({
-        id: String(Math.random() * 1000),
-        name: name,
-        timeBetween: 120,
-        sets: 3,
-        superset: "",
-      });
+    if (exercisePool[0] === "superset") {
+      const dayIndex = exerciseWeekMod.findIndex(
+        (exerciseDay) => exerciseDay.id === selectedDay?.id
+      );
+      exerciseWeekMod[dayIndex].exercises[indexx].superset = name;
+    }
+    if (exercisePool[0] === "exercise") {
+      exerciseWeekMod
+        .find((exerciseDay) => exerciseDay.id === selectedDay?.id)
+        ?.exercises.splice(indexx + 1, 0, {
+          id: String(Math.random() * 1000),
+          name: name,
+          timeBetween: 120,
+          sets: 3,
+          superset: "",
+        });
+    }
     setExerciseWeek(exerciseWeekMod);
+    setExercisePool(["", ""]);
     forceUpdateHandler();
   };
 
@@ -105,15 +118,18 @@ export default function EditMain({
       exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween += 5;
       setExerciseWeek(exerciseWeekMod);
     }
+    if (opr === "remove") {
+      exerciseWeekMod[dayIndex].exercises.splice(exIndex, 1);
+    }
     if (opr === "remove superset") {
       exerciseWeekMod[dayIndex].exercises[exIndex].superset = "";
       setExerciseWeek(exerciseWeekMod);
     }
-    if (opr === "remove") {
-      exerciseWeekMod[dayIndex].exercises.splice(exIndex,1)
+    if (opr === "add") {
+      setExercisePool(["exercise", idd]);
     }
     if (opr === "add superset") {
-      exerciseWeekMod[dayIndex].exercises[exIndex].superset='superset'
+      setExercisePool(["superset", idd]);
     }
 
     forceUpdateHandler();
@@ -130,20 +146,23 @@ export default function EditMain({
         setSelectedDay={setSelectedDay}
       />
       <Grid container justifyContent="center">
-        <Grid item xs={4} className={classes.day}>
-          <UIExerciseDayEdit
-            exerciseWeek={exerciseWeek}
-            selectedDay={selectedDay}
-            handleExcerciseEdit={handleExcerciseEdit}
-          />
-        </Grid>
-        <Grid item xs={4} className={classes.pool}>
-          <UIExercisePool
-            EXERCISE_POOL={EXERCISE_POOL}
-            handleExcerciseAdd={handleExcerciseAdd}
-            forceUpdateHandler={forceUpdateHandler}
-          />
-        </Grid>
+        {exercisePool[0] ? (
+          <Grid item xs={4} className={classes.pool}>
+            <UIExercisePool
+              EXERCISE_POOL={EXERCISE_POOL}
+              handleExcerciseAdd={handleExcerciseAdd}
+              forceUpdateHandler={forceUpdateHandler}
+            />
+          </Grid>
+        ) : (
+          <Grid item xs={4} className={classes.day}>
+            <UIExerciseDayEdit
+              exerciseWeek={exerciseWeek}
+              selectedDay={selectedDay}
+              handleExcerciseEdit={handleExcerciseEdit}
+            />
+          </Grid>
+        )}
       </Grid>
     </>
   );
