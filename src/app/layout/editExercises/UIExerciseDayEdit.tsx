@@ -1,8 +1,6 @@
 import React, { Fragment, useState } from "react";
-
 // Models
 import { ExerciseDay } from "../../models/exerciseDay";
-
 // Material UI
 import {
   Button,
@@ -16,14 +14,13 @@ import { makeStyles } from "@mui/styles";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-
 /************************************************************************************************/
-
 interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
   handleExcerciseEdit: (opr: string, id: string) => void;
 }
+//|||||||||||||||||||||||||||||||||||||||||||
 const useStyles: any = makeStyles({
   day: {
     fontSize: 20,
@@ -50,9 +47,7 @@ const useStyles: any = makeStyles({
     color: "#bbbbbb",
   },
 });
-
 /************************************************************************************************/
-
 export default function UIExerciseDayEdit({
   exerciseWeek,
   selectedDay,
@@ -60,7 +55,7 @@ export default function UIExerciseDayEdit({
 }: Props) {
   const classes = useStyles();
   const [hover, setHover] = useState(false);
-
+  //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <Container>
       {selectedDay &&
@@ -77,7 +72,7 @@ export default function UIExerciseDayEdit({
                   <Button
                     className={classes.X}
                     variant="contained"
-                    onClick={() => handleExcerciseEdit("remove", exercise.id )}
+                    onClick={() => handleExcerciseEdit("remove", exercise.id)}
                   >
                     <CloseIcon />
                   </Button>
@@ -86,13 +81,13 @@ export default function UIExerciseDayEdit({
                   <Typography>Sets: {exercise.sets}</Typography>
                   <Button
                     className={classes.ss}
-                    onClick={() => handleExcerciseEdit("set-", exercise.id )}
+                    onClick={() => handleExcerciseEdit("set-", exercise.id)}
                   >
                     <RemoveIcon />
                   </Button>
                   <Button
                     className={classes.add}
-                    onClick={() => handleExcerciseEdit("set+", exercise.id )}
+                    onClick={() => handleExcerciseEdit("set+", exercise.id)}
                   >
                     <AddIcon />
                   </Button>
@@ -103,13 +98,13 @@ export default function UIExerciseDayEdit({
                   </Typography>
                   <Button
                     className={classes.ss}
-                    onClick={() => handleExcerciseEdit("time-", exercise.id )}
+                    onClick={() => handleExcerciseEdit("time-", exercise.id)}
                   >
                     <RemoveIcon />
                   </Button>
                   <Button
                     className={classes.add}
-                    onClick={() => handleExcerciseEdit("time+", exercise.id )}
+                    onClick={() => handleExcerciseEdit("time+", exercise.id)}
                   >
                     <AddIcon />
                   </Button>
@@ -120,7 +115,9 @@ export default function UIExerciseDayEdit({
                       <Typography>Superset: {exercise.superset}</Typography>
                       <Button
                         className={classes.ss}
-                        onClick={() => handleExcerciseEdit("remove superset", exercise.id )}
+                        onClick={() =>
+                          handleExcerciseEdit("remove superset", exercise.id)
+                        }
                       >
                         <CloseIcon />
                       </Button>

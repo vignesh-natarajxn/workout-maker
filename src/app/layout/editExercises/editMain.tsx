@@ -1,20 +1,15 @@
 import React, { Fragment } from "react";
-
 // Components
 import UIExerciseWeek from "../startExercises/UIExerciseWeek";
 import UIExercisePool from "./UIExercisePool";
 import UIExerciseDayEdit from "./UIExerciseDayEdit";
-
 // Models
 import { ExerciseDay } from "../../models/exerciseDay";
 import { ExercisePool } from "../../models/exercisePool";
-
 // Material UI
 import { Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
 /************************************************************************************************/
-
 interface Props {
   exerciseWeek: ExerciseDay[];
   setExerciseWeek: (ExerciseWeek: ExerciseDay[]) => void;
@@ -53,9 +48,7 @@ const useStyles: any = makeStyles((theme) => ({
     justifyContent: "center",
   },
 }));
-
 /************************************************************************************************/
-
 export default function EditMain({
   exerciseWeek,
   setExerciseWeek,
@@ -66,6 +59,11 @@ export default function EditMain({
 }: Props) {
   const classes = useStyles();
   const [someVar, setSomeVar] = React.useState<boolean>(true);
+  //|||||||||||||||||||||||||||||||||||||||||||
+  function forceUpdateHandler(this: any) {
+    setSomeVar((prev) => !prev);
+  }
+
   const handleExcerciseAdd = (name: string) => {
     let exerciseWeekMod = exerciseWeek;
     exerciseWeekMod
@@ -78,51 +76,42 @@ export default function EditMain({
         superset: "",
       });
     setExerciseWeek(exerciseWeekMod);
-
     forceUpdateHandler();
   };
-  function forceUpdateHandler(this: any) {
-    setSomeVar((prev) => !prev);
-  }
+
   const handleExcerciseEdit = (opr: string, idd: string) => {
     let exerciseWeekMod = exerciseWeek;
-
     const dayIndex = exerciseWeekMod.findIndex(
       (exerciseDay) => exerciseDay.id === selectedDay?.id
     );
     const exIndex = exerciseWeekMod
       .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
       .exercises.findIndex((exercise) => exercise.id === idd);
-
     if (opr === "set-") {
       if (exerciseWeekMod[dayIndex].exercises[exIndex].sets > 0)
         exerciseWeekMod[dayIndex].exercises[exIndex].sets -= 1;
       setExerciseWeek(exerciseWeekMod);
-      forceUpdateHandler();
     }
     if (opr === "set+") {
       exerciseWeekMod[dayIndex].exercises[exIndex].sets += 1;
       setExerciseWeek(exerciseWeekMod);
-      forceUpdateHandler();
     }
     if (opr === "time-") {
       if (exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween > 0)
         exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween -= 5;
       setExerciseWeek(exerciseWeekMod);
-      forceUpdateHandler();
     }
     if (opr === "time+") {
       exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween += 5;
       setExerciseWeek(exerciseWeekMod);
-      forceUpdateHandler();
     }
     if (opr === "remove superset") {
       exerciseWeekMod[dayIndex].exercises[exIndex].superset = "";
       setExerciseWeek(exerciseWeekMod);
-      forceUpdateHandler();
     }
+    forceUpdateHandler();
   };
-
+  //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <>
       <Typography variant="h5" margin={1} color="#ffffff">

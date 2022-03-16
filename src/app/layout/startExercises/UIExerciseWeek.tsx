@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-
 // Models
 import { ExerciseDay } from "../../models/exerciseDay";
-
 // Material UI
 import { Button, List, ListItemText, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
 /************************************************************************************************/
-
 interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
@@ -26,9 +22,7 @@ const useStyles: any = makeStyles({
     width: 210,
   },
 });
-
 /************************************************************************************************/
-
 export default function UIExerciseWeek({
   exerciseWeek,
   selectedDay,
@@ -36,7 +30,7 @@ export default function UIExerciseWeek({
 }: Props) {
   const classes = useStyles();
   const [hover, setHover] = useState(false);
-
+  //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <>
       {exerciseWeek.map((exerciseDay, i) => {
@@ -53,19 +47,27 @@ export default function UIExerciseWeek({
           >
             {hover ? (
               <List>
-                {/* <Typography>{i}</Typography> */}
                 {exerciseDay.exercises.map((exercise, ii) => {
-                  ii+=1
-                  if(ii<=5)
-                  return (
-                    <ListItemText key={exercise.name + Math.random()*10000} primary={exercise.name} />
-                  );
-                  if(ii===6)
-                  return(<ListItemText key={exercise.name + Math.random()*10000} primary='...' />)
+                  ii += 1;
+                  if (ii <= 5)
+                    return (
+                      <ListItemText
+                        key={exercise.name + Math.random() * 10000}
+                        primary={exercise.name}
+                      />
+                    );
+                  if (ii === 6)
+                    return (
+                      <ListItemText
+                        key={exercise.name + Math.random() * 10000}
+                        primary="..."
+                      />
+                    );
                 })}
               </List>
             ) : (
               <List>
+                <Typography>{i}</Typography>
                 <h3>
                   {i === 1
                     ? "Mon"

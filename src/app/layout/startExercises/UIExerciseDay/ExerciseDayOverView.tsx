@@ -1,24 +1,19 @@
 import React from "react";
-
 //Models
 import { ExerciseDay } from "../../../models/exerciseDay";
-
 //Material UI
 import { Button, Typography } from "@mui/material";
-
 /************************************************************************************************/
-
 interface Props {
   selectedDay: ExerciseDay;
   setCurrentDay: (id: string) => void;
 }
-
 /************************************************************************************************/
-
 export default function UIExerciseDayOverView({
   selectedDay,
   setCurrentDay,
 }: Props) {
+  //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <>
       <Typography variant="h4" margin={3} color="#ff8400">

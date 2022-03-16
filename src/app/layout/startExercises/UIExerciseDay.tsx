@@ -1,19 +1,14 @@
 import React, { Fragment, useState } from "react";
-
 // Components
 import ExerciseDayMain from "./UIExerciseDay/ExerciseDayMain";
 import ExerciseDayList from "./UIExerciseDay/ExerciseDayList";
 import ExerciseDayOverView from "./UIExerciseDay/ExerciseDayOverView";
-
 // Models
 import { ExerciseDay } from "../../models/exerciseDay";
-
 // Material UI
 import { Card, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
 /************************************************************************************************/
-
 interface Props {
   selectedDay: ExerciseDay;
   setSelectedDay: (id: string) => void;
@@ -41,9 +36,7 @@ const useStyles: any = makeStyles((theme) => ({
     justifyContent: "center",
   },
 }));
-
 /************************************************************************************************/
-
 export default function UIExerciseDay({
   selectedDay,
   setSelectedDay,
@@ -51,7 +44,8 @@ export default function UIExerciseDay({
   setCurrentDay,
 }: Props) {
   const [currentExercise, setCurrentExercise] = useState<number>(-1);
-
+  const classes = useStyles();
+  //|||||||||||||||||||||||||||||||||||||||||||
   function setCurrentDayHandler(id: string) {
     setCurrentDay(id);
     setCurrentExercise(0);
@@ -68,9 +62,7 @@ export default function UIExerciseDay({
   const workoutCompleteHandler = () => {
     setCurrentExercise(-1);
   };
-
-  const classes = useStyles();
-
+  //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <>
       <Grid container direction="row" justifyContent="center">

@@ -1,8 +1,6 @@
 import React from "react";
-
 // Models
 import { ExercisePool } from "../../models/exercisePool";
-
 // Material UI
 import {
   Button,
@@ -15,9 +13,7 @@ import {
 } from "@mui/material";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { makeStyles } from "@mui/styles";
-
 /************************************************************************************************/
-
 interface Props {
   EXERCISE_POOL: ExercisePool[];
   handleExcerciseAdd: (name: string) => void;
@@ -36,12 +32,10 @@ const useStyles: any = makeStyles({
   },
   poolbut: {
     // border: "2px solid #263141",
-    margin: 3
-  }
+    margin: 3,
+  },
 });
-
 /************************************************************************************************/
-
 export default function UIExercisePool({
   EXERCISE_POOL,
   handleExcerciseAdd,
@@ -58,9 +52,8 @@ export default function UIExercisePool({
     Triceps: false,
   });
   const [prevOpenId, setPrevOpenId] = React.useState<string>("");
-
   const classes = useStyles();
-
+  //|||||||||||||||||||||||||||||||||||||||||||
   const handleClick = (id: string) => {
     setOpen((prevState) => ({
       ...prevState,
@@ -70,18 +63,23 @@ export default function UIExercisePool({
     if (prevOpenId !== id) setPrevOpenId(id);
     else setPrevOpenId("");
   };
-
+  //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <Container>
-      <List 
+      <List
         sx={{ width: "100%", bgcolor: "#0d1117" }}
         aria-labelledby="nested-list-subheader"
       >
-        <Typography fontSize={18} margin={2}>ADD EXERCISE: </Typography>
+        <Typography fontSize={18} margin={2}>
+          ADD EXERCISE:{" "}
+        </Typography>
         {EXERCISE_POOL.map((category) => {
           return (
             <Container key={category.category}>
-              <ListItemButton className={classes.poolbut} onClick={() => handleClick(category.category)}>
+              <ListItemButton
+                className={classes.poolbut}
+                onClick={() => handleClick(category.category)}
+              >
                 <ListItemText primary={category.category} />
                 {open[category.category] ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>

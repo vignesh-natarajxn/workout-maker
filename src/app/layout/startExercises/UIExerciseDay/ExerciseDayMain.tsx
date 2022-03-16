@@ -1,26 +1,19 @@
 import React, { useState } from "react";
-
 // Components
 import Timer from "./ExerciseDayMain/Timer";
 import Completed from "./ExerciseDayMain/Completed";
-
 // Models
 import { ExerciseDay } from "../../../models/exerciseDay";
-
 // Material UI
 import { Button, Container, Typography } from "@mui/material";
-
 /************************************************************************************************/
-
 interface Props {
   currentDay: ExerciseDay;
   currentExercise: number;
   setCurrentExercise: () => void;
   workoutComplete: (id: string) => void;
 }
-
 /************************************************************************************************/
-
 export default function UIExerciseDayMain({
   currentDay,
   currentExercise,
@@ -30,7 +23,7 @@ export default function UIExerciseDayMain({
   const [showTimer, setShowTimer] = useState<boolean>(false);
   const [superset, setSuperset] = useState<boolean>(false);
   const [set, setSet] = useState<number>(1);
-
+  //|||||||||||||||||||||||||||||||||||||||||||
   const nextExerciseHandler = (opr: string) => {
     if (opr === "timer") {
       if (currentDay.exercises[currentExercise].superset && !superset) {
@@ -58,7 +51,7 @@ export default function UIExerciseDayMain({
       }
     }
   };
-
+  //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <Container>
       {currentExercise === 1000 && (

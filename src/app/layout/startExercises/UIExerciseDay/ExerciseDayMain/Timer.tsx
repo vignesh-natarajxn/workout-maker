@@ -1,11 +1,8 @@
 import React from "react";
 import { useTimer } from "react-timer-hook";
-
 //Material UI
 import { Button, Typography } from "@mui/material";
-
 /************************************************************************************************/
-
 export default function Timer({
   expiryTimestamp,
   timeS,
@@ -15,7 +12,7 @@ export default function Timer({
     expiryTimestamp,
     onExpire: () => nextExerciseHandler("next"),
   });
-
+  //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <div style={{ textAlign: "center" }}>
       {isRunning ? (

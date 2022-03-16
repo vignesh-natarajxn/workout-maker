@@ -2,21 +2,16 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import logo from "../logo.svg";
 import "../Styles.css";
-
 // Components
 import UIExerciseWeek from "./startExercises/UIExerciseWeek";
 import UIExerciseDay from "./startExercises/UIExerciseDay";
-
 // Models
 import { ExerciseDay } from "../models/exerciseDay";
 import EditMain from "./editExercises/EditMain";
-
 // Material UI
 import { Box, Button, Container, Typography } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
 /************************************************************************************************/
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -34,7 +29,6 @@ const theme = createTheme({
     fontWeightBold: "700",
   },
 });
-
 const EXERCISE_POOL = [
   {
     category: "Chest",
@@ -107,9 +101,7 @@ const EXERCISE_POOL = [
     exercises: [{ name: "Shrug" }, { name: "Neck Raise" }, { name: "PP Rise" }],
   },
 ];
-
 const EXERCISE_WEEK: ExerciseDay[] = [];
-
 EXERCISE_WEEK.push(
   {
     id: "d1",
@@ -252,15 +244,14 @@ EXERCISE_WEEK.push(
     ],
   }
 );
-
 /************************************************************************************************/
-
 function App() {
   const [exerciseWeek, setExerciseWeek] = useState<ExerciseDay[]>([]);
   const [selectedDay, setSelectedDay] = useState<ExerciseDay>(EXERCISE_WEEK[0]);
   const [currentDay, setCurrentDay] = useState<ExerciseDay | undefined>(
     undefined
   );
+  //|||||||||||||||||||||||||||||||||||||||||||
   useEffect(() => {
     setExerciseWeek(EXERCISE_WEEK);
   }, []);
@@ -272,16 +263,12 @@ function App() {
   // }, []);
 
   function handleSelectedDay(id: string) {
-    // const searchDay = exerciseWeek.find((x) => x.id === id);
-    // if (searchDay)
     setSelectedDay(exerciseWeek.find((x) => x.id === id)!);
   }
   function handleCurrentDay(id: string) {
     setCurrentDay(exerciseWeek.find((x) => x.id === id));
   }
-
-  // function setExerciseWeekHandler() {}
-
+  //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
