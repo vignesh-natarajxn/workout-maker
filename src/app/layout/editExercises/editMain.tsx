@@ -10,7 +10,7 @@ import { ExerciseDay } from "../../models/exerciseDay";
 import { ExercisePool } from "../../models/exercisePool";
 
 // Material UI
-import { Container, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 /************************************************************************************************/
@@ -21,6 +21,7 @@ interface Props {
   selectedDay: ExerciseDay | undefined;
   setSelectedDay: (id: string) => void;
   EXERCISE_POOL: ExercisePool[];
+  handleSelectedDay: (id: string) => void;
 }
 
 const useStyles: any = makeStyles((theme) => ({
@@ -61,17 +62,25 @@ export default function EditMain({
   selectedDay,
   setSelectedDay,
   EXERCISE_POOL,
+  handleSelectedDay,
 }: Props) {
   const classes = useStyles();
-
+  const [someVar, setSomeVar] = React.useState<boolean>(true);
   const handleExcerciseAdd = (name: string) => {
     let exerciseWeekMod = exerciseWeek;
     exerciseWeekMod
       .find((exerciseDay) => exerciseDay.id === selectedDay?.id)
       ?.exercises.push({ name: name, timeBetween: 120, sets: 3, superset: "" });
     setExerciseWeek(exerciseWeekMod);
+    handleSelectedDay(
+      exerciseWeekMod.find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
+        .id
+    );
+    forceUpdateHandler();
   };
-
+  function forceUpdateHandler(this: any) {
+    setSomeVar((prev)=> !prev);
+  }
   const handleExcerciseMod = (
     sets: number,
     timeBetween: number,
@@ -91,15 +100,15 @@ export default function EditMain({
       <Grid container justifyContent="center">
         <Grid item xs={4} className={classes.day}>
           <UIExerciseDayEdit
-            selectedDay={exerciseWeek.find(
-              (exerciseDay) => exerciseDay.id === selectedDay?.id
-            )}
+            exerciseWeek={exerciseWeek}
+            selectedDay={selectedDay}
           />
         </Grid>
         <Grid item xs={4} className={classes.pool}>
           <UIExercisePool
             EXERCISE_POOL={EXERCISE_POOL}
             handleExcerciseAdd={handleExcerciseAdd}
+            forceUpdateHandler={forceUpdateHandler}
           />
         </Grid>
       </Grid>

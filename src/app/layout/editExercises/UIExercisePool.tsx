@@ -20,6 +20,7 @@ import { makeStyles } from "@mui/styles";
 interface Props {
   EXERCISE_POOL: ExercisePool[];
   handleExcerciseAdd: (name: string) => void;
+  forceUpdateHandler: (this: any) => void;
 }
 
 const useStyles: any = makeStyles({
@@ -39,6 +40,7 @@ const useStyles: any = makeStyles({
 export default function UIExercisePool({
   EXERCISE_POOL,
   handleExcerciseAdd,
+  forceUpdateHandler,
 }: Props) {
   const [open, setOpen] = React.useState<{ [id: string]: boolean }>({
     Abs: false,
@@ -62,6 +64,7 @@ export default function UIExercisePool({
     }));
     if (prevOpenId !== id) setPrevOpenId(id);
     else setPrevOpenId("");
+    
   };
 
   return (
@@ -98,6 +101,7 @@ export default function UIExercisePool({
                           color="secondary"
                           className={classes.pool}
                           fullWidth
+                          key={exercise.name + Math.random() * 1000}
                           onClick={() => handleExcerciseAdd(exercise.name)}
                         >
                           {exercise.name}

@@ -327,6 +327,7 @@ function App() {
                     selectedDay={selectedDay}
                     setSelectedDay={handleSelectedDay}
                     EXERCISE_POOL={EXERCISE_POOL}
+                    handleSelectedDay={handleSelectedDay}
                   />
                 </Box>
               }
