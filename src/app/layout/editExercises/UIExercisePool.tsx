@@ -21,6 +21,7 @@ import {
 } from "@mui/material";
 import { ExercisePool } from "../../models/exercisePool";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import { makeStyles } from "@mui/styles";
 
 /************************************************************************************************/
 
@@ -28,25 +29,43 @@ interface Props {
   EXERCISE_POOL: ExercisePool[];
 }
 
+const useStyles: any = makeStyles({
+  pool: {
+    // fontSize: 20,
+    "&:hover": {
+      border: "2px solid #ff8400",
+    },
+    marginTop: 5,
+    marginBottom: 5,
+    height: 50,
+  },
+});
+
 /************************************************************************************************/
 
 export default function UIExercisePool({ EXERCISE_POOL }: Props) {
-  const [open, setOpen] = React.useState<boolean[]>([
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const [open, setOpen] = React.useState<{ [id: string]: boolean }>({
+    Abs: false,
+    Back: false,
+    "Biceps and Forearms": false,
+    Chest: false,
+    Legs: false,
+    Other: false,
+    Shoulders: false,
+    Triceps: false,
+  });
+  const [prevOpenId, setPrevOpenId] = React.useState<string>("");
 
-  const handleClick = (i: number) => {
-    setOpen((prev) => {
-      prev[i] = !prev[i];
-      return prev;
-    });
+  const classes = useStyles();
+
+  const handleClick = (id: string) => {
+    setOpen((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+      [prevOpenId]: false,
+    }));
+    if (prevOpenId !== id) setPrevOpenId(id);
+    else setPrevOpenId("");
   };
   return (
     <>
@@ -54,26 +73,39 @@ export default function UIExercisePool({ EXERCISE_POOL }: Props) {
         sx={{ width: "100%", bgcolor: "#0d1117" }}
         aria-labelledby="nested-list-subheader"
       >
-        {EXERCISE_POOL.map((category, i) => {
-          i += 1;
-          console.log(i-1);
-          console.log(open[i-1]);
+        {EXERCISE_POOL.map((category) => {
           return (
             <Container key={category.category}>
-              <ListItemButton onClick={() => handleClick(i-1)}>
+              <ListItemButton onClick={() => handleClick(category.category)}>
                 <ListItemText primary={category.category} />
-                {open[i-1] ? <ExpandLess /> : <ExpandMore />}
+                {open[category.category] ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <Collapse in={open![i-1]} timeout="auto" unmountOnExit>
+              <Collapse
+                in={open[category.category]}
+                timeout="auto"
+                unmountOnExit
+              >
                 <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    {category.exercises.map((exercise) => (
-                      <Fragment key={Math.random()}>
-                        <Button variant="contained" color="secondary" fullWidth>
-                          {exercise}
+                  <ListItemButton>
+                    <div
+                      key={Math.random()}
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "100%",
+                      }}
+                    >
+                      {category.exercises.map((exercise) => (
+                        <Button
+                          variant="contained"
+                          color="secondary"
+                          className={classes.pool}
+                          fullWidth
+                        >
+                          {exercise.name}
                         </Button>
-                      </Fragment>
-                    ))}
+                      ))}
+                    </div>
                   </ListItemButton>
                 </List>
               </Collapse>
