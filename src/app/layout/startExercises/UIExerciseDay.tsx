@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from "react";
 
 // Components
-import UIExerciseDayMain from "./UIExerciseDay/UIExerciseDayMain";
-import UIExerciseDayList from "./UIExerciseDay/UIExerciseDayList";
-import UIExerciseDayOverView from "./UIExerciseDay/UIExerciseDayOverView";
+import ExerciseDayMain from "./UIExerciseDay/ExerciseDayMain";
+import ExerciseDayList from "./UIExerciseDay/ExerciseDayList";
+import ExerciseDayOverView from "./UIExerciseDay/ExerciseDayOverView";
 
 // Models
 import { ExerciseDay } from "../../models/exerciseDay";
@@ -83,11 +83,11 @@ export default function UIExerciseDay({
               <Fragment key={exercise.name + " " + exercise.superset}>
                 {exercise === currentDay?.exercises[currentExercise] ? (
                   <Card className={classes.selectedExc}>
-                    <UIExerciseDayList exercise={exercise} />
+                    <ExerciseDayList exercise={exercise} />
                   </Card>
                 ) : (
                   <Card className={classes.exc}>
-                    <UIExerciseDayList exercise={exercise} />
+                    <ExerciseDayList exercise={exercise} />
                   </Card>
                 )}
               </Fragment>
@@ -96,13 +96,13 @@ export default function UIExerciseDay({
         </Grid>
         <Grid item xs={5} className={classes.card}>
           {currentExercise === -1 && selectedDay && (
-            <UIExerciseDayOverView
+            <ExerciseDayOverView
               selectedDay={selectedDay}
               setCurrentDay={setCurrentDayHandler}
             />
           )}
           {currentExercise !== -1 && currentDay && (
-            <UIExerciseDayMain
+            <ExerciseDayMain
               currentDay={currentDay}
               currentExercise={currentExercise}
               setCurrentExercise={setCurrentExerciseHandler}

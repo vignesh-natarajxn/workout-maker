@@ -1,25 +1,17 @@
-import React, { Fragment } from "react";
-
-// Components
-import UIExerciseWeek from "../startExercises/UIExerciseWeek";
+import React from "react";
 
 // Models
-import { ExerciseDay } from "../../models/exerciseDay";
+import { ExercisePool } from "../../models/exercisePool";
 
 // Material UI
 import {
   Button,
   Collapse,
   Container,
-  Grid,
   List,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
-  ListSubheader,
-  Typography,
 } from "@mui/material";
-import { ExercisePool } from "../../models/exercisePool";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { makeStyles } from "@mui/styles";
 
@@ -67,6 +59,8 @@ export default function UIExercisePool({ EXERCISE_POOL }: Props) {
     if (prevOpenId !== id) setPrevOpenId(id);
     else setPrevOpenId("");
   };
+
+  const handleExcerciseAdd = (name: string) => {};
   return (
     <>
       <List
@@ -101,6 +95,7 @@ export default function UIExercisePool({ EXERCISE_POOL }: Props) {
                           color="secondary"
                           className={classes.pool}
                           fullWidth
+                          onClick={() => handleExcerciseAdd(exercise.name)}
                         >
                           {exercise.name}
                         </Button>

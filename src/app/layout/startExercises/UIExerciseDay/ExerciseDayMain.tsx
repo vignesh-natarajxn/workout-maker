@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
+// Components
+import Timer from "./ExerciseDayMain/Timer";
+import Completed from "./ExerciseDayMain/Completed";
+
 // Models
 import { ExerciseDay } from "../../../models/exerciseDay";
 
 // Material UI
 import { Button, Container, Typography } from "@mui/material";
-import Timer from "./UIExerciseDayMain/Timer";
-import Completed from "./UIExerciseDayMain/Completed";
 
 /************************************************************************************************/
 
