@@ -124,7 +124,9 @@ export default function UIExerciseDayEdit({
                     </ListItem>
                   </>
                 ) : (
-                  <Button>Add Superset</Button>
+                  <ListItem>
+                    <Button className={classes.ss} >Add Superset</Button>
+                  </ListItem>
                 )}
               </List>
             </Fragment>
