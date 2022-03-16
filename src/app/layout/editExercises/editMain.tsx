@@ -35,7 +35,7 @@ const useStyles: any = makeStyles((theme) => ({
   },
   day: {
     backgroundColor: "#191f27",
-    border: "2px solid #ff8400",
+    border: "2px solid #333333",
     marginTop: 20,
     marginBottom: 20,
     alignItems: "center",
@@ -43,8 +43,8 @@ const useStyles: any = makeStyles((theme) => ({
     justifyContent: "center",
   },
   pool: {
-    backgroundColor: "#191f27",
-    border: "2px solid #333333",
+    // backgroundColor: "#191f27",
+    // border: "2px solid #333333",
     marginTop: 20,
     marginBottom: 20,
     height: 800,
@@ -79,13 +79,9 @@ export default function EditMain({
     forceUpdateHandler();
   };
   function forceUpdateHandler(this: any) {
-    setSomeVar((prev)=> !prev);
+    setSomeVar((prev) => !prev);
   }
-  const handleExcerciseMod = (
-    sets: number,
-    timeBetween: number,
-    superset: string
-  ) => {};
+  const handleExcerciseEdit = (opr: string) => {};
 
   return (
     <>
@@ -102,6 +98,7 @@ export default function EditMain({
           <UIExerciseDayEdit
             exerciseWeek={exerciseWeek}
             selectedDay={selectedDay}
+            handleExcerciseEdit={handleExcerciseEdit}
           />
         </Grid>
         <Grid item xs={4} className={classes.pool}>

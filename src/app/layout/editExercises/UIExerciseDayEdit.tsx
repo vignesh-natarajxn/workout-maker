@@ -19,6 +19,7 @@ import { makeStyles } from "@mui/styles";
 interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
+  handleExcerciseEdit: (opr: string) => void;
 }
 const useStyles: any = makeStyles({
   day: {
@@ -38,6 +39,7 @@ const useStyles: any = makeStyles({
 export default function UIExerciseDayEdit({
   exerciseWeek,
   selectedDay,
+  handleExcerciseEdit,
 }: Props) {
   const classes = useStyles();
   const [hover, setHover] = useState(false);
@@ -53,14 +55,24 @@ export default function UIExerciseDayEdit({
           .exercises.map((exercise) => (
             <Fragment key={exercise.name + Math.random() * 1000}>
               <List>
-                <ListItem>{exercise.name}</ListItem>
-                <ListItem>Sets: {exercise.sets}</ListItem>
-                <ListItem>Time between sets: {exercise.timeBetween}</ListItem>
+                <ListItem>
+                  <Typography>{exercise.name}</Typography>
+                </ListItem>
+                <ListItem>
+                  <Typography>Sets: {exercise.sets}</Typography>
+                </ListItem>
+                <ListItem>
+                  <Typography>
+                    Time between sets: {exercise.timeBetween}
+                  </Typography>
+                </ListItem>
                 {exercise.superset ? (
                   <>
                     <ListItem>
-                      <div>Superset: {exercise.superset}</div>
-                      <Button>Remove Superset</Button>
+                      <Typography>
+                        Superset: {exercise.superset}
+                        <Button>Remove Superset</Button>
+                      </Typography>
                     </ListItem>
                   </>
                 ) : (
