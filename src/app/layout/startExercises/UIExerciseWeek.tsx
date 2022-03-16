@@ -19,7 +19,7 @@ const useStyles: any = makeStyles({
     marginTop: 10,
     marginBottom: 10,
     height: 230,
-    width: 160,
+    width: 164,
   },
   hovertext: {
     fontSize: 14,

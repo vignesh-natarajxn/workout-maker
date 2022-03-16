@@ -19,7 +19,7 @@ interface Props {
 const useStyles: any = makeStyles((theme) => ({
   exc: {
     backgroundColor: "#0d1117",
-    border: "2px solid #333333",
+    border: "2px solid #0d1117",
     borderRadius: 15,
     margin: 3,
   },
@@ -31,6 +31,15 @@ const useStyles: any = makeStyles((theme) => ({
   },
   card: {
     backgroundColor: "#191f27",
+    border: "2px solid #333333",
+    marginTop: 20,
+    height: 500,
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
+    borderRadius: 15,
+  },
+  cardlist: {
     border: "2px solid #333333",
     marginTop: 20,
     height: 500,
@@ -70,27 +79,7 @@ export default function UIExerciseDay({
   return (
     <>
       <Grid container direction="row" justifyContent="center">
-        <Grid item xs={5}>
-          <Container>
-            <Typography fontSize={30} margin={3} color="primary">
-              {selectedDay.name}
-            </Typography>
-            {selectedDay.exercises.map((exercise) => (
-              <Fragment key={exercise.name + " " + exercise.superset}>
-                {exercise === currentDay?.exercises[currentExercise] ? (
-                  <Card className={classes.selectedExc}>
-                    <ExerciseDayList exercise={exercise} />
-                  </Card>
-                ) : (
-                  <Card className={classes.exc}>
-                    <ExerciseDayList exercise={exercise} />
-                  </Card>
-                )}
-              </Fragment>
-            ))}
-          </Container>
-        </Grid>
-        <Grid item xs={6} className={classes.card}>
+        <Grid item xs={7} className={classes.card}>
           {currentExercise === -1 && selectedDay && (
             <ExerciseDayOverView
               selectedDay={selectedDay}
@@ -105,6 +94,23 @@ export default function UIExerciseDay({
               workoutComplete={workoutCompleteHandler}
             />
           )}
+        </Grid>
+        <Grid item xs={5} className={classes.cardlist}>
+          <>
+            {selectedDay.exercises.map((exercise) => (
+              <Fragment key={exercise.name + " " + exercise.superset}>
+                {exercise === currentDay?.exercises[currentExercise] ? (
+                  <Card className={classes.selectedExc}>
+                    <ExerciseDayList exercise={exercise} />
+                  </Card>
+                ) : (
+                  <Card className={classes.exc}>
+                    <ExerciseDayList exercise={exercise} />
+                  </Card>
+                )}
+              </Fragment>
+            ))}
+          </>
         </Grid>
       </Grid>
     </>
