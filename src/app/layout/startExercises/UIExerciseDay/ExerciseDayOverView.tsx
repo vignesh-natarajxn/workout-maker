@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 //Models
 import { ExerciseDay } from "../../../models/exerciseDay";
 //Material UI
@@ -13,6 +13,7 @@ export default function UIExerciseDayOverView({
   selectedDay,
   setCurrentDay,
 }: Props) {
+  const [displayNoExc, setDisplayNoExc] = useState<boolean>(false);
   //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <>
@@ -50,11 +51,27 @@ export default function UIExerciseDayOverView({
           .toFixed(0)}{" "}
         minutes
       </Typography>
-      <Button variant="contained" onClick={() => setCurrentDay(selectedDay.id)}>
+      <Button
+        variant="contained"
+        onClick={() => {
+          if (selectedDay.exercises.length !== 0) {
+            setDisplayNoExc(false);
+            return setCurrentDay(selectedDay.id);
+          } else {
+            setDisplayNoExc(true);
+            return;
+          }
+        }}
+      >
         <Typography fontSize={18} margin={3} color="#000000">
           Begin Workout
         </Typography>
       </Button>
+      {displayNoExc && (
+        <Typography fontSize={18} margin={2} marginBottom={6} color="#ffffff">
+          Add exercises to start.
+        </Typography>
+      )}
     </>
   );
 }

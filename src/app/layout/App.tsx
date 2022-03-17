@@ -296,7 +296,7 @@ function App() {
           </Link>
         </nav>
 
-        <Container >
+        <Container>
           <Routes>
             <Route
               path="/"

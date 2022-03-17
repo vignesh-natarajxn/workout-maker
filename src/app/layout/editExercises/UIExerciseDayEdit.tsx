@@ -59,6 +59,9 @@ export default function UIExerciseDayEdit({
   //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <Container>
+      <Button onClick={() => handleExcerciseEdit("add", "noelements")}>
+        <AddCircleIcon />
+      </Button>
       {selectedDay &&
         exerciseWeek.find(
           (exerciseDay) => exerciseDay.id === selectedDay?.id
@@ -70,7 +73,7 @@ export default function UIExerciseDayEdit({
               <List>
                 <ListItem>
                   <Typography fontSize={19} color="primary">
-                    {exercise.name}{" "}
+                    {exercise.name}
                   </Typography>
                   <Button
                     className={classes.X}

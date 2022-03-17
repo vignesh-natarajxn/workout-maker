@@ -97,9 +97,12 @@ export default function EditMain({
     const dayIndex = exerciseWeekMod.findIndex(
       (exerciseDay) => exerciseDay.id === selectedDay?.id
     );
-    const exIndex = exerciseWeekMod
+    let exIndex = exerciseWeekMod
       .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
       .exercises.findIndex((exercise) => exercise.id === idd);
+
+    if (idd === 'noelements') exIndex = 0;
+
     if (opr === "set-") {
       if (exerciseWeekMod[dayIndex].exercises[exIndex].sets > 0)
         exerciseWeekMod[dayIndex].exercises[exIndex].sets -= 1;

@@ -61,6 +61,7 @@ export default function UIExerciseDay({
   function setCurrentDayHandler(id: string) {
     setCurrentDay(id);
     setCurrentExercise(0);
+    
   }
 
   const setCurrentExerciseHandler = () => {
