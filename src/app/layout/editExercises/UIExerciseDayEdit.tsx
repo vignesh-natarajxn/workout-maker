@@ -69,7 +69,7 @@ export default function UIExerciseDayEdit({
             <Fragment key={exercise.name + Math.random() * 1000}>
               <List>
                 <ListItem>
-                  <Typography color="primary">{exercise.name} </Typography>
+                  <Typography fontSize={19} color="primary">{exercise.name} </Typography>
                   <Button
                     className={classes.X}
                     variant="contained"
