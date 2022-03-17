@@ -34,7 +34,7 @@ export default function UIExerciseDayOverView({
           0
         )}
       </Typography>
-      <Typography fontSize={18} margin={2} marginBottom={7} color="#ffffff">
+      <Typography fontSize={18} margin={2} marginBottom={6} color="#ffffff">
         Time Estimation:{" "}
         {selectedDay.exercises
           .reduce(
@@ -51,7 +51,7 @@ export default function UIExerciseDayOverView({
         minutes
       </Typography>
       <Button variant="contained" onClick={() => setCurrentDay(selectedDay.id)}>
-        <Typography fontSize={18} margin={6} color="#000000">
+        <Typography fontSize={18} margin={3} color="#000000">
           Begin Workout
         </Typography>
       </Button>
