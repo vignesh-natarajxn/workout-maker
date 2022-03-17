@@ -69,7 +69,9 @@ export default function UIExerciseDayEdit({
             <Fragment key={exercise.name + Math.random() * 1000}>
               <List>
                 <ListItem>
-                  <Typography fontSize={19} color="primary">{exercise.name} </Typography>
+                  <Typography fontSize={19} color="primary">
+                    {exercise.name}{" "}
+                  </Typography>
                   <Button
                     className={classes.X}
                     variant="contained"
@@ -79,7 +81,7 @@ export default function UIExerciseDayEdit({
                   </Button>
                 </ListItem>
                 <ListItem>
-                  <Typography color='#ffffff'>Sets: {exercise.sets}</Typography>
+                  <Typography color="#ffffff">Sets: {exercise.sets}</Typography>
                   <Button
                     className={classes.ss}
                     onClick={() => handleExcerciseEdit("set-", exercise.id)}
@@ -94,7 +96,7 @@ export default function UIExerciseDayEdit({
                   </Button>
                 </ListItem>
                 <ListItem>
-                  <Typography color='#ffffff'>
+                  <Typography color="#ffffff">
                     Time between sets: {exercise.timeBetween} s
                   </Typography>
                   <Button
@@ -113,7 +115,9 @@ export default function UIExerciseDayEdit({
                 {exercise.superset ? (
                   <>
                     <ListItem>
-                      <Typography color='#ffffff'>Superset: {exercise.superset}</Typography>
+                      <Typography color="#ffffff">
+                        Superset: {exercise.superset}
+                      </Typography>
                       <Button
                         className={classes.ss}
                         onClick={() =>

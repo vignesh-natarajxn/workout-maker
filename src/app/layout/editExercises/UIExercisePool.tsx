@@ -80,7 +80,9 @@ export default function UIExercisePool({
               >
                 <ListItemText
                   primary={
-                    <Typography color='#ffffff' margin={1}>{category.category}</Typography>
+                    <Typography color="#ffffff" margin={1}>
+                      {category.category}
+                    </Typography>
                   }
                 />
                 {open[category.category] ? <ExpandLess /> : <ExpandMore />}

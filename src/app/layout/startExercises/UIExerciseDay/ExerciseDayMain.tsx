@@ -79,7 +79,12 @@ export default function UIExerciseDayMain({
                 {currentDay.exercises[currentExercise].name}
               </Typography>
             )}
-            <Button variant='contained' onClick={() => workoutComplete(currentDay!.id)}>Cancel</Button>
+            <Button
+              variant="contained"
+              onClick={() => workoutComplete(currentDay!.id)}
+            >
+              Cancel
+            </Button>
           </ListItem>
           <Typography fontSize={18} margin={3} color="#ffffff">
             Sets: {currentDay.exercises[currentExercise].sets} | Rest Time:{" "}
