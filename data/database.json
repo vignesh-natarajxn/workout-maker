@@ -5,16 +5,18 @@
       "name": "Day 1",
       "exercises": [
         {
-          "name": "Exercise 1",
+          "id": "e1",
+          "name": "Day 1 Exercise 1",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 1a"
+          "superset": "Day 1 Exercise 1a"
         },
         {
-          "name": "Exercise 2",
+          "id": "e2",
+          "name": "Day 1 Exercise 2",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 2a"
+          "superset": "Day 1 Exercise 2a"
         }
       ]
     },
@@ -23,16 +25,18 @@
       "name": "Day 2",
       "exercises": [
         {
-          "name": "Exercise 1",
+          "id": "e1",
+          "name": "Day 2 Exercise 1",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 1a"
+          "superset": "Day 2 Exercise 1a"
         },
         {
-          "name": "Exercise 2",
+          "id": "e2",
+          "name": "Day 2 Exercise 2",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 2a"
+          "superset": "Day 2 Exercise 2a"
         }
       ]
     },
@@ -41,16 +45,18 @@
       "name": "Day 3",
       "exercises": [
         {
-          "name": "Exercise 1",
+          "id": "e1",
+          "name": "Day 3 Exercise 1",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 1a"
+          "superset": "Day 3 Exercise 1a"
         },
         {
-          "name": "Exercise 2",
+          "id": "e2",
+          "name": "Day 3 Exercise 2",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 2a"
+          "superset": "Day 3 Exercise 2a"
         }
       ]
     },
@@ -59,16 +65,18 @@
       "name": "Day 4",
       "exercises": [
         {
-          "name": "Exercise 1",
+          "id": "e1",
+          "name": "Day 4 Exercise 1",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 1a"
+          "superset": "Day 4 Exercise 1a"
         },
         {
-          "name": "Exercise 2",
+          "id": "e2",
+          "name": "Day 4 Exercise 2",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 2a"
+          "superset": "Day 4 Exercise 2a"
         }
       ]
     },
@@ -77,16 +85,18 @@
       "name": "Day 5",
       "exercises": [
         {
-          "name": "Exercise 1",
+          "id": "e1",
+          "name": "Day 5 Exercise 1",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 1a"
+          "superset": "Day 5 Exercise 1a"
         },
         {
-          "name": "Exercise 2",
+          "id": "e2",
+          "name": "Day 5 Exercise 2",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 2a"
+          "superset": "Day 5 Exercise 2a"
         }
       ]
     },
@@ -95,16 +105,18 @@
       "name": "Day 6",
       "exercises": [
         {
-          "name": "Exercise 1",
+          "id": "e1",
+          "name": "Day 6 Exercise 1",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 1a"
+          "superset": "Day 6 Exercise 1a"
         },
         {
-          "name": "Exercise 2",
+          "id": "e2",
+          "name": "Day 6 Exercise 2",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 2a"
+          "superset": "Day 6 Exercise 2a"
         }
       ]
     },
@@ -113,16 +125,18 @@
       "name": "Day 7",
       "exercises": [
         {
-          "name": "Exercise 1",
+          "id": "e1",
+          "name": "Day 7 Exercise 1",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 1a"
+          "superset": "Day 7 Exercise 1a"
         },
         {
-          "name": "Exercise 2",
+          "id": "e2",
+          "name": "Day 7 Exercise 2",
           "timeBetween": 120,
           "sets": 3,
-          "superset": "Exercise 2a"
+          "superset": "Day 7 Exercise 2a"
         }
       ]
     }
