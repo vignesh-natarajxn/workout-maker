@@ -60,29 +60,21 @@ export default function UIExerciseDayMain({
       {currentExercise !== 1000 && (
         <>
           {superset ? (
-            <Typography variant="h4" margin={2} color="#b4b4b4">
+            <Typography fontSize={30} margin={2} color="#b4b4b4">
               {currentDay.exercises[currentExercise].superset}
             </Typography>
           ) : (
-            <Typography variant="h4" margin={2} color="primary">
+            <Typography fontSize={30} margin={2} color="primary">
               {currentDay.exercises[currentExercise].name}
             </Typography>
           )}
-          <Typography variant="h6" margin={3} color="#ffffff">
+          <Typography fontSize={18} margin={3} color="#ffffff">
             Sets: {currentDay.exercises[currentExercise].sets} | Rest Time:{" "}
             {currentDay.exercises[currentExercise].timeBetween}
           </Typography>
           {showTimer ? (
             <>
-              <Button
-                variant="contained"
-                onClick={() => nextExerciseHandler("next")}
-              >
-                <Typography variant="h5" margin={2} color="#000000">
-                  Force Next
-                </Typography>
-              </Button>
-              <Typography variant="h6" margin={3} color="#ffffff">
+              <Typography fontSize={18} margin={3} color="#ffffff">
                 Current Set: {set}
               </Typography>
               <Timer
@@ -97,6 +89,15 @@ export default function UIExerciseDayMain({
                 timeS={currentDay.exercises[currentExercise].timeBetween}
                 nextExerciseHandler={nextExerciseHandler}
               />
+              <Typography marginTop={3}></Typography>
+              <Button
+                variant="outlined"
+                onClick={() => nextExerciseHandler("next")}
+              >
+                <Typography fontSize={18} margin={2} color="#000000">
+                  Force Next
+                </Typography>
+              </Button>
             </>
           ) : (
             <>
@@ -104,11 +105,11 @@ export default function UIExerciseDayMain({
                 variant="contained"
                 onClick={() => nextExerciseHandler("timer")}
               >
-                <Typography variant="h5" margin={2} color="#000000">
+                <Typography fontSize={18} margin={8} color="#000000">
                   Next
                 </Typography>
               </Button>
-              <Typography variant="h6" margin={3} color="#ffffff">
+              <Typography fontSize={18} margin={3} color="#ffffff">
                 Current Set: {set}
               </Typography>
             </>

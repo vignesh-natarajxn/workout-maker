@@ -13,14 +13,14 @@ export default function Completed({ currentDay, workoutComplete }: Props) {
   //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <>
-      <Typography variant="h4" margin={3} color="#ffffff">
+      <Typography fontSize={30} margin={3} color="#ffffff">
         Completed!
       </Typography>
       <Button
         variant="contained"
         onClick={() => workoutComplete(currentDay!.id)}
       >
-        <Typography variant="h5" margin={2} color="#000000">
+        <Typography fontSize={18} margin={6} color="#000000">
           Choose Next Workout
         </Typography>
       </Button>
