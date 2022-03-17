@@ -2,7 +2,7 @@ import React from "react";
 // Models
 import { Exercise } from "../../../models/exercise";
 // Material UI
-import { Button, CardContent, Typography } from "@mui/material";
+import { Button, CardContent, List, ListItem, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 /************************************************************************************************/
@@ -41,18 +41,23 @@ export default function UIExerciseDayList({ exercise }: Props) {
   const classes = useStyles();
   //|||||||||||||||||||||||||||||||||||||||||||
   return (
-    <CardContent>
-      <Typography align="left" fontSize={18} color="common.white">
-        {exercise.name}
-      </Typography>
-      <div>Sets: {exercise.sets}</div>
-
-      <Typography align="left" fontSize={18} lineHeight={2} color="#b4b4b4">
-        {exercise.superset}
-      </Typography>
-      <Typography fontSize={17} color="common.white" marginLeft={15}>
-        Rest Time: {exercise.timeBetween}
-      </Typography>
-    </CardContent>
+    <List>
+      <ListItem>
+        <Typography align="left" fontSize={18} color="common.white">
+          {exercise.name}
+        </Typography>
+        <Typography fontSize={17} color="common.white" marginLeft="auto">
+          Sets: {exercise.sets}
+        </Typography>
+      </ListItem>
+      <ListItem>
+        <Typography align="left" fontSize={18} lineHeight={2} color="#b4b4b4">
+          {exercise.superset}
+        </Typography>
+        <Typography fontSize={17} color="common.white" marginLeft="auto">
+          Rest Time: {exercise.timeBetween}
+        </Typography>
+      </ListItem>
+    </List>
   );
 }
