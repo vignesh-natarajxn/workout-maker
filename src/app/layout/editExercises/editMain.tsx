@@ -111,11 +111,11 @@ export default function EditMain({
     }
     if (opr === "time-") {
       if (exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween > 0)
-        exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween -= 5;
+        exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween -= 15;
       setExerciseWeek(exerciseWeekMod);
     }
     if (opr === "time+") {
-      exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween += 5;
+      exerciseWeekMod[dayIndex].exercises[exIndex].timeBetween += 15;
       setExerciseWeek(exerciseWeekMod);
     }
     if (opr === "remove") {
