@@ -79,7 +79,7 @@ export default function UIExerciseDayEdit({
                   </Button>
                 </ListItem>
                 <ListItem>
-                  <Typography>Sets: {exercise.sets}</Typography>
+                  <Typography color='#ffffff'>Sets: {exercise.sets}</Typography>
                   <Button
                     className={classes.ss}
                     onClick={() => handleExcerciseEdit("set-", exercise.id)}
@@ -94,7 +94,7 @@ export default function UIExerciseDayEdit({
                   </Button>
                 </ListItem>
                 <ListItem>
-                  <Typography>
+                  <Typography color='#ffffff'>
                     Time between sets: {exercise.timeBetween} s
                   </Typography>
                   <Button
@@ -113,7 +113,7 @@ export default function UIExerciseDayEdit({
                 {exercise.superset ? (
                   <>
                     <ListItem>
-                      <Typography>Superset: {exercise.superset}</Typography>
+                      <Typography color='#ffffff'>Superset: {exercise.superset}</Typography>
                       <Button
                         className={classes.ss}
                         onClick={() =>
