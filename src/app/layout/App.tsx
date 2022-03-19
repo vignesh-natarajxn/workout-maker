@@ -106,7 +106,8 @@ const EXERCISE_POOL = [
     exercises: [{ name: "Shrug" }, { name: "Neck Raise" }, { name: "PP Rise" }],
   },
 ];
-const EXERCISE_WEEK: ExerciseDay[] = [
+const EXERCISE_WEEK: ExerciseDay[] = [];
+EXERCISE_WEEK.push(
   {
     id: "d1",
     name: "Day 1",
@@ -246,8 +247,8 @@ const EXERCISE_WEEK: ExerciseDay[] = [
         superset: "Day 7 Exercise 2a",
       },
     ],
-  },
-];
+  }
+);
 
 let profiles: null | string[] = [],
   keys = Object.keys(localStorage),
