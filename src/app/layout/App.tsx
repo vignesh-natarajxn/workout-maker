@@ -250,14 +250,14 @@ EXERCISE_WEEK.push(
   }
 );
 
-let profiles: null | string[] = [],
-  keys = Object.keys(localStorage),
-  np = keys.length;
+// let profiles: null | string[] = [],
+//   keys = Object.keys(localStorage),
+//   np = keys.length;
 
-while (np--) {
-  let temp = localStorage.getItem(keys[np]);
-  if (temp !== null) profiles.push(temp);
-}
+// while (np--) {
+//   let temp = localStorage.getItem(keys[np]);
+//   if (temp !== null) profiles.push(temp);
+// }
 
 /************************************************************************************************/
 
