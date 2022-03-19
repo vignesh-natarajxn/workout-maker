@@ -1,6 +1,6 @@
 {
   "home": "https://viknhat.github.io/workout-maker/",
-  "name": "my-app",
+  "name": "workout-maker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
