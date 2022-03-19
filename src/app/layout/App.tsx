@@ -106,8 +106,7 @@ const EXERCISE_POOL = [
     exercises: [{ name: "Shrug" }, { name: "Neck Raise" }, { name: "PP Rise" }],
   },
 ];
-const EXERCISE_WEEK: ExerciseDay[] = [];
-EXERCISE_WEEK.push(
+const EXERCISE_WEEK: ExerciseDay[] = [
   {
     id: "d1",
     name: "Day 1",
@@ -247,8 +246,17 @@ EXERCISE_WEEK.push(
         superset: "Day 7 Exercise 2a",
       },
     ],
-  }
-);
+  },
+];
+
+let profiles: null | string[] = [],
+  keys = Object.keys(localStorage),
+  np = keys.length;
+
+while (np--) {
+  let temp = localStorage.getItem(keys[np]);
+  if (temp !== null) profiles.push(temp);
+}
 
 /************************************************************************************************/
 
@@ -312,6 +320,14 @@ function App() {
           </Button>
         </Link>
       </nav>
+      {/* {profiles !== null && profiles.map((key) => <div>{key}</div>)} */}
+
+      {/* {Object.entries(localStorage).map(([key, valueJSON]) => {
+        const value = JSON.parse(valueJSON);
+
+        return <Button variant="contained">{value.name}</Button>;
+      })} */}
+
       <Container>
         <Routes>
           <Route
