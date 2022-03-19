@@ -9,11 +9,12 @@ import UIExerciseDay from "./startExercises/UIExerciseDay";
 
 // Models
 import { ExerciseDay } from "../models/exerciseDay";
-import EditMain from "./editExercises/EditMain";
+import UIEditMain from "./editExercises/UIEditMain";
 // Material UI
 
 import { Box, Button, Container, Typography } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import UIBarDrawer from "./startExercises/UIBarDrawer";
 
 /************************************************************************************************/
 
@@ -298,7 +299,12 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <nav className="mainNav">
+      <UIBarDrawer
+        exerciseWeek={exerciseWeek}
+        selectedDay={selectedDay}
+        setSelectedDay={handleSelectedDay}
+      />
+      {/* <nav className="mainNav">
         <img src={logo} className="App-logo" alt="WM" />
         <Typography
           fontSize={25}
@@ -320,7 +326,7 @@ function App() {
             Edit
           </Button>
         </Link>
-      </nav>
+      </nav> */}
       {/* {profiles !== null && profiles.map((key) => <div>{key}</div>)} */}
 
       {/* {Object.entries(localStorage).map(([key, valueJSON]) => {
@@ -335,11 +341,6 @@ function App() {
             path="/"
             element={
               <Box textAlign="center">
-                <UIExerciseWeek
-                  exerciseWeek={exerciseWeek}
-                  selectedDay={selectedDay}
-                  setSelectedDay={handleSelectedDay}
-                />
                 <UIExerciseDay
                   selectedDay={selectedDay}
                   setSelectedDay={handleSelectedDay}
@@ -353,7 +354,7 @@ function App() {
             path="/edit"
             element={
               <Box textAlign="center">
-                <EditMain
+                <UIEditMain
                   exerciseWeek={exerciseWeek}
                   setExerciseWeek={setExerciseWeek}
                   selectedDay={selectedDay}

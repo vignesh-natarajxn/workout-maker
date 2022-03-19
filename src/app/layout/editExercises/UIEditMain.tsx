@@ -1,6 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
 // Components
-import UIExerciseWeek from "../startExercises/UIExerciseWeek";
 import UIExercisePool from "./UIExercisePool";
 import UIExerciseDayEdit from "./UIExerciseDayEdit";
 // Models
@@ -142,12 +141,9 @@ export default function EditMain({
   //|||||||||||||||||||||||||||||||||||||||||||
   return (
     <>
-      <UIExerciseWeek
-        exerciseWeek={exerciseWeek}
-        selectedDay={selectedDay}
-        setSelectedDay={setSelectedDay}
-      />
-      <Button onClick={storeData} variant='contained'><Typography margin={1}>Save Workout</Typography></Button>
+      <Button onClick={storeData} variant="contained">
+        <Typography margin={1}>Save Workout</Typography>
+      </Button>
       <Grid container justifyContent="center">
         {exercisePool[0] ? (
           <Grid item xs={6} className={classes.pool}>

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+
 // Models
 import { ExerciseDay } from "../../models/exerciseDay";
+
 // Material UI
 import { Button, List, ListItemText, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+
 /************************************************************************************************/
+
 interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
@@ -16,17 +20,18 @@ const useStyles: any = makeStyles({
     "&:hover": {
       border: "2px solid #ff8400",
     },
-    marginTop: 10,
-    marginBottom: 10,
-    height: 230,
-    width: 164,
+    border: "2px solid #35455e",
+    margin: 3,
+    height: 130,
   },
   hovertext: {
     fontSize: 14,
     fontStretch: "ultra-condensed",
   },
 });
+
 /************************************************************************************************/
+
 export default function UIExerciseWeek({
   exerciseWeek,
   selectedDay,
@@ -34,7 +39,9 @@ export default function UIExerciseWeek({
 }: Props) {
   const classes = useStyles();
   const [hover, setHover] = useState(false);
+
   //|||||||||||||||||||||||||||||||||||||||||||
+
   return (
     <>
       {exerciseWeek.map((exerciseDay, i) => {
@@ -53,7 +60,7 @@ export default function UIExerciseWeek({
               <List>
                 {exerciseDay.exercises.map((exercise, ii) => {
                   ii += 1;
-                  if (ii <= 5)
+                  if (ii <= 3)
                     return (
                       <ListItemText
                         className={classes.hovertext}
@@ -62,7 +69,7 @@ export default function UIExerciseWeek({
                         primary={exercise.name}
                       />
                     );
-                  if (ii === 6)
+                  if (ii === 4)
                     return (
                       <ListItemText
                         className={classes.hovertext}
@@ -75,8 +82,9 @@ export default function UIExerciseWeek({
               </List>
             ) : (
               <List>
-                <Typography>{i}</Typography>
-                <h3>
+                <Typography>
+                  {i}
+                  {" - "}
                   {i === 1
                     ? "Mon"
                     : i === 2
@@ -90,7 +98,8 @@ export default function UIExerciseWeek({
                     : i === 6
                     ? "Sat"
                     : "Sun"}
-                </h3>
+                </Typography>
+
                 {selectedDay === exerciseDay ? (
                   <Typography color="primary">{exerciseDay.name}</Typography>
                 ) : (

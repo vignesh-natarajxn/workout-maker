@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from "react";
+
 // Models
 import { ExerciseDay } from "../../models/exerciseDay";
+
 // Material UI
 import {
   Button,
@@ -15,13 +17,17 @@ import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+
 /************************************************************************************************/
+
 interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
   handleExcerciseEdit: (opr: string, id: string) => void;
 }
+
 //|||||||||||||||||||||||||||||||||||||||||||
+
 const useStyles: any = makeStyles({
   day: {
     fontSize: 20,
@@ -48,7 +54,9 @@ const useStyles: any = makeStyles({
     color: "#bbbbbb",
   },
 });
+
 /************************************************************************************************/
+
 export default function UIExerciseDayEdit({
   exerciseWeek,
   selectedDay,
@@ -56,7 +64,9 @@ export default function UIExerciseDayEdit({
 }: Props) {
   const classes = useStyles();
   const [hover, setHover] = useState(false);
+
   //|||||||||||||||||||||||||||||||||||||||||||
+  
   return (
     <Container>
       <Button onClick={() => handleExcerciseEdit("add", "noelements")}>
