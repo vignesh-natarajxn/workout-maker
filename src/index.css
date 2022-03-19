@@ -22,7 +22,7 @@ img {
   display: flex;
   gap: 10px;
   align-items: center;
-  max-width: 1500px;
+  /* max-width: 1000px; */
   margin: 0 auto;
   border-bottom: 1px solid #2b374b;
   margin-bottom: 20px;

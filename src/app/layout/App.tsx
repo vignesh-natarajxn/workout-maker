@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import logo from "../logo.svg";
 import "../Styles.css";
+
 // Components
 import UIExerciseWeek from "./startExercises/UIExerciseWeek";
 import UIExerciseDay from "./startExercises/UIExerciseDay";
+
 // Models
 import { ExerciseDay } from "../models/exerciseDay";
 import EditMain from "./editExercises/EditMain";
 // Material UI
+
 import { Box, Button, Container, Typography } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+
 /************************************************************************************************/
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -244,23 +249,34 @@ EXERCISE_WEEK.push(
     ],
   }
 );
+
 /************************************************************************************************/
+
 function App() {
   const [exerciseWeek, setExerciseWeek] = useState<ExerciseDay[]>([]);
   const [selectedDay, setSelectedDay] = useState<ExerciseDay>(EXERCISE_WEEK[0]);
+  const navigate = useNavigate();
   const [currentDay, setCurrentDay] = useState<ExerciseDay | undefined>(
     undefined
   );
+
   //|||||||||||||||||||||||||||||||||||||||||||
+
   useEffect(() => {
-    setExerciseWeek(EXERCISE_WEEK);
+    let collection = localStorage.getItem("workoutWeek");
+    if (collection === null) {
+      setExerciseWeek(EXERCISE_WEEK);
+    } else {
+      let temp = JSON.parse(collection);
+      setExerciseWeek(temp);
+      setSelectedDay(temp[0]);
+    }
   }, []);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:8000/exercises")
-  //     .then((res) => res.json())
-  //     .then((data) => setExerciseWeek(data));
-  // }, []);
+  function storeData() {
+    localStorage.setItem("workoutWeek", JSON.stringify(exerciseWeek));
+    navigate("/");
+  }
 
   function handleSelectedDay(id: string) {
     setSelectedDay(exerciseWeek.find((x) => x.id === id)!);
@@ -268,73 +284,72 @@ function App() {
   function handleCurrentDay(id: string) {
     setCurrentDay(exerciseWeek.find((x) => x.id === id));
   }
+
   //|||||||||||||||||||||||||||||||||||||||||||
+
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <nav className="mainNav">
-          <img src={logo} className="App-logo" alt="WM" />
-          <Typography
-            fontSize={25}
-            component="h1"
-            color="#eeeeee"
-            marginRight="auto"
-            marginTop="auto"
-            marginBottom="auto"
-          >
-            Workout Maker
-          </Typography>
-          <Link to="/">
-            <Button variant="contained" color="primary">
-              Home
-            </Button>
-          </Link>
-          <Link to="/edit">
-            <Button variant="contained" color="primary">
-              Edit
-            </Button>
-          </Link>
-        </nav>
-
-        <Container>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Box textAlign="center">
-                  <UIExerciseWeek
-                    exerciseWeek={exerciseWeek}
-                    selectedDay={selectedDay}
-                    setSelectedDay={handleSelectedDay}
-                  />
-                  <UIExerciseDay
-                    selectedDay={selectedDay}
-                    setSelectedDay={handleSelectedDay}
-                    currentDay={currentDay}
-                    setCurrentDay={handleCurrentDay}
-                  />
-                </Box>
-              }
-            />
-
-            <Route
-              path="/edit"
-              element={
-                <Box textAlign="center">
-                  <EditMain
-                    exerciseWeek={exerciseWeek}
-                    setExerciseWeek={setExerciseWeek}
-                    selectedDay={selectedDay}
-                    setSelectedDay={handleSelectedDay}
-                    EXERCISE_POOL={EXERCISE_POOL}
-                    handleSelectedDay={handleSelectedDay}
-                  />
-                </Box>
-              }
-            />
-          </Routes>
-        </Container>
-      </BrowserRouter>
+      <nav className="mainNav">
+        <img src={logo} className="App-logo" alt="WM" />
+        <Typography
+          fontSize={25}
+          component="h1"
+          color="#eeeeee"
+          marginRight="auto"
+          marginTop="auto"
+          marginBottom="auto"
+        >
+          Workout Maker
+        </Typography>
+        <Link to="/">
+          <Button variant="contained" color="primary">
+            Home
+          </Button>
+        </Link>
+        <Link to="/edit">
+          <Button variant="contained" color="primary">
+            Edit
+          </Button>
+        </Link>
+      </nav>
+      <Container>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Box textAlign="center">
+                <UIExerciseWeek
+                  exerciseWeek={exerciseWeek}
+                  selectedDay={selectedDay}
+                  setSelectedDay={handleSelectedDay}
+                />
+                <UIExerciseDay
+                  selectedDay={selectedDay}
+                  setSelectedDay={handleSelectedDay}
+                  currentDay={currentDay}
+                  setCurrentDay={handleCurrentDay}
+                />
+              </Box>
+            }
+          />
+          <Route
+            path="/edit"
+            element={
+              <Box textAlign="center">
+                <EditMain
+                  exerciseWeek={exerciseWeek}
+                  setExerciseWeek={setExerciseWeek}
+                  selectedDay={selectedDay}
+                  setSelectedDay={handleSelectedDay}
+                  EXERCISE_POOL={EXERCISE_POOL}
+                  handleSelectedDay={handleSelectedDay}
+                  storeData={storeData}
+                />
+              </Box>
+            }
+          />
+        </Routes>
+      </Container>
     </ThemeProvider>
   );
 }

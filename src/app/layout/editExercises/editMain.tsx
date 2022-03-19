@@ -17,6 +17,7 @@ interface Props {
   setSelectedDay: (id: string) => void;
   EXERCISE_POOL: ExercisePool[];
   handleSelectedDay: (id: string) => void;
+  storeData: () => void;
 }
 
 const useStyles: any = makeStyles((theme) => ({
@@ -31,7 +32,7 @@ const useStyles: any = makeStyles((theme) => ({
   day: {
     backgroundColor: "#191f27",
     border: "2px solid #333333",
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 20,
     alignItems: "center",
     alignContent: "center",
@@ -40,7 +41,7 @@ const useStyles: any = makeStyles((theme) => ({
   pool: {
     // backgroundColor: "#191f27",
     // border: "2px solid #333333",
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 20,
     height: 800,
     alignItems: "center",
@@ -56,6 +57,7 @@ export default function EditMain({
   setSelectedDay,
   EXERCISE_POOL,
   handleSelectedDay,
+  storeData,
 }: Props) {
   const classes = useStyles();
   const [someVar, setSomeVar] = React.useState<boolean>(true);
@@ -145,9 +147,7 @@ export default function EditMain({
         selectedDay={selectedDay}
         setSelectedDay={setSelectedDay}
       />
-      <Typography variant="h5" margin={1} color="#ffffff">
-        Edit Workout
-      </Typography>
+      <Button onClick={storeData} variant='contained'><Typography margin={1}>Save Workout</Typography></Button>
       <Grid container justifyContent="center">
         {exercisePool[0] ? (
           <Grid item xs={6} className={classes.pool}>

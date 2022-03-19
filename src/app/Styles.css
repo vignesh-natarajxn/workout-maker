@@ -20,7 +20,7 @@
   /* background-image: linear-gradient(90deg, rgb(41, 41, 41) 0%, rgb(0, 0, 0) 80%); */
   display: flex;
   flex-direction: row;
- 
+
   justify-content: center;
   border-bottom: 0.5px solid #cacaca34;
 }
@@ -49,21 +49,19 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  
 }
 
 .Exercise-day {
- background-color: #191f27;
+  background-color: #191f27;
   min-height: 10vh;
-  min-width: 15vh; 
+  min-width: 15vh;
   margin: 7px;
   /* margin-top: 40px; */
   /* height: 100px; */
-   line-height: 90px;
+  line-height: 90px;
   text-align: center;
   border: 2px solid #ff8400;
   /* border-radius: 50px; */
-  
 }
 
 .Exercise-day-content {
@@ -82,7 +80,7 @@
   min-height: 10vh;
   min-width: 15vh;
   /* margin: 7px; */
-  /* margin-top: 40px;
+/* margin-top: 40px;
  height: 100px;
   line-height: 90px;
   text-align: center;
