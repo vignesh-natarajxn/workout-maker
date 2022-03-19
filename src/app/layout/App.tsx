@@ -9,7 +9,7 @@ import UIExerciseDay from "./startExercises/UIExerciseDay";
 
 // Models
 import { ExerciseDay } from "../models/exerciseDay";
-import UIEditMain from "./editExercises/UIEditMain";
+import EditMain from "./editExercises/EditMain";
 // Material UI
 
 import { Box, Button, Container, Typography } from "@mui/material";
@@ -353,7 +353,7 @@ function App() {
             path="/edit"
             element={
               <Box textAlign="center">
-                <UIEditMain
+                <EditMain
                   exerciseWeek={exerciseWeek}
                   setExerciseWeek={setExerciseWeek}
                   selectedDay={selectedDay}
