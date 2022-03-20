@@ -64,7 +64,7 @@ export default function UIExerciseDayMain({
   //|||||||||||||||||||||||||||||||||||||||||||
 
   return (
-    <Container>
+    <>
       {currentExercise === 1000 && (
         <Completed currentDay={currentDay} workoutComplete={workoutComplete} />
       )}
@@ -143,6 +143,6 @@ export default function UIExerciseDayMain({
           )}
         </>
       )}
-    </Container>
+    </>
   );
 }
