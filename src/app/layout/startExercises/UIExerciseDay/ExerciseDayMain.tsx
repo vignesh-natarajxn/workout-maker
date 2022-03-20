@@ -71,7 +71,6 @@ export default function UIExerciseDayMain({
       {currentExercise !== 1000 && (
         <>
           <ListItem>
-            <img></img>
             {superset ? (
               <Typography
                 fontSize={30}
@@ -98,15 +97,16 @@ export default function UIExerciseDayMain({
               Cancel
             </Button>
           </ListItem>
-          <Typography fontSize={18} margin={3} color="#ffffff">
+          <Typography fontSize={25} margin={2} color="#ffffff">
+            Current Set: {set}
+          </Typography>
+          <Typography fontSize={18} margin={2} color="#ffffff">
             Sets: {currentDay.exercises[currentExercise].sets} | Rest Time:{" "}
             {currentDay.exercises[currentExercise].timeBetween}
           </Typography>
+          <img></img>
           {showTimer ? (
             <>
-              <Typography fontSize={18} margin={3} color="#ffffff">
-                Current Set: {set}
-              </Typography>
               <Timer
                 expiryTimestamp={() => {
                   const time = new Date();
@@ -139,9 +139,6 @@ export default function UIExerciseDayMain({
                   Next
                 </Typography>
               </Button>
-              <Typography fontSize={18} margin={3} color="#ffffff">
-                Current Set: {set}
-              </Typography>
             </>
           )}
         </>

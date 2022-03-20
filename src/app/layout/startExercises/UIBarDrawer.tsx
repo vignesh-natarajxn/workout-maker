@@ -143,7 +143,7 @@ export default function UIBarDrawer({
           }}
         ></Box>
       </Box>
-      <Typography margin={3}></Typography>
+      <Typography margin={4}></Typography>
     </>
   );
 }

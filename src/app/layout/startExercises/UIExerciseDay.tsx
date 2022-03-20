@@ -26,7 +26,7 @@ interface Props {
 const useStyles: any = makeStyles((theme) => ({
   exc: {
     backgroundColor: "#0d1117",
-    border: "2px solid #0d1117",
+    border: "2px solid #333333",
     borderRadius: 15,
     margin: 3,
   },
@@ -47,8 +47,8 @@ const useStyles: any = makeStyles((theme) => ({
     borderRadius: 15,
   },
   cardlist: {
-    border: "2px solid #333333",
-    marginTop: 20,
+    // border: "2px solid #333333",
+    marginTop: 10,
     alignItems: "center",
     alignContent: "center",
     justifyContent: "center",
@@ -91,9 +91,9 @@ export default function UIExerciseDay({
 
   return (
     <>
-      <Grid container direction="row" justifyContent="center">
+      <Grid container direction="row" justifyContent="center" >
         {currentExercise === -1 && selectedDay && (
-          <Grid item xs={12} md={8} lg={7} className={classes.card}>
+          <Grid item xs={12} md={8} lg={7} >
             <ExerciseDayOverView
               selectedDay={selectedDay}
               setCurrentDay={setCurrentDayHandler}
