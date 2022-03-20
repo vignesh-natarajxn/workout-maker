@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/workout-maker/static/css/main.e77488f7.css",
-    "main.js": "/workout-maker/static/js/main.177898e8.js",
+    "main.js": "/workout-maker/static/js/main.c2cbe559.js",
     "static/js/787.b1388a90.chunk.js": "/workout-maker/static/js/787.b1388a90.chunk.js",
     "static/media/logo.svg": "/workout-maker/static/media/logo.82aba768aad5b9041f437be964931645.svg",
     "index.html": "/workout-maker/index.html",
     "main.e77488f7.css.map": "/workout-maker/static/css/main.e77488f7.css.map",
-    "main.177898e8.js.map": "/workout-maker/static/js/main.177898e8.js.map",
+    "main.c2cbe559.js.map": "/workout-maker/static/js/main.c2cbe559.js.map",
     "787.b1388a90.chunk.js.map": "/workout-maker/static/js/787.b1388a90.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e77488f7.css",
-    "static/js/main.177898e8.js"
+    "static/js/main.c2cbe559.js"
   ]
 }
