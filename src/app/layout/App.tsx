@@ -303,6 +303,7 @@ function App() {
         exerciseWeek={exerciseWeek}
         selectedDay={selectedDay}
         setSelectedDay={handleSelectedDay}
+        navigate={navigate}
       />
 
       {/* {profiles !== null && profiles.map((key) => <div>{key}</div>)} */}

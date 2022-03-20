@@ -27,6 +27,7 @@ interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
   setSelectedDay: (id: string) => void;
+  navigate: any;
 }
 
 const drawerWidth = 290;
@@ -37,6 +38,7 @@ export default function UIBarDrawer({
   exerciseWeek,
   selectedDay,
   setSelectedDay,
+  navigate,
 }: Props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -69,26 +71,20 @@ export default function UIBarDrawer({
           }}
         >
           <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
+            {/* <MenuIcon /> */}
+            <Button
+              variant="contained"
               onClick={handleDrawerToggle}
-              // sx={{ mr: 5 }}
+              style={{
+                maxWidth: "70px",
+                maxHeight: "60px",
+                minWidth: "70px",
+                minHeight: "60px",
+              }}
             >
-              {/* <MenuIcon /> */}
-              <Button
-                variant="contained"
-                style={{
-                  maxWidth: "70px",
-                  maxHeight: "60px",
-                  minWidth: "70px",
-                  minHeight: "60px",
-                }}
-              >
-                Select Day
-              </Button>
-            </IconButton>
+              Select Day
+            </Button>
+
             <Typography
               fontSize={25}
               component="h1"
@@ -98,7 +94,7 @@ export default function UIBarDrawer({
               marginBottom="auto"
               marginLeft="auto"
             >
-              <img src={logo} className="App-logo" alt="WM" />
+              <Button onClick={()=> navigate('/')}><img src={logo} className="App-logo" alt="WM" /></Button>
             </Typography>
             <Typography marginLeft="auto">
               <Link to="/edit">
