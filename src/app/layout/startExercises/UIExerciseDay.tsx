@@ -101,13 +101,16 @@ export default function UIExerciseDay({
           </Grid>
         )}
         {currentExercise !== -1 && currentDay && (
-          <ExerciseDayMain
-            currentDay={currentDay}
-            currentExercise={currentExercise}
-            setCurrentExercise={setCurrentExerciseHandler}
-            workoutComplete={workoutCompleteHandler}
-          />
+          <Grid height={window.innerHeight} item xs={12} md={8} lg={7} >
+            <ExerciseDayMain
+              currentDay={currentDay}
+              currentExercise={currentExercise}
+              setCurrentExercise={setCurrentExerciseHandler}
+              workoutComplete={workoutCompleteHandler}
+            />
+          </Grid>
         )}
+
         <Grid item xs={12} md={8} lg={5} className={classes.cardlist}>
           <>
             {selectedDay.exercises.map((exercise) => (

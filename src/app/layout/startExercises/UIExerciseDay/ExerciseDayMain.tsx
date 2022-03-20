@@ -62,7 +62,7 @@ export default function UIExerciseDayMain({
   };
 
   //|||||||||||||||||||||||||||||||||||||||||||
-  
+
   return (
     <Container>
       {currentExercise === 1000 && (
@@ -71,6 +71,7 @@ export default function UIExerciseDayMain({
       {currentExercise !== 1000 && (
         <>
           <ListItem>
+            <img></img>
             {superset ? (
               <Typography
                 fontSize={30}
