@@ -158,7 +158,7 @@ export default function EditMain({
       </Button>
       <Grid container justifyContent="center">
         {exercisePool[0] ? (
-          <Grid item xs={12} xl={6} className={classes.pool}>
+          <Grid item xs={12} md={8} lg={7} className={classes.pool}>
             <UIExercisePool
               EXERCISE_POOL={EXERCISE_POOL}
               handleExcerciseAdd={handleExcerciseAdd}
@@ -166,7 +166,7 @@ export default function EditMain({
             />
           </Grid>
         ) : (
-          <Grid item xs={12} xl={6} className={classes.day}>
+          <Grid item xs={12} md={8} lg={7} className={classes.day}>
             <UIExerciseDayEdit
               exerciseWeek={exerciseWeek}
               selectedDay={selectedDay}

@@ -269,6 +269,7 @@ function App() {
   const [currentDay, setCurrentDay] = useState<ExerciseDay | undefined>(
     undefined
   );
+  const [currentExercise, setCurrentExercise] = useState<number>(-1);
 
   //|||||||||||||||||||||||||||||||||||||||||||
 
@@ -299,12 +300,14 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <UIBarDrawer
-        exerciseWeek={exerciseWeek}
-        selectedDay={selectedDay}
-        setSelectedDay={handleSelectedDay}
-        navigate={navigate}
-      />
+      {currentExercise === -1 && (
+        <UIBarDrawer
+          exerciseWeek={exerciseWeek}
+          selectedDay={selectedDay}
+          setSelectedDay={handleSelectedDay}
+          navigate={navigate}
+        />
+      )}
 
       {/* {profiles !== null && profiles.map((key) => <div>{key}</div>)} */}
 
@@ -321,6 +324,8 @@ function App() {
             element={
               <Box textAlign="center">
                 <UIExerciseDay
+                  currentExercise={currentExercise}
+                  setCurrentExercise={setCurrentExercise}
                   selectedDay={selectedDay}
                   setSelectedDay={handleSelectedDay}
                   currentDay={currentDay}

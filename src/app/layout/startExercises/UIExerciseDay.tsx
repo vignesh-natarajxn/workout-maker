@@ -19,6 +19,8 @@ interface Props {
   setSelectedDay: (id: string) => void;
   currentDay: ExerciseDay | undefined;
   setCurrentDay: (id: string) => void;
+  currentExercise: number;
+  setCurrentExercise: any;
 }
 
 const useStyles: any = makeStyles((theme) => ({
@@ -61,8 +63,9 @@ export default function UIExerciseDay({
   setSelectedDay,
   currentDay,
   setCurrentDay,
+  currentExercise,
+  setCurrentExercise,
 }: Props) {
-  const [currentExercise, setCurrentExercise] = useState<number>(-1);
   const classes = useStyles();
 
   //|||||||||||||||||||||||||||||||||||||||||||
@@ -73,7 +76,7 @@ export default function UIExerciseDay({
   }
 
   const setCurrentExerciseHandler = () => {
-    setCurrentExercise((prev) => {
+    setCurrentExercise((prev: number) => {
       if (prev >= currentDay!.exercises.length - 1) return 1000;
       else return prev + 1;
     });
@@ -89,22 +92,22 @@ export default function UIExerciseDay({
   return (
     <>
       <Grid container direction="row" justifyContent="center">
-        <Grid item xs={12} md={8} lg={7} className={classes.card}>
-          {currentExercise === -1 && selectedDay && (
+        {currentExercise === -1 && selectedDay && (
+          <Grid item xs={12} md={8} lg={7} className={classes.card}>
             <ExerciseDayOverView
               selectedDay={selectedDay}
               setCurrentDay={setCurrentDayHandler}
             />
-          )}
-          {currentExercise !== -1 && currentDay && (
-            <ExerciseDayMain
-              currentDay={currentDay}
-              currentExercise={currentExercise}
-              setCurrentExercise={setCurrentExerciseHandler}
-              workoutComplete={workoutCompleteHandler}
-            />
-          )}
-        </Grid>
+          </Grid>
+        )}
+        {currentExercise !== -1 && currentDay && (
+          <ExerciseDayMain
+            currentDay={currentDay}
+            currentExercise={currentExercise}
+            setCurrentExercise={setCurrentExerciseHandler}
+            workoutComplete={workoutCompleteHandler}
+          />
+        )}
         <Grid item xs={12} md={8} lg={5} className={classes.cardlist}>
           <>
             {selectedDay.exercises.map((exercise) => (

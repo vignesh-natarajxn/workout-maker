@@ -1,6 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../logo.svg";
 import "../../Styles.css";
+
+// Components
+import UIExerciseWeek from "./UIExerciseWeek";
 
 // Models
 import { ExerciseDay } from "../../models/exerciseDay";
@@ -11,15 +15,9 @@ import {
   Box,
   Button,
   Drawer,
-  IconButton,
   Toolbar,
   Typography,
 } from "@mui/material";
-
-import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
-
-import UIExerciseWeek from "./UIExerciseWeek";
 
 /************************************************************************************************/
 
@@ -47,15 +45,12 @@ export default function UIBarDrawer({
   };
 
   const drawer = (
-    <>
-      <Toolbar />
-      <UIExerciseWeek
-        exerciseWeek={exerciseWeek}
-        selectedDay={selectedDay}
-        setSelectedDay={setSelectedDay}
-        handleDrawerToggle={handleDrawerToggle}
-      />
-    </>
+    <UIExerciseWeek
+      exerciseWeek={exerciseWeek}
+      selectedDay={selectedDay}
+      setSelectedDay={setSelectedDay}
+      handleDrawerToggle={handleDrawerToggle}
+    />
   );
 
   //|||||||||||||||||||||||||||||||||||||||||||
@@ -71,9 +66,9 @@ export default function UIBarDrawer({
           }}
         >
           <Toolbar>
-            {/* <MenuIcon /> */}
             <Button
               variant="contained"
+              color='secondary'
               onClick={handleDrawerToggle}
               style={{
                 maxWidth: "70px",
@@ -84,7 +79,6 @@ export default function UIBarDrawer({
             >
               Select Day
             </Button>
-
             <Typography
               fontSize={25}
               component="h1"
@@ -94,12 +88,15 @@ export default function UIBarDrawer({
               marginBottom="auto"
               marginLeft="auto"
             >
-              <Button onClick={()=> navigate('/')}><img src={logo} className="App-logo" alt="WM" /></Button>
+              <Button onClick={() => navigate("/")}>
+                <img src={logo} className="App-logo" alt="WM" />
+              </Button>
             </Typography>
             <Typography marginLeft="auto">
               <Link to="/edit">
                 <Button
                   variant="contained"
+                  color='secondary'
                   style={{
                     maxWidth: "70px",
                     maxHeight: "60px",
