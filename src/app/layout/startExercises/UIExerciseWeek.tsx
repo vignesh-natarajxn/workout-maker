@@ -13,6 +13,7 @@ interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
   setSelectedDay: (id: string) => void;
+  handleDrawerToggle: () => void;
 }
 const useStyles: any = makeStyles({
   day: {
@@ -20,8 +21,8 @@ const useStyles: any = makeStyles({
     "&:hover": {
       border: "2px solid #ff8400",
     },
-    border: "2px solid #35455e",
-    margin: 3,
+    border: "2px solid #0d1117",
+
     height: 130,
   },
   hovertext: {
@@ -36,6 +37,7 @@ export default function UIExerciseWeek({
   exerciseWeek,
   selectedDay,
   setSelectedDay,
+  handleDrawerToggle,
 }: Props) {
   const classes = useStyles();
   const [hover, setHover] = useState(false);
@@ -51,7 +53,10 @@ export default function UIExerciseWeek({
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
             key={exerciseDay.id}
-            onClick={() => setSelectedDay(exerciseDay.id)}
+            onClick={() => {
+              handleDrawerToggle();
+              setSelectedDay(exerciseDay.id);
+            }}
             className={classes.day}
             variant="contained"
             color="secondary"

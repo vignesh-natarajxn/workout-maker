@@ -1,20 +1,28 @@
 import React, { useState } from "react";
+
 //Models
 import { ExerciseDay } from "../../../models/exerciseDay";
+
 //Material UI
 import { Button, Typography } from "@mui/material";
+
 /************************************************************************************************/
+
 interface Props {
   selectedDay: ExerciseDay;
   setCurrentDay: (id: string) => void;
 }
+
 /************************************************************************************************/
+
 export default function UIExerciseDayOverView({
   selectedDay,
   setCurrentDay,
 }: Props) {
   const [displayNoExc, setDisplayNoExc] = useState<boolean>(false);
+
   //|||||||||||||||||||||||||||||||||||||||||||
+  
   return (
     <>
       <Typography fontSize={30} margin={3} color="#ff8400">

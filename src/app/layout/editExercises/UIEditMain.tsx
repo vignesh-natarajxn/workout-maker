@@ -1,14 +1,19 @@
 import React from "react";
+
 // Components
 import UIExercisePool from "./UIExercisePool";
 import UIExerciseDayEdit from "./UIExerciseDayEdit";
+
 // Models
 import { ExerciseDay } from "../../models/exerciseDay";
 import { ExercisePool } from "../../models/exercisePool";
+
 // Material UI
 import { Button, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+
 /************************************************************************************************/
+
 interface Props {
   exerciseWeek: ExerciseDay[];
   setExerciseWeek: (ExerciseWeek: ExerciseDay[]) => void;
@@ -48,7 +53,9 @@ const useStyles: any = makeStyles((theme) => ({
     justifyContent: "center",
   },
 }));
+
 /************************************************************************************************/
+
 export default function EditMain({
   exerciseWeek,
   setExerciseWeek,
@@ -61,7 +68,9 @@ export default function EditMain({
   const classes = useStyles();
   const [someVar, setSomeVar] = React.useState<boolean>(true);
   const [exercisePool, setExercisePool] = React.useState<string[]>(["", ""]);
+
   //|||||||||||||||||||||||||||||||||||||||||||
+
   function forceUpdateHandler(this: any) {
     setSomeVar((prev) => !prev);
   }
@@ -138,15 +147,18 @@ export default function EditMain({
 
     forceUpdateHandler();
   };
+
   //|||||||||||||||||||||||||||||||||||||||||||
+
   return (
     <>
+      <Typography margin={6}></Typography>
       <Button onClick={storeData} variant="contained">
         <Typography margin={1}>Save Workout</Typography>
       </Button>
       <Grid container justifyContent="center">
         {exercisePool[0] ? (
-          <Grid item xs={6} className={classes.pool}>
+          <Grid item xs={12} xl={6} className={classes.pool}>
             <UIExercisePool
               EXERCISE_POOL={EXERCISE_POOL}
               handleExcerciseAdd={handleExcerciseAdd}
@@ -154,7 +166,7 @@ export default function EditMain({
             />
           </Grid>
         ) : (
-          <Grid item xs={6} className={classes.day}>
+          <Grid item xs={12} xl={6} className={classes.day}>
             <UIExerciseDayEdit
               exerciseWeek={exerciseWeek}
               selectedDay={selectedDay}

@@ -304,29 +304,7 @@ function App() {
         selectedDay={selectedDay}
         setSelectedDay={handleSelectedDay}
       />
-      {/* <nav className="mainNav">
-        <img src={logo} className="App-logo" alt="WM" />
-        <Typography
-          fontSize={25}
-          component="h1"
-          color="#eeeeee"
-          marginRight="auto"
-          marginTop="auto"
-          marginBottom="auto"
-        >
-          Workout Maker
-        </Typography>
-        <Link to="/">
-          <Button variant="contained" color="primary">
-            Home
-          </Button>
-        </Link>
-        <Link to="/edit">
-          <Button variant="contained" color="primary">
-            Edit
-          </Button>
-        </Link>
-      </nav> */}
+
       {/* {profiles !== null && profiles.map((key) => <div>{key}</div>)} */}
 
       {/* {Object.entries(localStorage).map(([key, valueJSON]) => {

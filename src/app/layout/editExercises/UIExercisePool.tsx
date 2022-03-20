@@ -1,6 +1,8 @@
 import React from "react";
+
 // Models
 import { ExercisePool } from "../../models/exercisePool";
+
 // Material UI
 import {
   Button,
@@ -13,7 +15,9 @@ import {
 } from "@mui/material";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { makeStyles } from "@mui/styles";
+
 /************************************************************************************************/
+
 interface Props {
   EXERCISE_POOL: ExercisePool[];
   handleExcerciseAdd: (name: string) => void;
@@ -36,7 +40,9 @@ const useStyles: any = makeStyles({
     borderRadius: 15,
   },
 });
+
 /************************************************************************************************/
+
 export default function UIExercisePool({
   EXERCISE_POOL,
   handleExcerciseAdd,
@@ -54,7 +60,9 @@ export default function UIExercisePool({
   });
   const [prevOpenId, setPrevOpenId] = React.useState<string>("");
   const classes = useStyles();
+
   //|||||||||||||||||||||||||||||||||||||||||||
+
   const handleClick = (id: string) => {
     setOpen((prevState) => ({
       ...prevState,
@@ -64,7 +72,9 @@ export default function UIExercisePool({
     if (prevOpenId !== id) setPrevOpenId(id);
     else setPrevOpenId("");
   };
+
   //|||||||||||||||||||||||||||||||||||||||||||
+  
   return (
     <Container>
       <List

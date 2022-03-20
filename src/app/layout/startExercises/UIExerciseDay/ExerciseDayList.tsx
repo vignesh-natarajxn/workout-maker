@@ -1,11 +1,15 @@
 import React from "react";
+
 // Models
 import { Exercise } from "../../../models/exercise";
+
 // Material UI
 import { Button, CardContent, List, ListItem, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
+
 /************************************************************************************************/
+
 interface Props {
   exercise: Exercise;
 }
@@ -36,10 +40,14 @@ const useStyles: any = makeStyles({
     color: "#bbbbbb",
   },
 });
+
 /************************************************************************************************/
+
 export default function UIExerciseDayList({ exercise }: Props) {
   const classes = useStyles();
+
   //|||||||||||||||||||||||||||||||||||||||||||
+  
   return (
     <List>
       <ListItem>
