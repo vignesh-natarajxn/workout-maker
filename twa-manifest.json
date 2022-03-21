@@ -1,0 +1,40 @@
+{
+  "packageId": "io.github.viknhat.twa",
+  "host": "viknhat.github.io",
+  "name": "Workout Maker",
+  "launcherName": "WorkoutMaker",
+  "display": "standalone",
+  "themeColor": "#1C1D21",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#1C1D21",
+  "enableNotifications": true,
+  "startUrl": "/workout-maker/",
+  "iconUrl": "https://viknhat.github.io/workout-maker/logo512.png",
+  "maskableIconUrl": "https://viknhat.github.io/workout-maker/maskable.png",
+  "monochromeIconUrl": "https://viknhat.github.io/workout-maker/maskable.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "C:\\Projects\\workout-maker\\android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "1",
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://viknhat.github.io/workout-maker/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "orientation": "default",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "appVersion": "1"
+}
