@@ -144,16 +144,13 @@ export default function EditMain({
   return (
     <>
       <Typography margin={6}></Typography>
-      <Button onClick={storeData} variant="contained">
-        <Typography margin={1}>Save</Typography>
-      </Button>
       <Grid container justifyContent="center">
         {exercisePool[0] ? (
           <Grid item xs={12} md={5} xl={4} className={classes.pool}>
             <UIExercisePool
               EXERCISE_POOL={EXERCISE_POOL}
               handleExcerciseAdd={handleExcerciseAdd}
-              forceUpdateHandler={forceUpdateHandler}
+              setExercisePool={setExercisePool}
             />
           </Grid>
         ) : (
@@ -162,6 +159,7 @@ export default function EditMain({
               exerciseWeek={exerciseWeek}
               selectedDay={selectedDay}
               handleExcerciseEdit={handleExcerciseEdit}
+              storeData={storeData}
             />
           </Grid>
         )}

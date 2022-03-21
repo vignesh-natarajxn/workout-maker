@@ -26,6 +26,7 @@ interface Props {
   exerciseWeek: ExerciseDay[];
   selectedDay: ExerciseDay | undefined;
   handleExcerciseEdit: (opr: string, id: string) => void;
+  storeData: () => void;
 }
 
 //|||||||||||||||||||||||||||||||||||||||||||
@@ -84,6 +85,7 @@ export default function UIExerciseDayEdit({
   exerciseWeek,
   selectedDay,
   handleExcerciseEdit,
+  storeData,
 }: Props) {
   const classes = useStyles();
   const [formEdit, setFormEdit] = useState<boolean>(false);
@@ -91,45 +93,50 @@ export default function UIExerciseDayEdit({
 
   return (
     <Container>
-      {formEdit ? (
-        <form>
-          <TextField
-            onChange={(e) => {
-              handleExcerciseEdit("edit day name", e.target.value);
-            }}
-            defaultValue={selectedDay!.name}
-            size="small"
-            className={classes.form}
-            sx={{
-              input: { color: "white !important" },
-            }}
-          ></TextField>
-        </form>
-      ) : (
-        <Typography margin={2} fontSize={25} color="white">
-          {selectedDay!.name}
-          <Button
-            onClick={() => {
-              setFormEdit(true);
-            }}
-          >
-            <EditIcon />
-          </Button>
-        </Typography>
-      )}
-
-      <Button onClick={() => handleExcerciseEdit("add", "noelements")}>
-        <AddCircleIcon />
-      </Button>
-      {selectedDay &&
-        exerciseWeek.find(
-          (exerciseDay) => exerciseDay.id === selectedDay?.id
-        ) &&
-        exerciseWeek
-          .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
-          .exercises.map((exercise) => (
-            <Fragment key={exercise.name + Math.random() * 1000}>
-              <List>
+      <List>
+        <ListItem>
+          {formEdit ? (
+            <form>
+              <TextField
+                onChange={(e) => {
+                  handleExcerciseEdit("edit day name", e.target.value);
+                }}
+                defaultValue={selectedDay!.name}
+                size="small"
+                className={classes.form}
+                sx={{
+                  input: { color: "white !important" },
+                }}
+              ></TextField>
+            </form>
+          ) : (
+            <Typography margin={2} fontSize={25} color="white">
+              {selectedDay!.name}
+              <Button
+                onClick={() => {
+                  setFormEdit(true);
+                }}
+              >
+                <EditIcon />
+              </Button>
+            </Typography>
+          )}
+          <Typography marginLeft='auto'><Button onClick={storeData} variant="contained">
+            <Typography margin={1}>Save</Typography>
+          </Button></Typography>
+          
+        </ListItem>
+        <Button onClick={() => handleExcerciseEdit("add", "noelements")}>
+          <AddCircleIcon />
+        </Button>
+        {selectedDay &&
+          exerciseWeek.find(
+            (exerciseDay) => exerciseDay.id === selectedDay?.id
+          ) &&
+          exerciseWeek
+            .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
+            .exercises.map((exercise) => (
+              <Fragment key={exercise.name + Math.random() * 1000}>
                 <ListItem>
                   <Typography fontSize={19} color="primary">
                     {exercise.name}
@@ -204,9 +211,9 @@ export default function UIExerciseDayEdit({
                 <Button onClick={() => handleExcerciseEdit("add", exercise.id)}>
                   <AddCircleIcon />
                 </Button>
-              </List>
-            </Fragment>
-          ))}
+              </Fragment>
+            ))}
+      </List>
     </Container>
   );
 }

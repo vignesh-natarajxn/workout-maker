@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Models
 import { ExercisePool } from "../../models/exercisePool";
@@ -9,8 +9,10 @@ import {
   Collapse,
   Container,
   List,
+  ListItem,
   ListItemButton,
   ListItemText,
+  TextField,
   Typography,
 } from "@mui/material";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
@@ -21,11 +23,11 @@ import { makeStyles } from "@mui/styles";
 interface Props {
   EXERCISE_POOL: ExercisePool[];
   handleExcerciseAdd: (name: string) => void;
-  forceUpdateHandler: (this: any) => void;
+  setExercisePool: (id1: string[]) => void;
 }
 
 const useStyles: any = makeStyles({
-  pool: {   
+  pool: {
     margin: 2,
     height: 50,
   },
@@ -47,6 +49,28 @@ const useStyles: any = makeStyles({
     margin: 3,
     borderRadius: 5,
   },
+  form: {
+    marginTop: 2,
+    marginBottom: 2,
+    color: "white !important",
+    "& .MuiFormLabel-root.Mui-disabled": {
+      color: "white !important",
+    },
+    "&.focused": {
+      color: "white !important",
+    },
+    "& label.Mui-focused": {
+      color: "white !important",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "white ",
+      },
+      "&:hover fieldset": {
+        borderColor: "#e84855",
+      },
+    },
+  },
 });
 
 /************************************************************************************************/
@@ -54,9 +78,9 @@ const useStyles: any = makeStyles({
 export default function UIExercisePool({
   EXERCISE_POOL,
   handleExcerciseAdd,
-  forceUpdateHandler,
+  setExercisePool,
 }: Props) {
-  const [open, setOpen] = React.useState<{ [id: string]: boolean }>({
+  const [open, setOpen] = useState<{ [id: string]: boolean }>({
     Abs: false,
     Back: false,
     "Biceps and Forearms": false,
@@ -66,7 +90,8 @@ export default function UIExercisePool({
     Shoulders: false,
     Triceps: false,
   });
-  const [prevOpenId, setPrevOpenId] = React.useState<string>("");
+  const [prevOpenId, setPrevOpenId] = useState<string>("");
+  const [customExc, setCustomExc] = useState<string>("");
   const classes = useStyles();
 
   //|||||||||||||||||||||||||||||||||||||||||||
@@ -140,6 +165,31 @@ export default function UIExercisePool({
             </Container>
           );
         })}
+        <Typography margin={2} />
+        <ListItem>
+          <Typography color="white" marginTop={0} marginRight={2}>
+            Enter Custom Exercise:{" "}
+          </Typography>
+          <form>
+            <TextField
+              onChange={(e) => setCustomExc(e.target.value)}
+              size="small"
+              className={classes.form}
+              sx={{
+                input: { color: "white !important" },
+              }}
+            ></TextField>
+          </form>
+          <Button onClick={() => handleExcerciseAdd(customExc)}>Done</Button>
+          <Typography marginLeft="auto">
+            <Button
+              variant="contained"
+              onClick={() => setExercisePool(["", ""])}
+            >
+              Cancel
+            </Button>
+          </Typography>
+        </ListItem>
       </List>
     </Container>
   );
