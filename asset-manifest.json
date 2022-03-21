@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/workout-maker/static/css/main.e77488f7.css",
-    "main.js": "/workout-maker/static/js/main.ff82271a.js",
+    "main.css": "/workout-maker/static/css/main.6b189722.css",
+    "main.js": "/workout-maker/static/js/main.06ce5578.js",
     "static/js/787.b1388a90.chunk.js": "/workout-maker/static/js/787.b1388a90.chunk.js",
-    "static/media/logo.svg": "/workout-maker/static/media/logo.82aba768aad5b9041f437be964931645.svg",
+    "static/media/logo.svg": "/workout-maker/static/media/logo.2a0dfb12e4c77b69198ba71229590c55.svg",
     "index.html": "/workout-maker/index.html",
-    "main.e77488f7.css.map": "/workout-maker/static/css/main.e77488f7.css.map",
-    "main.ff82271a.js.map": "/workout-maker/static/js/main.ff82271a.js.map",
+    "main.6b189722.css.map": "/workout-maker/static/css/main.6b189722.css.map",
+    "main.06ce5578.js.map": "/workout-maker/static/js/main.06ce5578.js.map",
     "787.b1388a90.chunk.js.map": "/workout-maker/static/js/787.b1388a90.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e77488f7.css",
-    "static/js/main.ff82271a.js"
+    "static/css/main.6b189722.css",
+    "static/js/main.06ce5578.js"
   ]
 }
