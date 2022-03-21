@@ -7,7 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0d1117;
+  background-color: #1C1D21;
 }
 
 code {
@@ -32,6 +32,24 @@ nav h1 {
   margin-right: auto;
 }
 .bruh{
-  background-color: #df7300;
+  background-color: #2a2e30;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1C1D2100;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b33741;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #80262d;
 }
 

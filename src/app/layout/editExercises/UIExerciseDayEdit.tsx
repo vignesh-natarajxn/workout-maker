@@ -4,14 +4,7 @@ import React, { Fragment, useState } from "react";
 import { ExerciseDay } from "../../models/exerciseDay";
 
 // Material UI
-import {
-  Button,
-  Container,
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-} from "@mui/material";
+import { Button, Container, List, ListItem, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
@@ -32,7 +25,7 @@ const useStyles: any = makeStyles({
   day: {
     fontSize: 20,
     "&:hover": {
-      border: "2px solid #ff8400",
+      border: "2px solid #e84855",
     },
     marginTop: 10,
     marginBottom: 10,
@@ -41,8 +34,7 @@ const useStyles: any = makeStyles({
   },
   X: {
     marginLeft: "auto",
-    // marginRight: 10,
-    color: "#000000",
+    color: "#e84855",
     width: 20,
   },
   ss: {
@@ -63,10 +55,9 @@ export default function UIExerciseDayEdit({
   handleExcerciseEdit,
 }: Props) {
   const classes = useStyles();
-  const [hover, setHover] = useState(false);
 
   //|||||||||||||||||||||||||||||||||||||||||||
-  
+
   return (
     <Container>
       <Button onClick={() => handleExcerciseEdit("add", "noelements")}>
@@ -87,7 +78,6 @@ export default function UIExerciseDayEdit({
                   </Typography>
                   <Button
                     className={classes.X}
-                    variant="contained"
                     onClick={() => handleExcerciseEdit("remove", exercise.id)}
                   >
                     <CloseIcon />

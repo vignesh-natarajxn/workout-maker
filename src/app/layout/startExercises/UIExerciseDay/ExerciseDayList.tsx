@@ -18,7 +18,7 @@ const useStyles: any = makeStyles({
   day: {
     fontSize: 20,
     "&:hover": {
-      border: "2px solid #ff8400",
+      border: "2px solid #e84855",
     },
     marginTop: 10,
     marginBottom: 10,

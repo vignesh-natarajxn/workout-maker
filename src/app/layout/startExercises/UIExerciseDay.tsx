@@ -25,15 +25,15 @@ interface Props {
 
 const useStyles: any = makeStyles((theme) => ({
   exc: {
-    backgroundColor: "#0d1117",
-    border: "2px solid #333333",
-    borderRadius: 15,
+    backgroundColor: "#00000000",
+    borderTop: "2px solid #393E41",
+    // borderRadius: 15,
     margin: 3,
   },
   selectedExc: {
     backgroundColor: "#191f27",
-    border: "2px solid #ff8400",
-    borderRadius: 15,
+    border: "2px solid #e84855",
+    borderRadius: 5,
     margin: 3,
   },
   card: {
@@ -114,7 +114,7 @@ export default function UIExerciseDay({
         <Grid item xs={12} md={8} lg={5} className={classes.cardlist}>
           <>
             {selectedDay.exercises.map((exercise) => (
-              <Fragment key={exercise.name + " " + exercise.superset}>
+              <Fragment key={Math.random()*1000}>
                 {exercise === currentDay?.exercises[currentExercise] ? (
                   <Card className={classes.selectedExc}>
                     <ExerciseDayList exercise={exercise} />

@@ -25,19 +25,27 @@ interface Props {
 }
 
 const useStyles: any = makeStyles({
-  pool: {
-    // fontSize: 20,
-    "&:hover": {
-      border: "2px solid #ff8400",
-    },
-    marginTop: 5,
-    marginBottom: 5,
+  pool: {   
+    margin: 2,
     height: 50,
   },
   poolbut: {
-    border: "2px solid #263141",
+    "&:hover": {
+      background: "#e84855",
+    },
+    background: "#393E41",
+    border: "2px solid #1C1D21",
     margin: 3,
-    borderRadius: 15,
+    borderRadius: 5,
+  },
+  poolbutOpen: {
+    "&:hover": {
+      background: "#e84855",
+    },
+    background: "#e84855",
+    border: "2px solid #1C1D21",
+    margin: 3,
+    borderRadius: 5,
   },
 });
 
@@ -74,18 +82,19 @@ export default function UIExercisePool({
   };
 
   //|||||||||||||||||||||||||||||||||||||||||||
-  
+
   return (
     <Container>
-      <List
-        sx={{ width: "100%", bgcolor: "#0d1117" }}
-        aria-labelledby="nested-list-subheader"
-      >
+      <List sx={{ width: "100%" }} aria-labelledby="nested-list-subheader">
         {EXERCISE_POOL.map((category) => {
           return (
             <Container key={category.category}>
               <ListItemButton
-                className={classes.poolbut}
+                className={
+                  open[category.category]
+                    ? classes.poolbutOpen
+                    : classes.poolbut
+                }
                 onClick={() => handleClick(category.category)}
               >
                 <ListItemText

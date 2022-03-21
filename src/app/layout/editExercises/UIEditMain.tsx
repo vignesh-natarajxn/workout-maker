@@ -24,18 +24,8 @@ interface Props {
   storeData: () => void;
 }
 
-const useStyles: any = makeStyles((theme) => ({
-  exc: {
-    backgroundColor: "#0d1117",
-    border: "2px solid #333333",
-  },
-  selectedExc: {
-    backgroundColor: "#191f27",
-    border: "2px solid #ff8400",
-  },
+const useStyles: any = makeStyles(() => ({
   day: {
-    backgroundColor: "#191f27",
-    border: "2px solid #333333",
     marginTop: 10,
     marginBottom: 20,
     alignItems: "center",
@@ -43,8 +33,6 @@ const useStyles: any = makeStyles((theme) => ({
     justifyContent: "center",
   },
   pool: {
-    // backgroundColor: "#191f27",
-    // border: "2px solid #333333",
     marginTop: 10,
     marginBottom: 20,
     height: 800,
@@ -60,9 +48,7 @@ export default function EditMain({
   exerciseWeek,
   setExerciseWeek,
   selectedDay,
-  setSelectedDay,
   EXERCISE_POOL,
-  handleSelectedDay,
   storeData,
 }: Props) {
   const classes = useStyles();

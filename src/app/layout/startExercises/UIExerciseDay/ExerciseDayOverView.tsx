@@ -25,7 +25,7 @@ export default function UIExerciseDayOverView({
   
   return (
     <>
-      <Typography fontSize={30} margin={3} color="#ff8400">
+      <Typography fontSize={30} margin={3} color="#e84855">
         {selectedDay.name} overview:
       </Typography>
       <Typography fontSize={18} margin={2} color="#ffffff">

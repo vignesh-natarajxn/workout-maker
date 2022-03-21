@@ -21,10 +21,10 @@ import UIBarDrawer from "./startExercises/UIBarDrawer";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#ff8400",
+      main: "#e84855",
     },
     secondary: {
-      main: "#191f27",
+      main: "#393E41",
     },
   },
   typography: {
@@ -317,41 +317,39 @@ function App() {
         return <Button variant="contained">{value.name}</Button>;
       })} */}
 
-      <Container>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Box textAlign="center">
-                <UIExerciseDay
-                  currentExercise={currentExercise}
-                  setCurrentExercise={setCurrentExercise}
-                  selectedDay={selectedDay}
-                  setSelectedDay={handleSelectedDay}
-                  currentDay={currentDay}
-                  setCurrentDay={handleCurrentDay}
-                />
-              </Box>
-            }
-          />
-          <Route
-            path="/edit"
-            element={
-              <Box textAlign="center">
-                <UIEditMain
-                  exerciseWeek={exerciseWeek}
-                  setExerciseWeek={setExerciseWeek}
-                  selectedDay={selectedDay}
-                  setSelectedDay={handleSelectedDay}
-                  EXERCISE_POOL={EXERCISE_POOL}
-                  handleSelectedDay={handleSelectedDay}
-                  storeData={storeData}
-                />
-              </Box>
-            }
-          />
-        </Routes>
-      </Container>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Box textAlign="center">
+              <UIExerciseDay
+                currentExercise={currentExercise}
+                setCurrentExercise={setCurrentExercise}
+                selectedDay={selectedDay}
+                setSelectedDay={handleSelectedDay}
+                currentDay={currentDay}
+                setCurrentDay={handleCurrentDay}
+              />
+            </Box>
+          }
+        />
+        <Route
+          path="/edit"
+          element={
+            <Box textAlign="center">
+              <UIEditMain
+                exerciseWeek={exerciseWeek}
+                setExerciseWeek={setExerciseWeek}
+                selectedDay={selectedDay}
+                setSelectedDay={handleSelectedDay}
+                EXERCISE_POOL={EXERCISE_POOL}
+                handleSelectedDay={handleSelectedDay}
+                storeData={storeData}
+              />
+            </Box>
+          }
+        />
+      </Routes>
     </ThemeProvider>
   );
 }

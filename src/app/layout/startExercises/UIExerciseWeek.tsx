@@ -19,10 +19,10 @@ const useStyles: any = makeStyles({
   day: {
     fontSize: 20,
     "&:hover": {
-      border: "2px solid #ff8400",
+      background: "#e84855",
     },
-    border: "2px solid #0d1117",
-
+    borderBottom: "3px solid #393E41",
+    background: "#1C1D21",
     height: 130,
   },
   hovertext: {

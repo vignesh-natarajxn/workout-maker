@@ -61,14 +61,14 @@ export default function UIBarDrawer({
         <AppBar
           position="fixed"
           sx={{
-            background: "#0d1117",
-            borderBottom: "1px solid #313f53",
+            background: "#1C1D21",
           }}
+          elevation={0}
         >
           <Toolbar>
             <Button
               variant="contained"
-              color='secondary'
+              color="secondary"
               onClick={handleDrawerToggle}
               style={{
                 maxWidth: "70px",
@@ -96,7 +96,7 @@ export default function UIBarDrawer({
               <Link to="/edit">
                 <Button
                   variant="contained"
-                  color='secondary'
+                  color="secondary"
                   style={{
                     maxWidth: "70px",
                     maxHeight: "60px",
