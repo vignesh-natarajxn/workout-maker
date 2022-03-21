@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, Route, Routes, useNavigate } from "react-router-dom";
-import logo from "../logo.svg";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "../Styles.css";
 
 // Components
-import UIExerciseWeek from "./startExercises/UIExerciseWeek";
 import UIExerciseDay from "./startExercises/UIExerciseDay";
 
 // Models
@@ -12,7 +10,7 @@ import { ExerciseDay } from "../models/exerciseDay";
 import UIEditMain from "./editExercises/UIEditMain";
 // Material UI
 
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import UIBarDrawer from "./startExercises/UIBarDrawer";
 
@@ -40,71 +38,75 @@ const EXERCISE_POOL = [
     category: "Chest",
     exercises: [
       { name: "Bench Press" },
-      { name: "Pushup" },
-      { name: "Bench Fly" },
+      { name: "Pushups" },
+      { name: "Bench Flys" },
       { name: "Incline Bench Press" },
-      { name: "Cable Crossover" },
-      { name: "Machine Fly" },
+      { name: "Cable Crossovers" },
+      { name: "Machine Flys" },
     ],
   },
   {
     category: "Triceps",
     exercises: [
-      { name: "Skullcrusher" },
-      { name: "Dip" },
-      { name: "Overhead Tricep Extension" },
+      { name: "Skullcrushers" },
+      { name: "Dips" },
+      { name: "Overhead Tricep Extensions" },
     ],
   },
   {
     category: "Shoulders",
     exercises: [
       { name: "Overhead Press" },
-      { name: "Lateral Rise" },
+      { name: "Lateral Rises" },
       { name: "Arnold Press" },
     ],
   },
   {
     category: "Biceps and Forearms",
     exercises: [
-      { name: "Barbell Curl" },
-      { name: "Dumbbell Curl" },
-      { name: "Alternate Diagonal Curl" },
-      { name: "Reverse Curl" },
-      { name: "Hammer Curl" },
+      { name: "Barbell Curls" },
+      { name: "Dumbbell Curls" },
+      { name: "Alternate Diagonal Curls" },
+      { name: "Reverse Curls" },
+      { name: "Hammer Curls" },
     ],
   },
   {
     category: "Back",
     exercises: [
-      { name: "Row" },
-      { name: "Pullup" },
-      { name: "Chinup" },
-      { name: "Lat Pulldown" },
-      { name: "Seated Row" },
-      { name: "Rear Delt Fly" },
+      { name: "Rows" },
+      { name: "Pullups" },
+      { name: "Chinups" },
+      { name: "Lat Pulldowns" },
+      { name: "Seated Rows" },
+      { name: "Rear Delt Flys" },
     ],
   },
   {
     category: "Legs",
     exercises: [
-      { name: "Squat" },
-      { name: "Deadlift" },
+      { name: "Squats" },
+      { name: "Deadlifts" },
       { name: "Leg Press" },
-      { name: "Lunge" },
+      { name: "Lunges" },
       { name: "Calf Rises" },
     ],
   },
   {
     category: "Abs",
     exercises: [
-      { name: "Leg Raise" },
-      { name: "Crunch" },
-      { name: "Lying Leg Raise" },
+      { name: "Leg Raises" },
+      { name: "Crunches" },
+      { name: "Lying Leg Raises" },
     ],
   },
   {
     category: "Other",
-    exercises: [{ name: "Shrug" }, { name: "Neck Raise" }, { name: "PP Rise" }],
+    exercises: [
+      { name: "Shrugs" },
+      { name: "Neck Raises" },
+      { name: "PP Rises" },
+    ],
   },
 ];
 const EXERCISE_WEEK: ExerciseDay[] = [];

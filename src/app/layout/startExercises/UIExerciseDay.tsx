@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 
 // Components
 import ExerciseDayMain from "./UIExerciseDay/ExerciseDayMain";
@@ -35,16 +35,6 @@ const useStyles: any = makeStyles((theme) => ({
     border: "2px solid #e84855",
     borderRadius: 5,
     margin: 3,
-  },
-  card: {
-    backgroundColor: "#191f27",
-    border: "2px solid #333333",
-    marginTop: 20,
-    height: 500,
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-    borderRadius: 15,
   },
   cardlist: {
     // border: "2px solid #333333",
@@ -91,9 +81,9 @@ export default function UIExerciseDay({
 
   return (
     <>
-      <Grid container direction="row" justifyContent="center" >
+      <Grid container direction="row" justifyContent="center">
         {currentExercise === -1 && selectedDay && (
-          <Grid item xs={12} md={8} lg={7} >
+          <Grid item xs={12} md={8} lg={7}>
             <ExerciseDayOverView
               selectedDay={selectedDay}
               setCurrentDay={setCurrentDayHandler}
@@ -101,7 +91,7 @@ export default function UIExerciseDay({
           </Grid>
         )}
         {currentExercise !== -1 && currentDay && (
-          <Grid height={window.innerHeight} item xs={12} md={8} lg={7} >
+          <Grid height={window.innerHeight} item xs={12} md={8} lg={7}>
             <ExerciseDayMain
               currentDay={currentDay}
               currentExercise={currentExercise}
@@ -114,7 +104,7 @@ export default function UIExerciseDay({
         <Grid item xs={12} md={8} lg={5} className={classes.cardlist}>
           <>
             {selectedDay.exercises.map((exercise) => (
-              <Fragment key={Math.random()*1000}>
+              <Fragment key={Math.random() * 1000}>
                 {exercise === currentDay?.exercises[currentExercise] ? (
                   <Card className={classes.selectedExc}>
                     <ExerciseDayList exercise={exercise} />
