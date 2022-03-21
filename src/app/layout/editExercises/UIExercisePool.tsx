@@ -110,6 +110,9 @@ export default function UIExercisePool({
 
   return (
     <Container>
+      <Button variant="contained" onClick={() => setExercisePool(["", ""])}>
+        Cancel
+      </Button>
       <List sx={{ width: "100%" }} aria-labelledby="nested-list-subheader">
         {EXERCISE_POOL.map((category) => {
           return (
@@ -165,11 +168,9 @@ export default function UIExercisePool({
             </Container>
           );
         })}
-        <Typography margin={2} />
+        <Typography margin={1} />
         <ListItem>
-          <Typography color="white" marginTop={0} >
-            Custom Exercise:{" "}
-          </Typography>
+          <Typography color="white">Custom Exercise: </Typography>
           <TextField
             onChange={(e) => setCustomExc(e.target.value)}
             size="small"
@@ -179,12 +180,15 @@ export default function UIExercisePool({
             }}
             fullWidth
           />
-          <Button onClick={() => handleExcerciseAdd(customExc)}>Done</Button>
+          <Typography marginLeft={2}>
+            <Button
+              variant="contained"
+              onClick={() => handleExcerciseAdd(customExc)}
+            >
+              Done
+            </Button>
+          </Typography>
         </ListItem>
-        <Typography margin={3} />
-        <Button variant="contained" onClick={() => setExercisePool(["", ""])}>
-          Cancel
-        </Button>
       </List>
     </Container>
   );
