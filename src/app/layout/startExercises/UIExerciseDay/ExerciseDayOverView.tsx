@@ -22,7 +22,7 @@ export default function UIExerciseDayOverView({
   const [displayNoExc, setDisplayNoExc] = useState<boolean>(false);
 
   //|||||||||||||||||||||||||||||||||||||||||||
-  
+
   return (
     <>
       <Typography fontSize={30} margin={3} color="#e84855">
@@ -43,7 +43,7 @@ export default function UIExerciseDayOverView({
           0
         )}
       </Typography>
-      <Typography fontSize={18} margin={2}  color="#ffffff">
+      <Typography fontSize={18} margin={2} marginBottom={4} color="#ffffff">
         Time Estimation:{" "}
         {selectedDay.exercises
           .reduce(
@@ -71,11 +71,11 @@ export default function UIExerciseDayOverView({
           }
         }}
       >
-        <Typography fontSize={18} margin={3} color="#000000">
+        <Typography fontSize={18} margin={3}  color="#000000">
           Begin Workout
         </Typography>
       </Button>
-      <Typography margin={2}></Typography>
+      <Typography margin={4}></Typography>
       {displayNoExc && (
         <Typography fontSize={18} margin={2} marginBottom={6} color="#ffffff">
           Add exercises to start.

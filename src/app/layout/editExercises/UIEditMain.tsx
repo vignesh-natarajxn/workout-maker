@@ -140,7 +140,7 @@ export default function EditMain({
     <>
       <Typography margin={6}></Typography>
       <Button onClick={storeData} variant="contained">
-        <Typography margin={1}>Save Workout</Typography>
+        <Typography margin={1}>Save</Typography>
       </Button>
       <Grid container justifyContent="center">
         {exercisePool[0] ? (
