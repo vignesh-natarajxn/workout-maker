@@ -100,7 +100,7 @@ export default function UIExerciseDayMain({
           <Typography fontSize={25} margin={2} color="#ffffff">
             Current Set: {set}
           </Typography>
-          <Typography fontSize={18} margin={2} color="#ffffff">
+          <Typography margin={2} color="#ffffff">
             Sets: {currentDay.exercises[currentExercise].sets} | Rest Time:{" "}
             {currentDay.exercises[currentExercise].timeBetween}
           </Typography>
@@ -124,7 +124,7 @@ export default function UIExerciseDayMain({
                 variant="outlined"
                 onClick={() => nextExerciseHandler("next")}
               >
-                <Typography fontSize={18} margin={2} color="#ffffff">
+                <Typography margin={2} color="#ffffff">
                   Force Next
                 </Typography>
               </Button>
@@ -135,7 +135,7 @@ export default function UIExerciseDayMain({
                 variant="outlined"
                 onClick={() => nextExerciseHandler("timer")}
               >
-                <Typography fontSize={18} margin={8} color="#ffffff">
+                <Typography margin={8} color="#ffffff">
                   Next
                 </Typography>
               </Button>

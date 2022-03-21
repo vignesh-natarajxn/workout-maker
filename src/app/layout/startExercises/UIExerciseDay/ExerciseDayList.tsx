@@ -47,22 +47,22 @@ export default function UIExerciseDayList({ exercise }: Props) {
   const classes = useStyles();
 
   //|||||||||||||||||||||||||||||||||||||||||||
-  
+
   return (
     <List>
       <ListItem>
-        <Typography align="left" fontSize={18} color="common.white">
+        <Typography align="left" color="common.white">
           {exercise.name}
         </Typography>
-        <Typography fontSize={17} color="common.white" marginLeft="auto">
+        <Typography color="common.white" marginLeft="auto">
           Sets: {exercise.sets}
         </Typography>
       </ListItem>
       <ListItem>
-        <Typography align="left" fontSize={18} lineHeight={2} color="#b4b4b4">
+        <Typography align="left" lineHeight={2} color="#b4b4b4">
           Superset: {exercise.superset}
         </Typography>
-        <Typography fontSize={17} color="common.white" marginLeft="auto">
+        <Typography color="common.white" marginLeft="auto">
           Rest Time: {exercise.timeBetween}
         </Typography>
       </ListItem>

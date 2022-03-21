@@ -28,14 +28,14 @@ export default function UIExerciseDayOverView({
       <Typography fontSize={30} margin={3} color="#e84855">
         {selectedDay.name} overview:
       </Typography>
-      <Typography fontSize={18} margin={2} color="#ffffff">
+      <Typography margin={2} color="#ffffff">
         Number of exercises:{" "}
         {selectedDay.exercises.reduce(
           (total, exercise) => (total = total + (exercise.superset ? 2 : 1)),
           0
         )}
       </Typography>
-      <Typography fontSize={18} margin={2} color="#ffffff">
+      <Typography margin={2} color="#ffffff">
         Total working sets:{" "}
         {selectedDay.exercises.reduce(
           (total, exercise) =>
@@ -43,7 +43,7 @@ export default function UIExerciseDayOverView({
           0
         )}
       </Typography>
-      <Typography fontSize={18} margin={2} marginBottom={4} color="#ffffff">
+      <Typography margin={2} marginBottom={4} color="#ffffff">
         Time Estimation:{" "}
         {selectedDay.exercises
           .reduce(
@@ -71,13 +71,13 @@ export default function UIExerciseDayOverView({
           }
         }}
       >
-        <Typography fontSize={18} margin={3}  color="#000000">
+        <Typography margin={3} color="#000000">
           Begin Workout
         </Typography>
       </Button>
       <Typography margin={4}></Typography>
       {displayNoExc && (
-        <Typography fontSize={18} margin={2} marginBottom={6} color="#ffffff">
+        <Typography margin={2} marginBottom={6} color="#ffffff">
           Add exercises to start.
         </Typography>
       )}

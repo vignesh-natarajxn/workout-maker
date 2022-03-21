@@ -121,10 +121,11 @@ export default function UIExerciseDayEdit({
               </Button>
             </Typography>
           )}
-          <Typography marginLeft='auto'><Button onClick={storeData} variant="contained">
-            <Typography margin={1}>Save</Typography>
-          </Button></Typography>
-          
+          <Typography marginLeft="auto">
+            <Button onClick={storeData} variant="contained">
+              <Typography margin={1}>Save</Typography>
+            </Button>
+          </Typography>
         </ListItem>
         <Button onClick={() => handleExcerciseEdit("add", "noelements")}>
           <AddCircleIcon />
@@ -138,7 +139,7 @@ export default function UIExerciseDayEdit({
             .exercises.map((exercise) => (
               <Fragment key={exercise.name + Math.random() * 1000}>
                 <ListItem>
-                  <Typography fontSize={19} color="primary">
+                  <Typography fontSize={20} color="primary">
                     {exercise.name}
                   </Typography>
                   <Button
