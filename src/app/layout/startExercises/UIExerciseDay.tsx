@@ -9,7 +9,7 @@ import ExerciseDayOverView from "./UIExerciseDay/ExerciseDayOverView";
 import { ExerciseDay } from "../../models/exerciseDay";
 
 // Material UI
-import { Card, Grid } from "@mui/material";
+import { Card, Container, Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 /************************************************************************************************/
@@ -104,7 +104,7 @@ export default function UIExerciseDay({
         <Grid item xs={12} md={8} lg={5} className={classes.cardlist}>
           <>
             {selectedDay.exercises.map((exercise) => (
-              <Fragment key={Math.random() * 1000}>
+              <Container key={Math.random() * 1000}>
                 {exercise === currentDay?.exercises[currentExercise] ? (
                   <Card className={classes.selectedExc}>
                     <ExerciseDayList exercise={exercise} />
@@ -114,7 +114,7 @@ export default function UIExerciseDay({
                     <ExerciseDayList exercise={exercise} />
                   </Card>
                 )}
-              </Fragment>
+              </Container>
             ))}
           </>
         </Grid>
