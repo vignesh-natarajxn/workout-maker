@@ -60,7 +60,7 @@ export default function UIExerciseDayList({ exercise }: Props) {
       </ListItem>
       <ListItem>
         <Typography align="left" fontSize={18} lineHeight={2} color="#b4b4b4">
-          {exercise.superset}
+          Superset: {exercise.superset}
         </Typography>
         <Typography fontSize={17} color="common.white" marginLeft="auto">
           Rest Time: {exercise.timeBetween}

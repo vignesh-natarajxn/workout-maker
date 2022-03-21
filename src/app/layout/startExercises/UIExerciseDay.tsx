@@ -27,7 +27,7 @@ const useStyles: any = makeStyles((theme) => ({
   exc: {
     backgroundColor: "#00000000",
     borderTop: "2px solid #393E41",
-    // borderRadius: 15,
+    borderRadius: 0,
     margin: 3,
   },
   selectedExc: {
