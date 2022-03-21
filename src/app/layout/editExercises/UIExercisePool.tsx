@@ -167,23 +167,21 @@ export default function UIExercisePool({
         })}
         <Typography margin={2} />
         <ListItem>
-          <Typography color="white" marginTop={0} marginRight={2}>
-            Enter Custom Exercise:{" "}
+          <Typography color="white" marginTop={0} marginRight={1}>
+            Custom Exercise:{" "}
           </Typography>
-          <form>
-            <TextField
-              onChange={(e) => setCustomExc(e.target.value)}
-              size="small"
-              className={classes.form}
-              sx={{
-                input: { color: "white !important" },
-              }}
-              fullWidth
-            />
-          </form>
-          <Typography marginLeft="auto">
-            <Button onClick={() => handleExcerciseAdd(customExc)}>Done</Button>
-          </Typography>
+          <TextField
+            onChange={(e) => setCustomExc(e.target.value)}
+            size="small"
+            className={classes.form}
+            sx={{
+              input: { color: "white !important" },
+            }}
+            fullWidth
+          />
+          <Button onClick={() => handleExcerciseAdd(customExc)}>Done</Button>
+          {/* <Typography marginLeft="auto">
+          </Typography> */}
         </ListItem>
         <Typography margin={3} />
         <Button variant="contained" onClick={() => setExercisePool(["", ""])}>
