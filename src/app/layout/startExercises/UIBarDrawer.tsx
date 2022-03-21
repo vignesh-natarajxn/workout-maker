@@ -77,7 +77,7 @@ export default function UIBarDrawer({
                 minHeight: "60px",
               }}
             >
-              Select Day
+              <Typography fontSize={13}>Select Day</Typography>
             </Button>
             <Typography
               fontSize={25}
@@ -104,7 +104,7 @@ export default function UIBarDrawer({
                     minHeight: "60px",
                   }}
                 >
-                  Edit
+                  <Typography fontSize={13}>Edit</Typography>
                 </Button>
               </Link>
             </Typography>
