@@ -167,7 +167,7 @@ export default function UIExercisePool({
         })}
         <Typography margin={2} />
         <ListItem>
-          <Typography color="white" marginTop={0} marginRight={1}>
+          <Typography color="white" marginTop={0} >
             Custom Exercise:{" "}
           </Typography>
           <TextField
@@ -180,8 +180,6 @@ export default function UIExercisePool({
             fullWidth
           />
           <Button onClick={() => handleExcerciseAdd(customExc)}>Done</Button>
-          {/* <Typography marginLeft="auto">
-          </Typography> */}
         </ListItem>
         <Typography margin={3} />
         <Button variant="contained" onClick={() => setExercisePool(["", ""])}>
