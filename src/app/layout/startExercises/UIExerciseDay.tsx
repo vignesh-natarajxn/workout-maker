@@ -83,7 +83,7 @@ export default function UIExerciseDay({
     <>
       <Grid container direction="row" justifyContent="center">
         {currentExercise === -1 && selectedDay && (
-          <Grid item xs={12} md={8} lg={7}>
+          <Grid item xs={12} md={5} xl={4}>
             <ExerciseDayOverView
               selectedDay={selectedDay}
               setCurrentDay={setCurrentDayHandler}
@@ -101,7 +101,7 @@ export default function UIExerciseDay({
           </Grid>
         )}
 
-        <Grid item xs={12} md={8} lg={5} className={classes.cardlist}>
+        <Grid item xs={12} md={5} xl={4} className={classes.cardlist}>
           <>
             {selectedDay.exercises.map((exercise) => (
               <Container key={Math.random() * 1000}>
