@@ -8,8 +8,8 @@ import UIExerciseDay from "./startExercises/UIExerciseDay";
 // Models
 import { ExerciseDay } from "../models/exerciseDay";
 import UIEditMain from "./editExercises/UIEditMain";
-// Material UI
 
+// Material UI
 import { Box } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import UIBarDrawer from "./startExercises/UIBarDrawer";
