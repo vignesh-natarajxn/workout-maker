@@ -178,18 +178,17 @@ export default function UIExercisePool({
               sx={{
                 input: { color: "white !important" },
               }}
-            ></TextField>
+              fullWidth
+            />
           </form>
-          <Button onClick={() => handleExcerciseAdd(customExc)}>Done</Button>
           <Typography marginLeft="auto">
-            <Button
-              variant="contained"
-              onClick={() => setExercisePool(["", ""])}
-            >
-              Cancel
-            </Button>
+            <Button onClick={() => handleExcerciseAdd(customExc)}>Done</Button>
           </Typography>
         </ListItem>
+        <Typography margin={3} />
+        <Button variant="contained" onClick={() => setExercisePool(["", ""])}>
+          Cancel
+        </Button>
       </List>
     </Container>
   );
