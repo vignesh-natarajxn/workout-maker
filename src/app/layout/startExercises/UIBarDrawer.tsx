@@ -28,7 +28,7 @@ interface Props {
   navigate: any;
 }
 
-const drawerWidth = 290;
+const drawerWidth = 350;
 
 /************************************************************************************************/
 

@@ -65,23 +65,21 @@ export default function UIExerciseWeek({
               <List>
                 {exerciseDay.exercises.map((exercise, ii) => {
                   ii += 1;
-                  if (ii <= 3)
+                  if (ii <= 4)
                     return (
-                      <ListItemText
-                        className={classes.hovertext}
-                        disableTypography
-                        key={exercise.name + Math.random() * 10000}
-                        primary={exercise.name}
-                      />
-                    );
-                  if (ii === 4)
-                    return (
-                      <ListItemText
-                        className={classes.hovertext}
-                        disableTypography
-                        key={exercise.name + Math.random() * 10000}
-                        primary="..."
-                      />
+                      <>
+                        <ListItemText
+                          className={classes.hovertext}
+                          disableTypography
+                          key={exercise.name + Math.random() * 10000}
+                          primary={
+                            <>
+                              {ii !== 4 && exercise.name}
+                              {ii === 4 && <div>{exercise.name}{" "}...</div>}
+                            </>
+                          }
+                        />
+                      </>
                     );
                 })}
               </List>
