@@ -131,6 +131,11 @@ export default function EditMain({
       setExercisePool(["superset", idd]);
     }
 
+    if (opr === "edit day name") {
+      exerciseWeekMod[dayIndex].name = idd;
+      setExerciseWeek(exerciseWeekMod);
+    }
+
     forceUpdateHandler();
   };
 

@@ -7,7 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1C1D21;
+  background-color: #1c1d21;
 }
 
 code {
@@ -31,7 +31,7 @@ img {
 nav h1 {
   margin-right: auto;
 }
-.bruh{
+.bruh {
   background-color: #dddddd;
 }
 ::-webkit-scrollbar {
@@ -40,7 +40,7 @@ nav h1 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #1C1D2100;
+  background: #1c1d2100;
 }
 
 /* Handle */
@@ -53,3 +53,6 @@ nav h1 {
   background: #80262d;
 }
 
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #ffffff;
+}

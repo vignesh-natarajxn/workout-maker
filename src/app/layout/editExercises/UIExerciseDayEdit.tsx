@@ -4,12 +4,21 @@ import React, { Fragment, useState } from "react";
 import { ExerciseDay } from "../../models/exerciseDay";
 
 // Material UI
-import { Button, Container, List, ListItem, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  inputLabelClasses,
+  List,
+  ListItem,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import EditIcon from "@mui/icons-material/Edit";
 
 /************************************************************************************************/
 
@@ -45,6 +54,28 @@ const useStyles: any = makeStyles({
     marginLeft: 0,
     color: "#bbbbbb",
   },
+  form: {
+    marginTop: 10,
+    marginBottom: 5,
+    color: "white !important",
+    "& .MuiFormLabel-root.Mui-disabled": {
+      color: "white !important",
+    },
+    "&.focused": {
+      color: "white !important",
+    },
+    "& label.Mui-focused": {
+      color: "white !important",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "white ",
+      },
+      "&:hover fieldset": {
+        borderColor: "#e84855",
+      },
+    },
+  },
 });
 
 /************************************************************************************************/
@@ -55,11 +86,38 @@ export default function UIExerciseDayEdit({
   handleExcerciseEdit,
 }: Props) {
   const classes = useStyles();
-
+  const [formEdit, setFormEdit] = useState<boolean>(false);
   //|||||||||||||||||||||||||||||||||||||||||||
 
   return (
     <Container>
+      {formEdit ? (
+        <form>
+          <TextField
+            onChange={(e) => {
+              handleExcerciseEdit("edit day name", e.target.value);
+            }}
+            defaultValue={selectedDay!.name}
+            size="small"
+            className={classes.form}
+            sx={{
+              input: { color: "white !important" },
+            }}
+          ></TextField>
+        </form>
+      ) : (
+        <Typography margin={2} fontSize={25} color="white">
+          {selectedDay!.name}
+          <Button
+            onClick={() => {
+              setFormEdit(true);
+            }}
+          >
+            <EditIcon />
+          </Button>
+        </Typography>
+      )}
+
       <Button onClick={() => handleExcerciseEdit("add", "noelements")}>
         <AddCircleIcon />
       </Button>
