@@ -127,7 +127,7 @@ export default function UIBarDrawer({
               "& .MuiDrawer-paper": {
                 boxSizing: "border-box",
                 width: drawerWidth,
-                background: "#00000000",
+                background: "#1c1d21",
               },
             }}
           >
