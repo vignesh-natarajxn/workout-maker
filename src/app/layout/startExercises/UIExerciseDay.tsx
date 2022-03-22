@@ -31,7 +31,7 @@ const useStyles: any = makeStyles((theme) => ({
     margin: 3,
   },
   selectedExc: {
-    backgroundColor: "#191f27",
+    backgroundColor: "#393E41",
     border: "2px solid #e84855",
     borderRadius: 5,
     margin: 3,
