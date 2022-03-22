@@ -28,7 +28,7 @@ interface Props {
   navigate: any;
 }
 
-const drawerWidth = 350;
+const drawerWidth = Math.min(350, (window.innerWidth * 3) / 4);
 
 /************************************************************************************************/
 
