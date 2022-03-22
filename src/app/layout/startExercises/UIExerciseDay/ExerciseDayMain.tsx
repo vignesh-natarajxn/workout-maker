@@ -78,16 +78,14 @@ export default function UIExerciseDayMain({
               {superset ? (
                 <Typography
                   fontSize={30}
-                  margin={2}
                   marginRight="auto"
                   color="#b4b4b4"
                 >
-                  {currentDay.exercises[currentExercise].superset} (superset)
+                  {currentDay.exercises[currentExercise].superset}
                 </Typography>
               ) : (
                 <Typography
                   fontSize={30}
-                  margin={2}
                   marginRight="auto"
                   color="primary"
                 >

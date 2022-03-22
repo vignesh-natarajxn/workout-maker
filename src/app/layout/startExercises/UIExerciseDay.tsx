@@ -88,7 +88,7 @@ export default function UIExerciseDay({
           </Grid>
         )}
         {currentExercise !== -1 && currentDay && (
-          <Grid height={window.innerHeight} item xs={12} md={8} lg={7}>
+          <Grid item height={window.innerHeight} xs={12} md={8} lg={7}>
             <ExerciseDayMain
               currentDay={currentDay}
               currentExercise={currentExercise}
