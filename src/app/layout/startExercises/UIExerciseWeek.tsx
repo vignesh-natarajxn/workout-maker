@@ -74,7 +74,7 @@ export default function UIExerciseWeek({
                         primary={
                           <Typography fontSize={14}>
                             {ii !== 4 && exercise.name}
-                            {ii === 4 && <div>{exercise.name} ...</div>}
+                            {ii === 4 && <>{exercise.name} ...</>}
                           </Typography>
                         }
                       />

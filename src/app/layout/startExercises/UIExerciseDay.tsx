@@ -34,7 +34,6 @@ const useStyles: any = makeStyles((theme) => ({
     margin: 3,
   },
   cardlist: {
-    // border: "2px solid #333333",
     marginTop: 10,
     alignItems: "center",
     alignContent: "center",
