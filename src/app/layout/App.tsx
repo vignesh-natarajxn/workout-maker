@@ -20,11 +20,14 @@ const theme = createTheme({
   palette: {
     primary: {
       main: "#e84855",
+      contrastText: "#ffffff",
     },
     secondary: {
       main: "#393E41",
+      contrastText: "#ffffff",
     },
   },
+
   typography: {
     fontFamily: "Exo",
     fontWeightLight: "400",
