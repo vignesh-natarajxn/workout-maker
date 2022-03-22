@@ -67,7 +67,7 @@ export default function UIBarDrawer({
         >
           <Toolbar>
             <Button
-              variant="contained"
+              variant="outlined"
               color="secondary"
               onClick={handleDrawerToggle}
               style={{
@@ -93,9 +93,9 @@ export default function UIBarDrawer({
               </Button>
             </Typography>
             <Typography marginLeft="auto">
-              <Link to="/edit">
+              <Link to="/edit" style={{ textDecoration: "none" }}>
                 <Button
-                  variant="contained"
+                  variant="outlined"
                   color="secondary"
                   style={{
                     maxWidth: "70px",
