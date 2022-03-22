@@ -108,7 +108,7 @@ export default function UIExercisePool({
 
   return (
     <Fade in timeout={{ enter: 700 }}>
-      <Container>
+      <div>
         <Button variant="contained" onClick={() => setExercisePool(["", ""])}>
           Cancel
         </Button>
@@ -188,7 +188,7 @@ export default function UIExercisePool({
             </Typography>
           </ListItem>
         </List>
-      </Container>
+      </div>
     </Fade>
   );
 }

@@ -101,7 +101,7 @@ export default function UIExerciseDay({
         <Grid item xs={12} md={5} xl={4} className={classes.cardlist}>
           <>
             {selectedDay.exercises.map((exercise) => (
-              <Container key={exercise.id}>
+              <div key={exercise.id}>
                 {exercise === currentDay?.exercises[currentExercise] ? (
                   <Card className={classes.selectedExc}>
                     <ExerciseDayList exercise={exercise} />
@@ -111,7 +111,7 @@ export default function UIExerciseDay({
                     <ExerciseDayList exercise={exercise} />
                   </Card>
                 )}
-              </Container>
+              </div>
             ))}
           </>
         </Grid>

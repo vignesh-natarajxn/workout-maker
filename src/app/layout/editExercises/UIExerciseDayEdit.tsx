@@ -65,7 +65,6 @@ export default function UIExerciseDayEdit({
   //|||||||||||||||||||||||||||||||||||||||||||
 
   return (
-    <Container>
       <List>
         <ListItem>
           {formEdit ? (
@@ -116,6 +115,5 @@ export default function UIExerciseDayEdit({
             ))}
         </TransitionGroup>
       </List>
-    </Container>
   );
 }
