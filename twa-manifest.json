@@ -20,8 +20,8 @@
     "path": "C:\\Projects\\workout-maker\\android.keystore",
     "alias": "android"
   },
-  "appVersionName": "2",
-  "appVersionCode": 2,
+  "appVersionName": "4",
+  "appVersionCode": 4,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://viknhat.github.io/workout-maker/manifest.json",
@@ -36,5 +36,5 @@
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "2"
+  "appVersion": "4"
 }
