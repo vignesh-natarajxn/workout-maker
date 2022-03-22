@@ -7,7 +7,7 @@ import ExerciseDayOverView from "./UIExerciseDay/ExerciseDayOverView";
 import { ExerciseDay } from "../../models/exerciseDay";
 
 // Material UI
-import { Card, Container, Fade, Grid } from "@mui/material";
+import { Card, Fade, Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 /************************************************************************************************/
