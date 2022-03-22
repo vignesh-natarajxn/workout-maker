@@ -72,10 +72,10 @@ export default function UIExerciseWeek({
                         disableTypography
                         key={exercise.id}
                         primary={
-                          <>
+                          <Typography fontSize={14}>
                             {ii !== 4 && exercise.name}
                             {ii === 4 && <div>{exercise.name} ...</div>}
-                          </>
+                          </Typography>
                         }
                       />
                     );
@@ -83,7 +83,7 @@ export default function UIExerciseWeek({
               </List>
             ) : (
               <List>
-                <Typography>
+                <Typography fontSize={14}>
                   {i}
                   {" - "}
                   {i === 1
@@ -102,9 +102,11 @@ export default function UIExerciseWeek({
                 </Typography>
 
                 {selectedDay === exerciseDay ? (
-                  <Typography color="primary">{exerciseDay.name}</Typography>
+                  <Typography color="primary" fontSize={14}>
+                    {exerciseDay.name}
+                  </Typography>
                 ) : (
-                  <Typography>{exerciseDay.name}</Typography>
+                  <Typography fontSize={14}>{exerciseDay.name}</Typography>
                 )}
               </List>
             )}
