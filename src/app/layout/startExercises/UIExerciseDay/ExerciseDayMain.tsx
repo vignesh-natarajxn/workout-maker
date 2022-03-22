@@ -82,7 +82,7 @@ export default function UIExerciseDayMain({
                   marginRight="auto"
                   color="#b4b4b4"
                 >
-                  {currentDay.exercises[currentExercise].superset}
+                  {currentDay.exercises[currentExercise].superset} (superset)
                 </Typography>
               ) : (
                 <Typography
