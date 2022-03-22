@@ -21,7 +21,7 @@ const useStyles: any = makeStyles({
     "&:hover": {
       background: "#e84855",
     },
-    borderBottom: "3px solid #393E41",
+    borderBottom: "1px solid #393E41",
     background: "#1C1D21",
     height: 130,
   },

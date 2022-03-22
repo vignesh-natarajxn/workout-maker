@@ -12,6 +12,7 @@ import UIEditMain from "./editExercises/UIEditMain";
 import { Box } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import UIBarDrawer from "./startExercises/UIBarDrawer";
+import shadows, { Shadows } from "@mui/material/styles/shadows";
 
 /************************************************************************************************/
 
@@ -31,6 +32,7 @@ const theme = createTheme({
     fontWeightMedium: "600",
     fontWeightBold: "700",
   },
+  shadows: shadows.map(() => "none") as Shadows,
 });
 const EXERCISE_POOL = [
   {

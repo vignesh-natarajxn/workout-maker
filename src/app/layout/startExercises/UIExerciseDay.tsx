@@ -24,8 +24,7 @@ interface Props {
 const useStyles: any = makeStyles((theme) => ({
   exc: {
     backgroundColor: "#00000000",
-    borderTop: "2px solid #393E41",
-    borderRadius: 0,
+    borderTop: "1px solid #393E41",
     margin: 3,
   },
   selectedExc: {
