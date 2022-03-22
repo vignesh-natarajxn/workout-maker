@@ -7,9 +7,7 @@ import { ExerciseDay } from "../../models/exerciseDay";
 // Material UI
 import {
   Button,
-  Card,
   Collapse,
-  Container,
   List,
   ListItem,
   TextField,
