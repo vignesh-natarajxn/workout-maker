@@ -32,16 +32,6 @@ interface Props {
 //|||||||||||||||||||||||||||||||||||||||||||
 
 const useStyles: any = makeStyles({
-  day: {
-    fontSize: 20,
-    "&:hover": {
-      border: "2px solid #e84855",
-    },
-    marginTop: 10,
-    marginBottom: 10,
-    height: 230,
-    width: 170,
-  },
   X: {
     marginLeft: "auto",
     color: "#e84855",
@@ -58,10 +48,7 @@ const useStyles: any = makeStyles({
   form: {
     marginTop: 10,
     marginBottom: 5,
-    color: "white !important",
-    "& .MuiFormLabel-root.Mui-disabled": {
-      color: "white !important",
-    },
+
     "&.focused": {
       color: "white !important",
     },
@@ -110,7 +97,7 @@ export default function UIExerciseDayEdit({
               ></TextField>
             </form>
           ) : (
-            <Typography margin={2} fontSize={25} color="white">
+            <Typography fontSize={25} color="white">
               {selectedDay!.name}
               <Button
                 onClick={() => {

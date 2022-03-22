@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 // Models
 import { ExercisePool } from "../../models/exercisePool";
@@ -52,10 +52,7 @@ const useStyles: any = makeStyles({
   form: {
     marginTop: 2,
     marginBottom: 2,
-    color: "white !important",
-    "& .MuiFormLabel-root.Mui-disabled": {
-      color: "white !important",
-    },
+
     "&.focused": {
       color: "white !important",
     },

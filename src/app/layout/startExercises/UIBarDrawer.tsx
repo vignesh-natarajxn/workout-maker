@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../logo.png";
 import "../../Styles.css";
@@ -38,7 +38,7 @@ export default function UIBarDrawer({
   setSelectedDay,
   navigate,
 }: Props) {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);

@@ -18,22 +18,15 @@ code {
 img {
   max-width: 100%;
 }
-.mainNav {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  /* max-width: 1000px; */
-  margin: 0 auto;
-  border-bottom: 1px solid #2b374b;
-  margin-bottom: 20px;
-}
 
-nav h1 {
-  margin-right: auto;
-}
-.bruh {
+/************************************************************************************************/
+
+/* .bruh {
   background-color: #1c1d21;
-}
+} */
+
+/************************************************************************************************/
+
 ::-webkit-scrollbar {
   width: 5px;
 }

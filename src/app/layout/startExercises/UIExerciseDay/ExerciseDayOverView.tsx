@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 //Models
 import { ExerciseDay } from "../../../models/exerciseDay";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 // Components
 import Timer from "./ExerciseDayMain/Timer";
@@ -8,7 +8,7 @@ import Completed from "./ExerciseDayMain/Completed";
 import { ExerciseDay } from "../../../models/exerciseDay";
 
 // Material UI
-import { Button, Container, ListItem, Typography } from "@mui/material";
+import { Button, ListItem, Typography } from "@mui/material";
 
 /************************************************************************************************/
 

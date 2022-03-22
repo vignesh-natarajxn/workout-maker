@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import "../Styles.css";
 
 // Components
 import UIExerciseDay from "./startExercises/UIExerciseDay";
@@ -50,7 +49,7 @@ const EXERCISE_POOL = [
     exercises: [
       { name: "Skullcrushers" },
       { name: "Dips" },
-      { name: "Overhead Tricep Extensions" },
+      { name: "Overhead Extensions" },
     ],
   },
   {

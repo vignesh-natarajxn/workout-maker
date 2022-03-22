@@ -1,5 +1,3 @@
-import React, { Fragment } from "react";
-
 // Components
 import ExerciseDayMain from "./UIExerciseDay/ExerciseDayMain";
 import ExerciseDayList from "./UIExerciseDay/ExerciseDayList";

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 // Components
 import UIExercisePool from "./UIExercisePool";
@@ -9,8 +9,7 @@ import { ExerciseDay } from "../../models/exerciseDay";
 import { ExercisePool } from "../../models/exercisePool";
 
 // Material UI
-import { Button, Grid, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Grid, Typography } from "@mui/material";
 
 /************************************************************************************************/
 
@@ -24,24 +23,6 @@ interface Props {
   storeData: () => void;
 }
 
-const useStyles: any = makeStyles(() => ({
-  day: {
-    marginTop: 10,
-    marginBottom: 20,
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-  },
-  pool: {
-    marginTop: 10,
-    marginBottom: 20,
-    height: 800,
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-  },
-}));
-
 /************************************************************************************************/
 
 export default function EditMain({
@@ -51,9 +32,8 @@ export default function EditMain({
   EXERCISE_POOL,
   storeData,
 }: Props) {
-  const classes = useStyles();
-  const [someVar, setSomeVar] = React.useState<boolean>(true);
-  const [exercisePool, setExercisePool] = React.useState<string[]>(["", ""]);
+  const [someVar, setSomeVar] = useState<boolean>(true);
+  const [exercisePool, setExercisePool] = useState<string[]>(["", ""]);
 
   //|||||||||||||||||||||||||||||||||||||||||||
 
@@ -146,7 +126,7 @@ export default function EditMain({
       <Typography margin={6}></Typography>
       <Grid container justifyContent="center">
         {exercisePool[0] ? (
-          <Grid item xs={12} md={5} xl={4} className={classes.pool}>
+          <Grid item xs={12} md={5} xl={4}>
             <UIExercisePool
               EXERCISE_POOL={EXERCISE_POOL}
               handleExcerciseAdd={handleExcerciseAdd}
@@ -154,7 +134,7 @@ export default function EditMain({
             />
           </Grid>
         ) : (
-          <Grid item xs={12} md={5} xl={4} className={classes.day}>
+          <Grid item xs={12} md={5} xl={4}>
             <UIExerciseDayEdit
               exerciseWeek={exerciseWeek}
               selectedDay={selectedDay}

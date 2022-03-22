@@ -1,12 +1,8 @@
-import React from "react";
-
 // Models
 import { Exercise } from "../../../models/exercise";
 
 // Material UI
-import { Button, CardContent, List, ListItem, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import { makeStyles } from "@mui/styles";
+import { List, ListItem, Typography } from "@mui/material";
 
 /************************************************************************************************/
 
@@ -14,38 +10,9 @@ interface Props {
   exercise: Exercise;
 }
 
-const useStyles: any = makeStyles({
-  day: {
-    fontSize: 20,
-    "&:hover": {
-      border: "2px solid #e84855",
-    },
-    marginTop: 10,
-    marginBottom: 10,
-    height: 230,
-    width: 170,
-  },
-  X: {
-    marginLeft: "auto",
-    // marginRight: 10,
-    color: "#000000",
-    width: 20,
-  },
-  ss: {
-    marginLeft: "auto",
-    color: "#bbbbbb",
-  },
-  add: {
-    marginLeft: 0,
-    color: "#bbbbbb",
-  },
-});
-
 /************************************************************************************************/
 
 export default function UIExerciseDayList({ exercise }: Props) {
-  const classes = useStyles();
-
   //|||||||||||||||||||||||||||||||||||||||||||
 
   return (
