@@ -67,8 +67,11 @@ export default function UIBarDrawer({
         >
           <Toolbar>
             <Button
-              variant="outlined"
-              color="secondary"
+              sx={{
+                "&.MuiButton-text": { color: "#ffffff", fontSize: 13 },
+                border: "1px solid #393E41",
+              }}
+              variant="text"
               onClick={handleDrawerToggle}
               style={{
                 maxWidth: "70px",
@@ -77,9 +80,7 @@ export default function UIBarDrawer({
                 minHeight: "60px",
               }}
             >
-              <Typography fontSize={13} color="#ffffff !important">
-                Select Day
-              </Typography>
+              Select Day
             </Button>
             <Typography
               fontSize={25}
@@ -97,8 +98,11 @@ export default function UIBarDrawer({
             <Typography marginLeft="auto">
               <Link to="/edit" style={{ textDecoration: "none" }}>
                 <Button
-                  variant="outlined"
-                  color="secondary"
+                  sx={{
+                    "&.MuiButton-text": { color: "#ffffff", fontSize: 13 },
+                    border: "1px solid #393E41",
+                  }}
+                  variant="text"
                   style={{
                     maxWidth: "70px",
                     maxHeight: "60px",
@@ -106,9 +110,7 @@ export default function UIBarDrawer({
                     minHeight: "60px",
                   }}
                 >
-                  <Typography fontSize={13} color="#ffffff !important">
-                    Edit
-                  </Typography>
+                  Edit
                 </Button>
               </Link>
             </Typography>
