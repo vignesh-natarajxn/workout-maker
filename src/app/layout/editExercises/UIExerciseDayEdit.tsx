@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { TransitionGroup } from "react-transition-group";
 
 // Models
@@ -15,9 +15,6 @@ import {
   Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import CloseIcon from "@mui/icons-material/Close";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import EditIcon from "@mui/icons-material/Edit";
 import UIExerciseDayEditExercise from "./UIExerciseDayEditExercise";
@@ -34,19 +31,6 @@ interface Props {
 //|||||||||||||||||||||||||||||||||||||||||||
 
 const useStyles: any = makeStyles({
-  X: {
-    marginLeft: "auto",
-    color: "#e84855",
-    width: 20,
-  },
-  ss: {
-    marginLeft: "auto",
-    color: "#bbbbbb",
-  },
-  add: {
-    marginLeft: 0,
-    color: "#bbbbbb",
-  },
   form: {
     marginTop: 10,
     marginBottom: 5,

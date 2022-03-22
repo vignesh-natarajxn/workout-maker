@@ -117,14 +117,14 @@ EXERCISE_WEEK.push(
     name: "Day 1",
     exercises: [
       {
-        id: "e1",
+        id: "d1e1",
         name: "Day 1 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 1 Exercise 1a",
       },
       {
-        id: "e2",
+        id: "d1e2",
         name: "Day 1 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -137,14 +137,14 @@ EXERCISE_WEEK.push(
     name: "Day 2",
     exercises: [
       {
-        id: "e1",
+        id: "d2e1",
         name: "Day 2 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 2 Exercise 1a",
       },
       {
-        id: "e2",
+        id: "d2e2",
         name: "Day 2 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -157,14 +157,14 @@ EXERCISE_WEEK.push(
     name: "Day 3",
     exercises: [
       {
-        id: "e1",
+        id: "d3e1",
         name: "Day 3 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 3 Exercise 1a",
       },
       {
-        id: "e2",
+        id: "d3e2",
         name: "Day 3 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -177,14 +177,14 @@ EXERCISE_WEEK.push(
     name: "Day 4",
     exercises: [
       {
-        id: "e1",
+        id: "d4e1",
         name: "Day 4 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 4 Exercise 1a",
       },
       {
-        id: "e2",
+        id: "d4e2",
         name: "Day 4 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -197,14 +197,14 @@ EXERCISE_WEEK.push(
     name: "Day 5",
     exercises: [
       {
-        id: "e1",
+        id: "d5e1",
         name: "Day 5 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 5 Exercise 1a",
       },
       {
-        id: "e2",
+        id: "d5e2",
         name: "Day 5 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -217,14 +217,14 @@ EXERCISE_WEEK.push(
     name: "Day 6",
     exercises: [
       {
-        id: "e1",
+        id: "d6e1",
         name: "Day 6 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 6 Exercise 1a",
       },
       {
-        id: "e2",
+        id: "d6e2",
         name: "Day 6 Exercise 2",
         timeBetween: 120,
         sets: 3,
@@ -237,14 +237,14 @@ EXERCISE_WEEK.push(
     name: "Day 7",
     exercises: [
       {
-        id: "e1",
+        id: "d7e1",
         name: "Day 7 Exercise 1",
         timeBetween: 120,
         sets: 3,
         superset: "Day 7 Exercise 1a",
       },
       {
-        id: "e2",
+        id: "d7e2",
         name: "Day 7 Exercise 2",
         timeBetween: 120,
         sets: 3,

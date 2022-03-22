@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 // Models
 import { ExerciseDay } from "../../models/exerciseDay";
@@ -67,19 +67,17 @@ export default function UIExerciseWeek({
                   ii += 1;
                   if (ii <= 4)
                     return (
-                      <>
-                        <ListItemText
-                          className={classes.hovertext}
-                          disableTypography
-                          key={exercise.id}
-                          primary={
-                            <>
-                              {ii !== 4 && exercise.name}
-                              {ii === 4 && <div>{exercise.name} ...</div>}
-                            </>
-                          }
-                        />
-                      </>
+                      <ListItemText
+                        className={classes.hovertext}
+                        disableTypography
+                        key={exercise.id}
+                        primary={
+                          <>
+                            {ii !== 4 && exercise.name}
+                            {ii === 4 && <div>{exercise.name} ...</div>}
+                          </>
+                        }
+                      />
                     );
                 })}
               </List>
