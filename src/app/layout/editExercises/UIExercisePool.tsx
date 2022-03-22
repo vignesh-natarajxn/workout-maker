@@ -8,6 +8,7 @@ import {
   Button,
   Collapse,
   Container,
+  Fade,
   List,
   ListItem,
   ListItemButton,
@@ -106,87 +107,88 @@ export default function UIExercisePool({
   //|||||||||||||||||||||||||||||||||||||||||||
 
   return (
-    <Container>
-      <Button variant="contained" onClick={() => setExercisePool(["", ""])}>
-        Cancel
-      </Button>
-      <List sx={{ width: "100%" }} aria-labelledby="nested-list-subheader">
-        {EXERCISE_POOL.map((category) => {
-          return (
-            <Container key={category.category}>
-              <ListItemButton
-                className={
-                  open[category.category]
-                    ? classes.poolbutOpen
-                    : classes.poolbut
-                }
-                onClick={() => handleClick(category.category)}
-              >
-                <ListItemText
-                  primary={
-                    <Typography color="#ffffff" margin={1}>
-                      {category.category}
-                    </Typography>
+    <Fade in timeout={{ enter: 700 }}>
+      <Container>
+        <Button variant="contained" onClick={() => setExercisePool(["", ""])}>
+          Cancel
+        </Button>
+        <List sx={{ width: "100%" }} aria-labelledby="nested-list-subheader">
+          {EXERCISE_POOL.map((category) => {
+            return (
+              <Container key={category.category}>
+                <ListItemButton
+                  className={
+                    open[category.category]
+                      ? classes.poolbutOpen
+                      : classes.poolbut
                   }
-                />
-                {open[category.category] ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              <Collapse
-                in={open[category.category]}
-                timeout="auto"
-                unmountOnExit
+                  onClick={() => handleClick(category.category)}
+                >
+                  <ListItemText
+                    primary={
+                      <Typography color="#ffffff" margin={1}>
+                        {category.category}
+                      </Typography>
+                    }
+                  />
+                  {open[category.category] ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+                <Collapse
+                  in={open[category.category]}
+                  timeout="auto"
+                  unmountOnExit
+                >
+                  <List component="div" disablePadding>
+                    <ListItemButton>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          width: "100%",
+                        }}
+                      >
+                        {category.exercises.map((exercise) => (
+                          <Button
+                            variant="contained"
+                            color="secondary"
+                            className={classes.pool}
+                            fullWidth
+                            key={exercise.name}
+                            onClick={() => handleExcerciseAdd(exercise.name)}
+                          >
+                            {exercise.name}
+                          </Button>
+                        ))}
+                      </div>
+                    </ListItemButton>
+                  </List>
+                </Collapse>
+              </Container>
+            );
+          })}
+          <Typography margin={1} />
+          <ListItem>
+            <Typography color="white">Custom Exercise: </Typography>
+            <TextField
+              onChange={(e) => setCustomExc(e.target.value)}
+              size="small"
+              className={classes.form}
+              sx={{
+                input: { color: "white !important" },
+              }}
+              fullWidth
+            />
+            <Typography marginLeft={2}>
+              <Button
+                variant="contained"
+                onClick={() => handleExcerciseAdd(customExc)}
               >
-                <List component="div" disablePadding>
-                  <ListItemButton>
-                    <div
-                      key={Math.random()}
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        width: "100%",
-                      }}
-                    >
-                      {category.exercises.map((exercise) => (
-                        <Button
-                          variant="contained"
-                          color="secondary"
-                          className={classes.pool}
-                          fullWidth
-                          key={exercise.name + Math.random() * 1000}
-                          onClick={() => handleExcerciseAdd(exercise.name)}
-                        >
-                          {exercise.name}
-                        </Button>
-                      ))}
-                    </div>
-                  </ListItemButton>
-                </List>
-              </Collapse>
-            </Container>
-          );
-        })}
-        <Typography margin={1} />
-        <ListItem>
-          <Typography color="white">Custom Exercise: </Typography>
-          <TextField
-            onChange={(e) => setCustomExc(e.target.value)}
-            size="small"
-            className={classes.form}
-            sx={{
-              input: { color: "white !important" },
-            }}
-            fullWidth
-          />
-          <Typography marginLeft={2}>
-            <Button
-              variant="contained"
-              onClick={() => handleExcerciseAdd(customExc)}
-            >
-              Done
-            </Button>
-          </Typography>
-        </ListItem>
-      </List>
-    </Container>
+                Done
+              </Button>
+            </Typography>
+          </ListItem>
+        </List>
+      </Container>
+    </Fade>
   );
 }

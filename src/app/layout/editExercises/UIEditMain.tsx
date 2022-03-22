@@ -9,7 +9,7 @@ import { ExerciseDay } from "../../models/exerciseDay";
 import { ExercisePool } from "../../models/exercisePool";
 
 // Material UI
-import { Grid, Typography } from "@mui/material";
+import { Fade, Grid, Typography } from "@mui/material";
 
 /************************************************************************************************/
 
@@ -126,22 +126,26 @@ export default function EditMain({
       <Typography margin={6}></Typography>
       <Grid container justifyContent="center">
         {exercisePool[0] ? (
-          <Grid item xs={12} md={5} xl={4}>
-            <UIExercisePool
-              EXERCISE_POOL={EXERCISE_POOL}
-              handleExcerciseAdd={handleExcerciseAdd}
-              setExercisePool={setExercisePool}
-            />
-          </Grid>
+          <Fade in timeout={{ enter: 700 }}>
+            <Grid item xs={12} md={5} xl={4}>
+              <UIExercisePool
+                EXERCISE_POOL={EXERCISE_POOL}
+                handleExcerciseAdd={handleExcerciseAdd}
+                setExercisePool={setExercisePool}
+              />
+            </Grid>
+          </Fade>
         ) : (
-          <Grid item xs={12} md={5} xl={4}>
-            <UIExerciseDayEdit
-              exerciseWeek={exerciseWeek}
-              selectedDay={selectedDay}
-              handleExcerciseEdit={handleExcerciseEdit}
-              storeData={storeData}
-            />
-          </Grid>
+          <Fade in timeout={{ enter: 700 }}>
+            <Grid item xs={12} md={5} xl={4}>
+              <UIExerciseDayEdit
+                exerciseWeek={exerciseWeek}
+                selectedDay={selectedDay}
+                handleExcerciseEdit={handleExcerciseEdit}
+                storeData={storeData}
+              />
+            </Grid>
+          </Fade>
         )}
       </Grid>
     </>

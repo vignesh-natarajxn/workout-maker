@@ -8,7 +8,7 @@ import Completed from "./ExerciseDayMain/Completed";
 import { ExerciseDay } from "../../../models/exerciseDay";
 
 // Material UI
-import { Button, ListItem, Typography } from "@mui/material";
+import { Button, Fade, ListItem, Typography } from "@mui/material";
 
 /************************************************************************************************/
 
@@ -64,85 +64,90 @@ export default function UIExerciseDayMain({
   //|||||||||||||||||||||||||||||||||||||||||||
 
   return (
-    <>
-      {currentExercise === 1000 && (
-        <Completed currentDay={currentDay} workoutComplete={workoutComplete} />
-      )}
-      {currentExercise !== 1000 && (
-        <>
-          <ListItem>
-            {superset ? (
-              <Typography
-                fontSize={30}
-                margin={2}
-                marginRight="auto"
-                color="#b4b4b4"
+    <Fade in timeout={{ enter: 700 }}>
+      <div>
+        {currentExercise === 1000 && (
+          <Completed
+            currentDay={currentDay}
+            workoutComplete={workoutComplete}
+          />
+        )}
+        {currentExercise !== 1000 && (
+          <>
+            <ListItem>
+              {superset ? (
+                <Typography
+                  fontSize={30}
+                  margin={2}
+                  marginRight="auto"
+                  color="#b4b4b4"
+                >
+                  {currentDay.exercises[currentExercise].superset}
+                </Typography>
+              ) : (
+                <Typography
+                  fontSize={30}
+                  margin={2}
+                  marginRight="auto"
+                  color="primary"
+                >
+                  {currentDay.exercises[currentExercise].name}
+                </Typography>
+              )}
+              <Button
+                variant="contained"
+                onClick={() => workoutComplete(currentDay!.id)}
               >
-                {currentDay.exercises[currentExercise].superset}
-              </Typography>
+                Cancel
+              </Button>
+            </ListItem>
+            <Typography fontSize={25} margin={2} color="#ffffff">
+              Current Set: {set}
+            </Typography>
+            <Typography margin={2} color="#ffffff">
+              Sets: {currentDay.exercises[currentExercise].sets} | Rest Time:{" "}
+              {currentDay.exercises[currentExercise].timeBetween}
+            </Typography>
+            <img></img>
+            {showTimer ? (
+              <>
+                <Timer
+                  expiryTimestamp={() => {
+                    const time = new Date();
+                    time.setSeconds(
+                      time.getSeconds() +
+                        currentDay.exercises[currentExercise].timeBetween
+                    );
+                    return time;
+                  }}
+                  timeS={currentDay.exercises[currentExercise].timeBetween}
+                  nextExerciseHandler={nextExerciseHandler}
+                />
+                <Typography marginTop={3}></Typography>
+                <Button
+                  variant="outlined"
+                  onClick={() => nextExerciseHandler("next")}
+                >
+                  <Typography margin={2} color="#ffffff">
+                    Force Next
+                  </Typography>
+                </Button>
+              </>
             ) : (
-              <Typography
-                fontSize={30}
-                margin={2}
-                marginRight="auto"
-                color="primary"
-              >
-                {currentDay.exercises[currentExercise].name}
-              </Typography>
+              <>
+                <Button
+                  variant="outlined"
+                  onClick={() => nextExerciseHandler("timer")}
+                >
+                  <Typography margin={8} color="#ffffff">
+                    Next
+                  </Typography>
+                </Button>
+              </>
             )}
-            <Button
-              variant="contained"
-              onClick={() => workoutComplete(currentDay!.id)}
-            >
-              Cancel
-            </Button>
-          </ListItem>
-          <Typography fontSize={25} margin={2} color="#ffffff">
-            Current Set: {set}
-          </Typography>
-          <Typography margin={2} color="#ffffff">
-            Sets: {currentDay.exercises[currentExercise].sets} | Rest Time:{" "}
-            {currentDay.exercises[currentExercise].timeBetween}
-          </Typography>
-          <img></img>
-          {showTimer ? (
-            <>
-              <Timer
-                expiryTimestamp={() => {
-                  const time = new Date();
-                  time.setSeconds(
-                    time.getSeconds() +
-                      currentDay.exercises[currentExercise].timeBetween
-                  );
-                  return time;
-                }}
-                timeS={currentDay.exercises[currentExercise].timeBetween}
-                nextExerciseHandler={nextExerciseHandler}
-              />
-              <Typography marginTop={3}></Typography>
-              <Button
-                variant="outlined"
-                onClick={() => nextExerciseHandler("next")}
-              >
-                <Typography margin={2} color="#ffffff">
-                  Force Next
-                </Typography>
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button
-                variant="outlined"
-                onClick={() => nextExerciseHandler("timer")}
-              >
-                <Typography margin={8} color="#ffffff">
-                  Next
-                </Typography>
-              </Button>
-            </>
-          )}
-        </>
-      )}
-    </>
+          </>
+        )}
+      </div>
+    </Fade>
   );
 }

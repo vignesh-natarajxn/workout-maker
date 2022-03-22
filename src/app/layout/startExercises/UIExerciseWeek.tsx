@@ -71,11 +71,11 @@ export default function UIExerciseWeek({
                         <ListItemText
                           className={classes.hovertext}
                           disableTypography
-                          key={exercise.name + Math.random() * 10000}
+                          key={exercise.id}
                           primary={
                             <>
                               {ii !== 4 && exercise.name}
-                              {ii === 4 && <div>{exercise.name}{" "}...</div>}
+                              {ii === 4 && <div>{exercise.name} ...</div>}
                             </>
                           }
                         />
