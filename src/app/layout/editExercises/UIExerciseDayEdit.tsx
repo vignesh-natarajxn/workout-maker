@@ -7,6 +7,7 @@ import { ExerciseDay } from "../../models/exerciseDay";
 // Material UI
 import {
   Button,
+  Card,
   Collapse,
   Container,
   List,
@@ -31,6 +32,7 @@ interface Props {
 //|||||||||||||||||||||||||||||||||||||||||||
 
 const useStyles: any = makeStyles({
+  
   form: {
     marginTop: 10,
     marginBottom: 5,
@@ -65,55 +67,55 @@ export default function UIExerciseDayEdit({
   //|||||||||||||||||||||||||||||||||||||||||||
 
   return (
-      <List>
-        <ListItem>
-          {formEdit ? (
-            <form>
-              <TextField
-                onChange={(e) => {
-                  handleExcerciseEdit("edit day name", e.target.value);
-                }}
-                defaultValue={selectedDay!.name}
-                size="small"
-                className={classes.form}
-                sx={{
-                  input: { color: "white !important" },
-                }}
-              ></TextField>
-            </form>
-          ) : (
-            <Typography fontSize={25} color="white">
-              {selectedDay!.name}
-              <Button
-                onClick={() => {
-                  setFormEdit(true);
-                }}
-              >
-                <EditIcon />
-              </Button>
-            </Typography>
-          )}
-          <Typography marginLeft="auto">
-            <Button onClick={storeData} variant="contained">
-              <Typography margin={1}>Save</Typography>
+    <List>
+      <ListItem>
+        {formEdit ? (
+          <form>
+            <TextField
+              onChange={(e) => {
+                handleExcerciseEdit("edit day name", e.target.value);
+              }}
+              defaultValue={selectedDay!.name}
+              size="small"
+              className={classes.form}
+              sx={{
+                input: { color: "white !important" },
+              }}
+            ></TextField>
+          </form>
+        ) : (
+          <Typography fontSize={25} color="white">
+            {selectedDay!.name}
+            <Button
+              onClick={() => {
+                setFormEdit(true);
+              }}
+            >
+              <EditIcon />
             </Button>
           </Typography>
-        </ListItem>
-        <Button onClick={() => handleExcerciseEdit("add", "noelements")}>
-          <AddCircleIcon />
-        </Button>
-        <TransitionGroup>
-          {exerciseWeek
-            .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
-            .exercises.map((exercise) => (
-              <Collapse key={exercise.id}>
+        )}
+        <Typography marginLeft="auto">
+          <Button onClick={storeData} variant="contained">
+            <Typography margin={1}>Save</Typography>
+          </Button>
+        </Typography>
+      </ListItem>
+      <Button onClick={() => handleExcerciseEdit("add", "noelements")}>
+        <AddCircleIcon />
+      </Button>
+      <TransitionGroup>
+        {exerciseWeek
+          .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
+          .exercises.map((exercise) => (
+            <Collapse key={exercise.id}>
                 <UIExerciseDayEditExercise
                   exercise={exercise}
                   handleExcerciseEdit={handleExcerciseEdit}
                 />
-              </Collapse>
-            ))}
-        </TransitionGroup>
-      </List>
+            </Collapse>
+          ))}
+      </TransitionGroup>
+    </List>
   );
 }
