@@ -76,19 +76,11 @@ export default function UIExerciseDayMain({
           <>
             <ListItem>
               {superset ? (
-                <Typography
-                  fontSize={30}
-                  marginRight="auto"
-                  color="#b4b4b4"
-                >
+                <Typography fontSize={30} marginRight="auto" color="#b4b4b4">
                   {currentDay.exercises[currentExercise].superset}
                 </Typography>
               ) : (
-                <Typography
-                  fontSize={30}
-                  marginRight="auto"
-                  color="primary"
-                >
+                <Typography fontSize={30} marginRight="auto" color="primary">
                   {currentDay.exercises[currentExercise].name}
                 </Typography>
               )}
@@ -98,6 +90,15 @@ export default function UIExerciseDayMain({
               >
                 Cancel
               </Button>
+            </ListItem>
+            <ListItem>
+              <Typography textAlign="left" color="#cccccc">
+                {superset
+                  ? "Superset"
+                  : currentDay.exercises[currentExercise].superset
+                  ? "Has superset"
+                  : "No superset"}
+              </Typography>
             </ListItem>
             <Typography fontSize={25} margin={2} color="#ffffff">
               Current Set: {set}
