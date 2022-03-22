@@ -1,5 +1,5 @@
 {
-  "packageId": "io.github.viknhat.workoutmaker",
+  "packageId": "io.github.viknhat.twa",
   "host": "viknhat.github.io",
   "name": "Workout Maker",
   "launcherName": "WorkoutMaker",
@@ -20,8 +20,8 @@
     "path": "C:\\Projects\\workout-maker\\android.keystore",
     "alias": "android"
   },
-  "appVersionName": "4",
-  "appVersionCode": 4,
+  "appVersionName": "3",
+  "appVersionCode": 3,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://viknhat.github.io/workout-maker/manifest.json",
@@ -36,5 +36,5 @@
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "4"
+  "appVersion": "3"
 }
