@@ -21,7 +21,7 @@ interface Props {
 const useStyles: any = makeStyles({
   cardd: {
     backgroundColor: "#393E41",
-    borderRadius: 0,
+    borderRadius: 5,
     marginTop: 5,
     marginBottom: 5,
   },
