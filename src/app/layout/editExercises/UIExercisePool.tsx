@@ -183,7 +183,7 @@ export default function UIExercisePool({
                 variant="contained"
                 onClick={() => handleExcerciseAdd(customExc)}
               >
-                Done
+                Add
               </Button>
             </Typography>
           </ListItem>
