@@ -1,17 +1,20 @@
 {
   "files": {
     "main.css": "/workout-maker/static/css/main.610c826b.css",
-    "main.js": "/workout-maker/static/js/main.ce9e0a24.js",
+    "main.js": "/workout-maker/static/js/main.9e862ed7.js",
+    "static/js/845.cadd0b59.chunk.js": "/workout-maker/static/js/845.cadd0b59.chunk.js",
     "static/js/787.b1388a90.chunk.js": "/workout-maker/static/js/787.b1388a90.chunk.js",
     "service-worker.js": "/workout-maker/service-worker.js",
+    "static/media/done.mp3": "/workout-maker/static/media/done.5f8a1a5a6e9eb27de934.mp3",
     "static/media/logo.png": "/workout-maker/static/media/logo.93a7761bb7e47a73e8c2.png",
     "index.html": "/workout-maker/index.html",
     "main.610c826b.css.map": "/workout-maker/static/css/main.610c826b.css.map",
-    "main.ce9e0a24.js.map": "/workout-maker/static/js/main.ce9e0a24.js.map",
+    "main.9e862ed7.js.map": "/workout-maker/static/js/main.9e862ed7.js.map",
+    "845.cadd0b59.chunk.js.map": "/workout-maker/static/js/845.cadd0b59.chunk.js.map",
     "787.b1388a90.chunk.js.map": "/workout-maker/static/js/787.b1388a90.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.610c826b.css",
-    "static/js/main.ce9e0a24.js"
+    "static/js/main.9e862ed7.js"
   ]
 }
