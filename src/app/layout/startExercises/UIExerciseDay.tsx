@@ -97,7 +97,7 @@ export default function UIExerciseDay({
           </Grid>
         )}
 
-        <Grid item xs={12} md={8} xl={4} className={classes.cardlist}>
+        <Grid item xs={12} md={7} xl={6} className={classes.cardlist}>
           <>
             <Typography marginTop={10} />
             {selectedDay.exercises.map((exercise) => (
