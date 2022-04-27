@@ -30,7 +30,6 @@ interface Props {
 //|||||||||||||||||||||||||||||||||||||||||||
 
 const useStyles: any = makeStyles({
-  
   form: {
     marginTop: 10,
     marginBottom: 5,
@@ -68,19 +67,17 @@ export default function UIExerciseDayEdit({
     <List>
       <ListItem>
         {formEdit ? (
-          <form>
-            <TextField
-              onChange={(e) => {
-                handleExcerciseEdit("edit day name", e.target.value);
-              }}
-              defaultValue={selectedDay!.name}
-              size="small"
-              className={classes.form}
-              sx={{
-                input: { color: "white !important" },
-              }}
-            ></TextField>
-          </form>
+          <TextField
+            onChange={(e) => {
+              handleExcerciseEdit("edit day name", e.target.value);
+            }}
+            defaultValue={selectedDay!.name}
+            size="small"
+            className={classes.form}
+            sx={{
+              input: { color: "white !important" },
+            }}
+          ></TextField>
         ) : (
           <Typography fontSize={25} color="white">
             {selectedDay!.name}
@@ -107,10 +104,10 @@ export default function UIExerciseDayEdit({
           .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
           .exercises.map((exercise) => (
             <Collapse key={exercise.id}>
-                <UIExerciseDayEditExercise
-                  exercise={exercise}
-                  handleExcerciseEdit={handleExcerciseEdit}
-                />
+              <UIExerciseDayEditExercise
+                exercise={exercise}
+                handleExcerciseEdit={handleExcerciseEdit}
+              />
             </Collapse>
           ))}
       </TransitionGroup>
