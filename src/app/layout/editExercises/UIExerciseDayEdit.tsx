@@ -22,7 +22,7 @@ import UIExerciseDayEditExercise from "./UIExerciseDayEditExercise";
 
 interface Props {
   exerciseWeek: ExerciseDay[];
-  selectedDay: ExerciseDay | undefined;
+  selectedDay: ExerciseDay;
   handleExcerciseEdit: (opr: string, id: string) => void;
   storeData: () => void;
 }
@@ -71,7 +71,7 @@ export default function UIExerciseDayEdit({
             onChange={(e) => {
               handleExcerciseEdit("edit day name", e.target.value);
             }}
-            defaultValue={selectedDay!.name}
+            defaultValue={selectedDay.name}
             size="small"
             className={classes.form}
             sx={{
@@ -80,7 +80,7 @@ export default function UIExerciseDayEdit({
           ></TextField>
         ) : (
           <Typography fontSize={25} color="white">
-            {selectedDay!.name}
+            {selectedDay.name}
             <Button
               onClick={() => {
                 setFormEdit(true);
@@ -102,7 +102,7 @@ export default function UIExerciseDayEdit({
 
       <TransitionGroup>
         {exerciseWeek
-          .find((exerciseDay) => exerciseDay.id === selectedDay?.id)
+          .find((exerciseDay) => exerciseDay.id === selectedDay.id)
           ?.exercises.map((exercise) => (
             <Collapse key={exercise.id}>
               <UIExerciseDayEditExercise

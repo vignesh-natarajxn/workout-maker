@@ -16,7 +16,7 @@ import { Fade, Grid, Typography } from "@mui/material";
 interface Props {
   exerciseWeek: ExerciseDay[];
   setExerciseWeek: (ExerciseWeek: ExerciseDay[]) => void;
-  selectedDay: ExerciseDay | undefined;
+  selectedDay: ExerciseDay;
   setSelectedDay: (id: string) => void;
   EXERCISE_POOL: ExercisePool[];
   handleSelectedDay: (id: string) => void;
@@ -43,18 +43,18 @@ export default function EditMain({
 
   const handleExcerciseAdd = (name: string) => {
     const indexx = exerciseWeek
-      .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
+      .find((exerciseDay) => exerciseDay.id === selectedDay.id)!
       .exercises.findIndex((exercise) => exercise.id === exercisePool[1]);
     let exerciseWeekMod = exerciseWeek;
     if (exercisePool[0] === "superset") {
       const dayIndex = exerciseWeekMod.findIndex(
-        (exerciseDay) => exerciseDay.id === selectedDay?.id
+        (exerciseDay) => exerciseDay.id === selectedDay.id
       );
       exerciseWeekMod[dayIndex].exercises[indexx].superset = name;
     }
     if (exercisePool[0] === "exercise") {
       exerciseWeekMod
-        .find((exerciseDay) => exerciseDay.id === selectedDay?.id)
+        .find((exerciseDay) => exerciseDay.id === selectedDay.id)
         ?.exercises.splice(indexx + 1, 0, {
           id: String(Math.random() * 1000),
           name: name,
@@ -71,10 +71,10 @@ export default function EditMain({
   const handleExcerciseEdit = (opr: string, idd: string) => {
     let exerciseWeekMod = exerciseWeek;
     const dayIndex = exerciseWeekMod.findIndex(
-      (exerciseDay) => exerciseDay.id === selectedDay?.id
+      (exerciseDay) => exerciseDay.id === selectedDay.id
     );
     let exIndex = exerciseWeekMod
-      .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
+      .find((exerciseDay) => exerciseDay.id === selectedDay.id)!
       .exercises.findIndex((exercise) => exercise.id === idd);
 
     if (idd === "noelements") exIndex = 0;

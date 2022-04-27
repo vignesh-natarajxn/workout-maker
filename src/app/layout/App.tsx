@@ -269,8 +269,9 @@ EXERCISE_WEEK.push(
 /************************************************************************************************/
 
 function App() {
-  const [exerciseWeek, setExerciseWeek] = useState<ExerciseDay[]>([]);
-  const [selectedDay, setSelectedDay] = useState<ExerciseDay>(EXERCISE_WEEK[0]);
+  const [exerciseWeek, setExerciseWeek] =
+    useState<ExerciseDay[]>(EXERCISE_WEEK);
+  const [selectedDay, setSelectedDay] = useState<ExerciseDay>(exerciseWeek[0]);
   const navigate = useNavigate();
   const [currentDay, setCurrentDay] = useState<ExerciseDay | undefined>(
     undefined
@@ -281,9 +282,7 @@ function App() {
 
   useEffect(() => {
     let collection = localStorage.getItem("workoutWeek");
-    if (collection === null) {
-      setExerciseWeek(EXERCISE_WEEK);
-    } else {
+    if (collection !== null) {
       let temp = JSON.parse(collection);
       setExerciseWeek(temp);
       setSelectedDay(temp[0]);
