@@ -1,8 +1,11 @@
 import React from "react";
 import { useTimer } from "react-timer-hook";
+import useSound from "use-sound";
 
 //Material UI
 import { Button, Typography } from "@mui/material";
+
+import blingSfx from "../../../../done.mp3";
 
 /************************************************************************************************/
 
@@ -11,13 +14,18 @@ export default function Timer({
   timeS,
   nextExerciseHandler,
 }: any) {
+  const [play] = useSound(blingSfx);
+
   const { seconds, minutes, isRunning, pause, resume, restart } = useTimer({
     expiryTimestamp,
-    onExpire: () => nextExerciseHandler("next"),
+    onExpire: () => {
+      play();
+      nextExerciseHandler("next");
+    },
   });
 
   //|||||||||||||||||||||||||||||||||||||||||||
-  
+
   return (
     <div style={{ textAlign: "center" }}>
       {isRunning ? (

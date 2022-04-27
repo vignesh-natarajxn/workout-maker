@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useSound from "use-sound";
 
 // Components
 import Timer from "./ExerciseDayMain/Timer";
@@ -11,7 +10,6 @@ import { ExerciseDay } from "../../../models/exerciseDay";
 // Material UI
 import { Button, Fade, ListItem, Typography } from "@mui/material";
 
-import boopSfx from '../../../done.mp3';
 /************************************************************************************************/
 
 interface Props {
@@ -32,12 +30,10 @@ export default function UIExerciseDayMain({
   const [showTimer, setShowTimer] = useState<boolean>(false);
   const [superset, setSuperset] = useState<boolean>(false);
   const [set, setSet] = useState<number>(1);
-  const [play] = useSound(boopSfx);
 
   //|||||||||||||||||||||||||||||||||||||||||||
 
   const nextExerciseHandler = (opr: string) => {
-    play();
     if (opr === "timer") {
       if (currentDay.exercises[currentExercise].superset && !superset) {
         setSuperset(true);
