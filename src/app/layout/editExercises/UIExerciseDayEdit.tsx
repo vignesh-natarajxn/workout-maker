@@ -99,10 +99,11 @@ export default function UIExerciseDayEdit({
       <Button onClick={() => handleExcerciseEdit("add", "noelements")}>
         <AddCircleIcon />
       </Button>
+
       <TransitionGroup>
         {exerciseWeek
-          .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
-          .exercises.map((exercise) => (
+          .find((exerciseDay) => exerciseDay.id === selectedDay?.id)
+          ?.exercises.map((exercise) => (
             <Collapse key={exercise.id}>
               <UIExerciseDayEditExercise
                 exercise={exercise}
