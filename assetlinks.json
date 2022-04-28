@@ -1,0 +1,10 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.viknhat.twa",
+      "sha256_cert_fingerprints": [
+        "7F:CF:96:C5:88:39:2E:5E:78:31:A1:E9:C9:F0:C5:40:21:72:DF:22:1E:C0:70:2F:9E:88:89:FE:D2:32:F1:1E"
+      ]
+    }
+  }]
