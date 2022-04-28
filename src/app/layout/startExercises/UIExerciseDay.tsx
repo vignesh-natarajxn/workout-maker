@@ -79,7 +79,7 @@ export default function UIExerciseDay({
     <Fade in timeout={{ enter: 700 }}>
       <Grid container direction="row" justifyContent="center">
         {currentExercise === -1 && selectedDay && (
-          <Grid item xs={12} md={5} xl={4}>
+          <Grid item height={360} xs={12} md={5} xl={4}>
             <ExerciseDayOverView
               selectedDay={selectedDay}
               setCurrentDay={setCurrentDayHandler}
@@ -87,7 +87,7 @@ export default function UIExerciseDay({
           </Grid>
         )}
         {currentExercise !== -1 && currentDay && (
-          <Grid item xs={12} md={8} lg={7}>
+          <Grid item height={560} xs={12} md={8} lg={7}>
             <ExerciseDayMain
               currentDay={currentDay}
               currentExercise={currentExercise}
@@ -99,7 +99,6 @@ export default function UIExerciseDay({
 
         <Grid item xs={12} md={7} xl={6} className={classes.cardlist}>
           <>
-            <Typography marginTop={10} />
             {selectedDay.exercises.map((exercise) => (
               <div key={exercise.id}>
                 {exercise === currentDay?.exercises[currentExercise] ? (

@@ -127,7 +127,7 @@ export default function EditMain({
       <Grid container justifyContent="center">
         {exercisePool[0] ? (
           <Fade in timeout={{ enter: 700 }}>
-            <Grid item xs={12} md={5} xl={4}>
+            <Grid item xs={12} md={7} xl={6}>
               <UIExercisePool
                 EXERCISE_POOL={EXERCISE_POOL}
                 handleExcerciseAdd={handleExcerciseAdd}
@@ -137,7 +137,7 @@ export default function EditMain({
           </Fade>
         ) : (
           <Fade in timeout={{ enter: 700 }}>
-            <Grid item xs={12} md={5} xl={4}>
+            <Grid item xs={12} md={7} xl={6}>
               <UIExerciseDayEdit
                 exerciseWeek={exerciseWeek}
                 selectedDay={selectedDay}
