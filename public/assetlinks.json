@@ -1,10 +1,13 @@
-[{
+[
+  {
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
       "package_name": "io.github.viknhat.twa",
       "sha256_cert_fingerprints": [
-        "7F:CF:96:C5:88:39:2E:5E:78:31:A1:E9:C9:F0:C5:40:21:72:DF:22:1E:C0:70:2F:9E:88:89:FE:D2:32:F1:1E"
+        "7F:CF:96:C5:88:39:2E:5E:78:31:A1:E9:C9:F0:C5:40:21:72:DF:22:1E:C0:70:2F:9E:88:89:FE:D2:32:F1:1E",
+        "A7:78:98:4C:3D:3F:D1:E0:4C:F6:72:E1:86:43:95:00:CE:CB:0F:73:93:FC:E6:4E:82:BF:B9:24:85:D1:DF:E6"
       ]
     }
-  }]
+  }
+]
