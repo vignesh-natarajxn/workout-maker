@@ -7,7 +7,7 @@ import ExerciseDayOverView from "./UIExerciseDay/ExerciseDayOverView";
 import { ExerciseDay } from "../../models/exerciseDay";
 
 // Material UI
-import { Card, Fade, Grid } from "@mui/material";
+import { Card, Fade, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 /************************************************************************************************/
@@ -73,13 +73,13 @@ export default function UIExerciseDay({
     setCurrentExercise(-1);
   };
 
-  //|||||||||||||||||||||||||||||||||||||||||||
+  //|||||||||||||||||||||||||||||||||||||||||||height={window.innerHeight}
 
   return (
     <Fade in timeout={{ enter: 700 }}>
       <Grid container direction="row" justifyContent="center">
         {currentExercise === -1 && selectedDay && (
-          <Grid item xs={12} md={5} xl={4}>
+          <Grid item height={360} xs={12} md={5} xl={4}>
             <ExerciseDayOverView
               selectedDay={selectedDay}
               setCurrentDay={setCurrentDayHandler}
@@ -87,7 +87,7 @@ export default function UIExerciseDay({
           </Grid>
         )}
         {currentExercise !== -1 && currentDay && (
-          <Grid item height={window.innerHeight} xs={12} md={8} lg={7}>
+          <Grid item height={560} xs={12} md={8} lg={7}>
             <ExerciseDayMain
               currentDay={currentDay}
               currentExercise={currentExercise}
@@ -97,7 +97,7 @@ export default function UIExerciseDay({
           </Grid>
         )}
 
-        <Grid item xs={12} md={5} xl={4} className={classes.cardlist}>
+        <Grid item xs={12} md={7} xl={6} className={classes.cardlist}>
           <>
             {selectedDay.exercises.map((exercise) => (
               <div key={exercise.id}>

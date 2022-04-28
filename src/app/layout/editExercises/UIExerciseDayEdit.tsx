@@ -22,7 +22,7 @@ import UIExerciseDayEditExercise from "./UIExerciseDayEditExercise";
 
 interface Props {
   exerciseWeek: ExerciseDay[];
-  selectedDay: ExerciseDay | undefined;
+  selectedDay: ExerciseDay;
   handleExcerciseEdit: (opr: string, id: string) => void;
   storeData: () => void;
 }
@@ -30,7 +30,6 @@ interface Props {
 //|||||||||||||||||||||||||||||||||||||||||||
 
 const useStyles: any = makeStyles({
-  
   form: {
     marginTop: 10,
     marginBottom: 5,
@@ -68,22 +67,20 @@ export default function UIExerciseDayEdit({
     <List>
       <ListItem>
         {formEdit ? (
-          <form>
-            <TextField
-              onChange={(e) => {
-                handleExcerciseEdit("edit day name", e.target.value);
-              }}
-              defaultValue={selectedDay!.name}
-              size="small"
-              className={classes.form}
-              sx={{
-                input: { color: "white !important" },
-              }}
-            ></TextField>
-          </form>
+          <TextField
+            onChange={(e) => {
+              handleExcerciseEdit("edit day name", e.target.value);
+            }}
+            defaultValue={selectedDay.name}
+            size="small"
+            className={classes.form}
+            sx={{
+              input: { color: "white !important" },
+            }}
+          ></TextField>
         ) : (
           <Typography fontSize={25} color="white">
-            {selectedDay!.name}
+            {selectedDay.name}
             <Button
               onClick={() => {
                 setFormEdit(true);
@@ -102,15 +99,16 @@ export default function UIExerciseDayEdit({
       <Button onClick={() => handleExcerciseEdit("add", "noelements")}>
         <AddCircleIcon />
       </Button>
+
       <TransitionGroup>
         {exerciseWeek
-          .find((exerciseDay) => exerciseDay.id === selectedDay?.id)!
-          .exercises.map((exercise) => (
+          .find((exerciseDay) => exerciseDay.id === selectedDay.id)
+          ?.exercises.map((exercise) => (
             <Collapse key={exercise.id}>
-                <UIExerciseDayEditExercise
-                  exercise={exercise}
-                  handleExcerciseEdit={handleExcerciseEdit}
-                />
+              <UIExerciseDayEditExercise
+                exercise={exercise}
+                handleExcerciseEdit={handleExcerciseEdit}
+              />
             </Collapse>
           ))}
       </TransitionGroup>

@@ -4,6 +4,7 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
+    "@bubblewrap/cli": "^1.16.0",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.0",
