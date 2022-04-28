@@ -17,11 +17,11 @@
   "monochromeIconUrl": "https://viknhat.github.io/workout-maker/maskable.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
-    "path": "D:\\Work\\React NodeJS\\Projects\\workout-maker\\android.keystore",
+    "path": "C:\\Projects\\workout-maker\\android.keystore",
     "alias": "android"
   },
-  "appVersionName": "1",
-  "appVersionCode": 1,
+  "appVersionName": "5",
+  "appVersionCode": 5,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://viknhat.github.io/workout-maker/manifest.json",
@@ -36,5 +36,5 @@
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "1"
+  "appVersion": "5"
 }
