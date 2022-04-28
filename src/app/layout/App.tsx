@@ -73,6 +73,7 @@ const EXERCISE_POOL = [
       { name: "Alternate Diagonal Curls" },
       { name: "Reverse Curls" },
       { name: "Hammer Curls" },
+      { name: "Forearm Curls" },
     ],
   },
   {
@@ -99,18 +100,14 @@ const EXERCISE_POOL = [
   {
     category: "Abs",
     exercises: [
-      { name: "Leg Raises" },
+      { name: "Hanging Leg Raises" },
       { name: "Crunches" },
       { name: "Lying Leg Raises" },
     ],
   },
   {
     category: "Other",
-    exercises: [
-      { name: "Shrugs" },
-      { name: "Neck Raises" },
-      { name: "PP Rises" },
-    ],
+    exercises: [{ name: "Shrugs" }, { name: "Neck Raises" }],
   },
 ];
 const EXERCISE_WEEK: ExerciseDay[] = [];
