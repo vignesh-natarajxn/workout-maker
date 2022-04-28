@@ -66,7 +66,6 @@ export default function UIExerciseDayMain({
   return (
     <Fade in timeout={{ enter: 700 }}>
       <div>
-        <audio src="/done.mp3" autoPlay />
         {currentExercise === 1000 && (
           <Completed
             currentDay={currentDay}
